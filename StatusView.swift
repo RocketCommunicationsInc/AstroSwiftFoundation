@@ -6,7 +6,9 @@
 //  Copyright © 2019 Rocket Communications, Inc. All rights reserved.
 //
 
+#if os(iOS)
 import UIKit
+#endif
 
 class StatusView: UIImageView {
     

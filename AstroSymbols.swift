@@ -5,7 +5,9 @@
 //  Copyright © 2019 Rocket Communications, Inc. All rights reserved.
 //
 
+#if os(iOS)
 import UIKit
+#endif
 
 // Extend UIImage to include many conveniece methods to access Astro Status symbols
 extension UIImage

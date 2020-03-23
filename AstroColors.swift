@@ -5,7 +5,9 @@
 //  Copyright © 2019 Rocket Communications, Inc. All rights reserved.
 //
 
+#if os(iOS)
 import UIKit
+#endif
 
 // Extend UIColor to include many conveniece methods to access the Astro UI and Status colors
 // Astro color gudelines - https://www.astrouxds.com/design-guidelines/color
@@ -16,7 +18,6 @@ extension UIColor
     // If an Astro color fails to load from resources, show this noticeable brown debug color instead
     static var astroDebugColor = UIColor.brown
     
-    
     //——————————————————————————————————————————————————————————————————————————————
     // Wrap the the UIColor constructor to return a debug color instead of nil on failure
     //——————————————————————————————————————————————————————————————————————————————
@@ -24,6 +25,7 @@ extension UIColor
     {
         return UIColor(named:named) ?? astroDebugColor
     }
+    
     
     //MARK: Astro UI colors
     //——————————————————————————————————————————————————————————————————————————————
