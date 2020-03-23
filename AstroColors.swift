@@ -8,7 +8,7 @@
 import UIKit
 
 // Extend UIColor to include many conveniece methods to access the Astro UI and Status colors
-// Astro color gudelines - http://www.astrouxds.com/design-guidelines/color
+// Astro color gudelines - https://www.astrouxds.com/design-guidelines/color
 //
 extension UIColor
 {
