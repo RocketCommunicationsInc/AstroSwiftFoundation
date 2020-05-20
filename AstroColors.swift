@@ -31,6 +31,13 @@ extension UIColor
     //——————————————————————————————————————————————————————————————————————————————
     // Astro UI colors
     //——————————————————————————————————————————————————————————————————————————————
+    static var astroUIBar:UIColor
+    {return astroColor(named:"Astro UI Bar Color")}
+
+
+    //——————————————————————————————————————————————————————————————————————————————
+    // Astro Core UI colors
+    //——————————————————————————————————————————————————————————————————————————————
 
     //MARK: astroUIPrimary
     static var astroUIPrimary:UIColor
