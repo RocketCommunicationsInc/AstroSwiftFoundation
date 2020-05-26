@@ -37,6 +37,9 @@ extension UIColor
     static var astroUITint:UIColor
     {return astroColor(named:"Astro UI Tint Color")}
 
+    static var astroUITable:UIColor
+    {return astroColor(named:"Astro UI Table Color")}
+
     static var astroUIBackground:UIColor
     {return astroColor(named:"Astro UI Background Color")}
 
