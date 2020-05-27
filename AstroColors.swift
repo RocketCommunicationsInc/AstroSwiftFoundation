@@ -27,21 +27,21 @@ extension UIColor
     }
     
     
-    //MARK: Astro UI colors
+    //MARK: Astro Semantic UI colors
     //——————————————————————————————————————————————————————————————————————————————
     // Astro semantic UI colors
     //——————————————————————————————————————————————————————————————————————————————
     static var astroUIBar:UIColor
-    {return astroColor(named:"Astro UI Bar Color")}
+    {return astroColor(named:"Astro UI Bar Color")} // astroUIQuaternary,astroUITertiaryDarken2
 
     static var astroUITint:UIColor
-    {return astroColor(named:"Astro UI Tint Color")}
+    {return astroColor(named:"Astro UI Tint Color")} //astroUISecondary
 
     static var astroUITable:UIColor
-    {return astroColor(named:"Astro UI Table Color")}
+    {return astroColor(named:"Astro UI Table Color")} // white, astroUITertiary
 
     static var astroUIBackground:UIColor
-    {return astroColor(named:"Astro UI Background Color")}
+    {return astroColor(named:"Astro UI Background Color")} //astroUIQuaternaryLighten3, astroUITertiaryDarken1
 
 
     //——————————————————————————————————————————————————————————————————————————————
