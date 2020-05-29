@@ -37,8 +37,14 @@ extension UIColor
     static var astroUITint:UIColor
     {return astroColor(named:"Astro UI Tint Color")} //astroUISecondary
 
-    static var astroUITable:UIColor
-    {return astroColor(named:"Astro UI Table Color")} // white, astroUITertiary
+    static var astroUITableCell:UIColor
+    {return astroColor(named:"Astro UI Table Cell Color")} // white, astroUITertiary
+    
+    static var astroUITableSelectedCell:UIColor
+    {return astroColor(named:"Astro UI Table Selected Cell Color")} // astroUITertiaryLighten1, astroUITertiaryLighten1
+
+    static var astroUITableSeparator:UIColor
+    {return astroColor(named:"Astro UI Table Separator Color")} // astroUIQuaternaryLighten3, astroUITertiaryDarken1
 
     static var astroUIBackground:UIColor
     {return astroColor(named:"Astro UI Background Color")} //astroUIQuaternaryLighten3, astroUITertiaryDarken1
