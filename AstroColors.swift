@@ -38,13 +38,13 @@ extension UIColor
     {return astroColor(named:"Astro UI Tint Color")} //astroUISecondary
 
     static var astroUITableCell:UIColor
-    {return astroColor(named:"Astro UI Table Cell Color")} // white, astroUITertiary
+    {return astroColor(named:"Astro UI Table Cell Color")} // white, astroUITertiaryDarken1
     
     static var astroUITableSelectedCell:UIColor
-    {return astroColor(named:"Astro UI Table Selected Cell Color")} // astroUITertiaryLighten1, astroUITertiaryLighten1
+    {return astroColor(named:"Astro UI Table Selected Cell Color")} // astroUITertiaryLighten1, astroUITertiary
 
     static var astroUITableSeparator:UIColor
-    {return astroColor(named:"Astro UI Table Separator Color")} // astroUIQuaternaryLighten3, astroUITertiaryDarken1
+    {return astroColor(named:"Astro UI Table Separator Color")} // astroUIQuaternaryLighten3, astroUITertiaryDarken2
 
     static var astroUIBackground:UIColor
     {return astroColor(named:"Astro UI Background Color")} //astroUIQuaternaryLighten3, astroUITertiaryDarken1
