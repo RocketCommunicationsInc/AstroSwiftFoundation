@@ -32,7 +32,7 @@ extension UIColor
     // Astro semantic UI colors
     //——————————————————————————————————————————————————————————————————————————————
     static var astroUIBar:UIColor
-    {return astroColor(named:"Astro UI Bar Color")} // astroUIQuaternary,astroUITertiaryDarken3
+    {return astroColor(named:"Astro UI Bar Color")} // astroUIQuaternaryLighten3,astroUITertiaryDarken3
 
     static var astroUITint:UIColor
     {return astroColor(named:"Astro UI Tint Color")} //astroUISecondary
