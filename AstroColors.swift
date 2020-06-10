@@ -44,7 +44,7 @@ extension UIColor
     {return astroColor(named:"Astro UI Table Cell Label Color")} // astroUIQuaternaryDarken4, white
 
     static var astroUITableSelectedCell:UIColor
-    {return astroColor(named:"Astro UI Table Selected Cell Color")} // astroUIPrimary, astroUITertiary
+    {return astroColor(named:"Astro UI Table Selected Cell Color")} // astroUIPrimary, astroUIQuaternaryLighten3
 
     static var astroUITableSeparator:UIColor
     {return astroColor(named:"Astro UI Table Separator Color")} // astroUIQuaternary, astroUITertiaryDarken2
