@@ -5,8 +5,12 @@
 //  Copyright © 2019 Rocket Communications, Inc. All rights reserved.
 //
 
-#if os(iOS)
+#if os(iOS) || os(tvOS)
 import UIKit
+#endif
+
+#if os(watchOS)
+import WatchKit
 #endif
 
 // Extend UIImage to include many conveniece methods to access Astro Status symbols

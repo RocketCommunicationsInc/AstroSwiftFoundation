@@ -5,8 +5,12 @@
 //  Copyright © 2019 Rocket Communications, Inc. All rights reserved.
 //
 
-#if os(iOS)
+#if os(iOS) || os(tvOS)
 import UIKit
+#endif
+
+#if os(watchOS)
+import WatchKit
 #endif
 
 // Extend UIColor to include many conveniece methods to access the Astro UI and Status colors
