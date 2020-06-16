@@ -20,7 +20,7 @@ extension UIColor
 {
     //MARK: colorDebugging
     // If an Astro color fails to load from resources, show this noticeable brown debug color instead
-    static var astroDebugColor = UIColor.brown
+    private static var astroDebugColor = UIColor.brown
     
     //——————————————————————————————————————————————————————————————————————————————
     // Wrap the the UIColor constructor to return a debug color instead of nil on failure
@@ -31,7 +31,7 @@ extension UIColor
     }
     
     
-    //MARK: Astro Semantic UI colors
+    //MARK: Astro UI colors
     //——————————————————————————————————————————————————————————————————————————————
     // Astro semantic UI colors
     //——————————————————————————————————————————————————————————————————————————————
@@ -55,123 +55,6 @@ extension UIColor
 
     static var astroUIBackground:UIColor
     {return astroColor(named:"Astro UI Background Color")} //astroUIQuaternaryLighten3, astroUITertiaryDarken1
-
-
-    //——————————————————————————————————————————————————————————————————————————————
-    // Astro Core UI colors
-    //——————————————————————————————————————————————————————————————————————————————
-
-    //MARK: astroUIPrimary
-    static var astroUIPrimary:UIColor
-    {return astroColor(named:"astroUIPrimaryColor")}
-    
-    static var astroUIPrimaryDarken1:UIColor
-    {return astroColor(named:"astroUIPrimaryDarken1Color")}
-
-    static var astroUIPrimaryDarken2:UIColor
-    {return astroColor(named:"astroUIPrimaryDarken2Color")}
-
-    static var astroUIPrimaryDarken3:UIColor
-    {return astroColor(named:"astroUIPrimaryDarken3Color")}
-
-    static var astroUIPrimaryDarken4:UIColor
-    {return astroColor(named:"astroUIPrimaryDarken4Color")}
-    
-    static var astroUIPrimaryLighten1:UIColor
-    {return astroColor(named:"astroUIPrimaryLighten1Color")}
-
-    static var astroUIPrimaryLighten2:UIColor
-    {return astroColor(named:"astroUIPrimaryLighten2Color")}
-
-    static var astroUIPrimaryLighten3:UIColor
-    {return astroColor(named:"astroUIPrimaryLighten3Color")}
-
-    static var astroUIPrimaryLighten4:UIColor
-    {return astroColor(named:"astroUIPrimaryLighten4Color")}
-
-    //MARK: astroUISecondary
-    static var astroUISecondary:UIColor
-    {return astroColor(named:"astroUISecondaryColor")}
-
-    static var astroUISecondaryDarken1:UIColor
-    {return astroColor(named:"astroUISecondaryDarken1Color")}
-
-    static var astroUISecondaryDarken2:UIColor
-    {return astroColor(named:"astroUISecondaryDarken2Color")}
-
-    static var astroUISecondaryDarken3:UIColor
-    {return astroColor(named:"astroUISecondaryDarken3Color")}
-
-    static var astroUISecondaryDarken4:UIColor
-    {return astroColor(named:"astroUISecondaryDarken4Color")}
-    
-    static var astroUISecondaryLighten1:UIColor
-    {return astroColor(named:"astroUISecondaryLighten1Color")}
-
-    static var astroUISecondaryLighten2:UIColor
-    {return astroColor(named:"astroUISecondaryLighten2Color")}
-
-    static var astroUISecondaryLighten3:UIColor
-    {return astroColor(named:"astroUISecondaryLighten3Color")}
-
-    static var astroUISecondaryLighten4:UIColor
-    {return astroColor(named:"astroUIPrimaryLighten4Color")}
-
-    //MARK: astroUITertiary
-    static var astroUITertiary:UIColor
-    {return astroColor(named:"astroUITertiaryColor")}
-
-    static var astroUITertiaryDarken1:UIColor
-    {return astroColor(named:"astroUITertiaryDarken1Color")}
-
-    static var astroUITertiaryDarken2:UIColor
-    {return astroColor(named:"astroUITertiaryDarken2Color")}
-
-    static var astroUITertiaryDarken3:UIColor
-    {return astroColor(named:"astroUITertiaryDarken3Color")}
-
-    static var astroUITertiaryDarken4:UIColor
-    {return astroColor(named:"astroUITertiaryDarken4Color")}
-    
-    static var astroUITertiaryLighten1:UIColor
-    {return astroColor(named:"astroUITertiaryLighten1Color")}
-
-    static var astroUITertiaryLighten2:UIColor
-    {return astroColor(named:"astroUITertiaryLighten2Color")}
-
-    static var astroUITertiaryLighten3:UIColor
-    {return astroColor(named:"astroUITertiaryLighten3Color")}
-
-    static var astroUITertiaryLighten4:UIColor
-    {return astroColor(named:"astroUIPrimaryLighten4Color")}
-
-    //MARK: astroUIQuaternary
-    static var astroUIQuaternary:UIColor
-    {return astroColor(named:"astroUIQuaternaryColor")}
-    
-    static var astroUIQuaternaryDarken1:UIColor
-    {return astroColor(named:"astroUIQuaternaryDarken1Color")}
-
-    static var astroUIQuaternaryDarken2:UIColor
-    {return astroColor(named:"astroUIQuaternaryDarken2Color")}
-
-    static var astroUIQuaternaryDarken3:UIColor
-    {return astroColor(named:"astroUIQuaternaryDarken3Color")}
-
-    static var astroUIQuaternaryDarken4:UIColor
-    {return astroColor(named:"astroUIQuaternaryDarken4Color")}
-    
-    static var astroUIQuaternaryLighten1:UIColor
-    {return astroColor(named:"astroUIQuaternaryLighten1Color")}
-
-    static var astroUIQuaternaryLighten2:UIColor
-    {return astroColor(named:"astroUIQuaternaryLighten2Color")}
-
-    static var astroUIQuaternaryLighten3:UIColor
-    {return astroColor(named:"astroUIQuaternaryLighten3Color")}
-
-    static var astroUIQuaternaryLighten4:UIColor
-    {return astroColor(named:"astroUIPrimaryLighten4Color")}
 
     
     //MARK: Astro Status colors
