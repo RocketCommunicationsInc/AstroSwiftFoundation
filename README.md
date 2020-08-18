@@ -1,3 +1,3 @@
-# astro-swift-foundation
+# AstroSwiftFoundation
 
 A description of this package.
