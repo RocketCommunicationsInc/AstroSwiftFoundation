@@ -13,9 +13,14 @@ import UIKit
 import WatchKit
 #endif
 
+#if os(macOS)
+import AppKit
+#endif
+
 // Extend UIColor to include many conveniece methods to access the Astro UI and Status colors
 // Astro color gudelines - https://www.astrouxds.com/design-guidelines/color
 //
+#if os(iOS) || os(tvOS) || os(watchOS)
 extension UIColor
 {
     //MARK: colorDebugging
@@ -125,5 +130,121 @@ extension UIColor
             return UIColor.astroStatusCritical
         }
     }
-    
 }
+
+#endif
+
+#if os(macOS)
+extension NSColor
+{
+    //MARK: colorDebugging
+    // If an Astro color fails to load from resources, show this noticeable brown debug color instead
+    private static var astroDebugColor = NSColor.brown
+    
+    //——————————————————————————————————————————————————————————————————————————————
+    // Wrap the the NSColor constructor to return a debug color instead of nil on failure
+    //——————————————————————————————————————————————————————————————————————————————
+    private static func astroColor(named:String)->NSColor
+    {
+        return NSColor(named:named) ?? astroDebugColor
+    }
+    
+    
+    //MARK: Astro UI colors
+    //——————————————————————————————————————————————————————————————————————————————
+    // Astro semantic UI colors
+    //——————————————————————————————————————————————————————————————————————————————
+    static var astroUIBar:NSColor
+    {return astroColor(named:"Astro UI Bar Color")} // astroUIQuaternaryLighten3,astroUITertiaryDarken3
+
+    static var astroUITint:NSColor
+    {return astroColor(named:"Astro UI Tint Color")} //astroUISecondary
+
+    static var astroUITableCell:NSColor
+    {return astroColor(named:"Astro UI Table Cell Color")} // white, astroUITertiaryDarken1
+    
+    static var astroUITableCellLabel:NSColor
+    {return astroColor(named:"Astro UI Table Cell Label Color")} // astroUIQuaternaryDarken4, white
+
+    static var astroUITableSelectedCell:NSColor
+    {return astroColor(named:"Astro UI Table Selected Cell Color")} // astroUIPrimary, astroUIQuaternaryLighten3
+
+    static var astroUITableSeparator:NSColor
+    {return astroColor(named:"Astro UI Table Separator Color")} // astroUIQuaternary, astroUITertiaryDarken2
+
+    static var astroUIBackground:NSColor
+    {return astroColor(named:"Astro UI Background Color")} //astroUIQuaternaryLighten3, astroUITertiaryDarken1
+
+    
+    //MARK: Astro Status colors
+    //——————————————————————————————————————————————————————————————————————————————
+    // Astro status colors
+    //——————————————————————————————————————————————————————————————————————————————
+    static var astroStatusOff:NSColor
+    {  return astroColor(named:"astroStatusOffColor")}
+    
+    static var astroStatusStandby:NSColor
+    { return astroColor(named:"astroStatusStandbyColor")}
+
+    static var astroStatusNormal:NSColor
+    { return astroColor(named:"astroStatusNormalColor")}
+    
+    static var astroStatusCaution:NSColor
+    { return astroColor(named:"astroStatusCautionColor")}
+    
+    static var astroStatusSerious:NSColor
+    { return astroColor(named:"astroStatusSeriousColor")}
+    
+    static var astroStatusCritical:NSColor
+    { return astroColor(named:"astroStatusCriticalColor")}
+    
+
+    //MARK: Astro Color Convenience Functions
+    //——————————————————————————————————————————————————————————————————————————————
+    // Return the Astro status color for the given AstroStatus
+    //——————————————————————————————————————————————————————————————————————————————
+    static func colorForAstroStatus(_ status:AstroStatus)->NSColor
+    {
+        switch status {
+        case .Off:
+            return NSColor.astroStatusOff
+        case .Standby:
+            return NSColor.astroStatusStandby
+        case .Normal:
+            return NSColor.astroStatusNormal
+        case .Caution:
+            return NSColor.astroStatusCaution
+        case .Serious:
+            return NSColor.astroStatusSerious
+        case .Critical:
+            return NSColor.astroStatusCritical
+        }
+    }
+    
+
+    //——————————————————————————————————————————————————————————————————————————————
+    // Return a random Astro status color.
+    // Useful for debugging or demo.
+    //——————————————————————————————————————————————————————————————————————————————
+    static func randomStatusColor()->NSColor
+    {
+        switch AstroStatus.randomStatus()
+        {
+        case .Off:
+            return NSColor.astroStatusOff
+        case .Standby:
+            return NSColor.astroStatusStandby
+        case .Normal:
+            return NSColor.astroStatusNormal
+        case .Caution:
+            return NSColor.astroStatusCaution
+        case .Serious:
+            return NSColor.astroStatusSerious
+        case .Critical:
+            return NSColor.astroStatusCritical
+        }
+    }
+
+}
+#endif
+
