@@ -1,7 +1,7 @@
 import XCTest
 
-import astro_swift_foundationTests
+import AstroSwiftFoundationTests
 
 var tests = [XCTestCaseEntry]()
-tests += astro_swift_foundationTests.allTests()
+tests += AstroSwiftFoundationTests.allTests()
 XCTMain(tests)
