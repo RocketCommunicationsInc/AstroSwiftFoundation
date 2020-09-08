@@ -21,7 +21,7 @@ public enum AstroStatus {
     // Return a random AstroStatus.
     // Useful for debugging or demo.
     //——————————————————————————————————————————————————————————————————————————————
-    static func randomStatus()->AstroStatus
+    public static func randomStatus()->AstroStatus
     {
         let randomIndex = Int.random(in: 0 ... 5)
         switch randomIndex
