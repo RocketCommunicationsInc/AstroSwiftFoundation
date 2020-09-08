@@ -1,3 +1,3 @@
 # AstroSwiftFoundation
 
-A description of this package.
+AstroSwiftFoundation provides Astro's semantic UI colors, standard icons, status colors, and status symbols. 
