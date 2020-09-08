@@ -21,7 +21,7 @@ import AppKit
 // Astro color gudelines - https://www.astrouxds.com/design-guidelines/color
 //
 #if os(iOS) || os(tvOS) || os(watchOS)
-extension UIColor
+public extension UIColor
 {
     //MARK: colorDebugging
     // If an Astro color fails to load from resources, show this noticeable brown debug color instead
@@ -40,25 +40,25 @@ extension UIColor
     //——————————————————————————————————————————————————————————————————————————————
     // Astro semantic UI colors
     //——————————————————————————————————————————————————————————————————————————————
-    public static var astroUIBar:UIColor
+    static var astroUIBar:UIColor
     {return astroColor(named:"Astro UI Bar Color")} // astroUIQuaternaryLighten3,astroUITertiaryDarken3
 
-    public static var astroUITint:UIColor
+    static var astroUITint:UIColor
     {return astroColor(named:"Astro UI Tint Color")} //astroUISecondary
 
-    public static var astroUITableCell:UIColor
+    static var astroUITableCell:UIColor
     {return astroColor(named:"Astro UI Table Cell Color")} // white, astroUITertiaryDarken1
     
-    public static var astroUITableCellLabel:UIColor
+    static var astroUITableCellLabel:UIColor
     {return astroColor(named:"Astro UI Table Cell Label Color")} // astroUIQuaternaryDarken4, white
 
-    public static var astroUITableSelectedCell:UIColor
+    static var astroUITableSelectedCell:UIColor
     {return astroColor(named:"Astro UI Table Selected Cell Color")} // astroUIPrimary, astroUIQuaternaryLighten3
 
-    public static var astroUITableSeparator:UIColor
+    static var astroUITableSeparator:UIColor
     {return astroColor(named:"Astro UI Table Separator Color")} // astroUIQuaternary, astroUITertiaryDarken2
 
-    public static var astroUIBackground:UIColor
+    static var astroUIBackground:UIColor
     {return astroColor(named:"Astro UI Background Color")} //astroUIQuaternaryLighten3, astroUITertiaryDarken1
 
     
@@ -66,22 +66,22 @@ extension UIColor
     //——————————————————————————————————————————————————————————————————————————————
     // Astro status colors
     //——————————————————————————————————————————————————————————————————————————————
-    public static var astroStatusOff:UIColor
+    static var astroStatusOff:UIColor
     {  return astroColor(named:"astroStatusOffColor")}
     
-    public static var astroStatusStandby:UIColor
+    static var astroStatusStandby:UIColor
     { return astroColor(named:"astroStatusStandbyColor")}
 
-    public static var astroStatusNormal:UIColor
+    static var astroStatusNormal:UIColor
     { return astroColor(named:"astroStatusNormalColor")}
     
-    public static var astroStatusCaution:UIColor
+    static var astroStatusCaution:UIColor
     { return astroColor(named:"astroStatusCautionColor")}
     
-    public static var astroStatusSerious:UIColor
+    static var astroStatusSerious:UIColor
     { return astroColor(named:"astroStatusSeriousColor")}
     
-    public static var astroStatusCritical:UIColor
+    static var astroStatusCritical:UIColor
     { return astroColor(named:"astroStatusCriticalColor")}
     
 
@@ -89,7 +89,7 @@ extension UIColor
     //——————————————————————————————————————————————————————————————————————————————
     // Return the Astro status color for the given AstroStatus
     //——————————————————————————————————————————————————————————————————————————————
-    public static func colorForAstroStatus(_ status:AstroStatus)->UIColor
+    static func colorForAstroStatus(_ status:AstroStatus)->UIColor
     {
         switch status {
         case .Off:
@@ -112,7 +112,7 @@ extension UIColor
     // Return a random Astro status color.
     // Useful for debugging or demo.
     //——————————————————————————————————————————————————————————————————————————————
-    public static func randomStatusColor()->UIColor
+    static func randomStatusColor()->UIColor
     {
         switch AstroStatus.randomStatus()
         {

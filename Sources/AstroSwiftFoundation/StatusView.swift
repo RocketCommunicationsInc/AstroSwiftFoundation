@@ -15,7 +15,7 @@ import AppKit
 #endif
 
 #if os(iOS) || os(tvOS) || os(watchOS)
-class StatusView: UIImageView {
+public class StatusView: UIImageView {
     
     func setAstroStatus(_ status:AstroStatus)
     {
@@ -26,7 +26,7 @@ class StatusView: UIImageView {
 
 
 #if os(macOS)
-class StatusView: NSImageView {
+public class StatusView: NSImageView {
     
     func setAstroStatus(_ status:AstroStatus)
     {

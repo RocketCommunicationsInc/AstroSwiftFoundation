@@ -19,7 +19,7 @@ import AppKit
 
 // Extend UIImage to include many conveniece methods to access Astro Status symbols
 #if os(iOS) || os(tvOS) || os(watchOS)
-extension UIImage
+public extension UIImage
 {
     //——————————————————————————————————————————————————————————————————————————————
     // Astro Status symbols

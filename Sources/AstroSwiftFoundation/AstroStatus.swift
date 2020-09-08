@@ -8,7 +8,7 @@
 import Foundation
 
 // The basic 6 Astro Statuses, used by AstroColors and AstroSymbols, or for any code tracking status
-enum AstroStatus {
+public enum AstroStatus {
     case Off
     case Standby
     case Normal
