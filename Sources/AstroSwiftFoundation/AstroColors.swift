@@ -146,7 +146,7 @@ extension NSColor
     //——————————————————————————————————————————————————————————————————————————————
     private static func astroColor(named:String)->NSColor
     {
-        return NSColor(named:named) ?? astroDebugColor
+        return NSColor(named:named, in: .module, compatibleWith: nil) ?? astroDebugColor
     }
     
     
