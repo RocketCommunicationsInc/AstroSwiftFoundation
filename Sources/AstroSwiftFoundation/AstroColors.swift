@@ -32,7 +32,7 @@ public extension UIColor
     //——————————————————————————————————————————————————————————————————————————————
     private static func astroColor(named:String)->UIColor
     {
-        return UIColor(named:named) ?? astroDebugColor
+        return UIColor(named:named, in: .module, compatibleWith: nil) ?? astroDebugColor
     }
     
     
