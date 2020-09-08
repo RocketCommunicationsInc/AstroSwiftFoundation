@@ -26,32 +26,32 @@ public extension UIImage
     //——————————————————————————————————————————————————————————————————————————————
     static var astroStatusOff:UIImage
     {
-        return UIImage(named: "astroStatusOffSymbol")!
+        return UIImage(named: "astroStatusOffSymbol", in: .module, compatibleWith: nil)!
     }
     
     static var astroStatusStandby:UIImage
     {
-        return UIImage(named:"astroStatusStandbySymbol")!
+        return UIImage(named:"astroStatusStandbySymbol", in: .module, compatibleWith: nil)!
     }
     
     static var astroStatusNormal:UIImage
     {
-        return UIImage(named:"astroStatusNormalSymbol")!
+        return UIImage(named:"astroStatusNormalSymbol", in: .module, compatibleWith: nil)!
     }
     
     static var astroStatusCaution:UIImage
     {
-        return UIImage(named:"astroStatusCautionSymbol")!
+        return UIImage(named:"astroStatusCautionSymbol", in: .module, compatibleWith: nil)!
     }
     
     static var astroStatusSerious:UIImage
     {
-        return UIImage(named:"astroStatusSeriousSymbol")!
+        return UIImage(named:"astroStatusSeriousSymbol", in: .module, compatibleWith: nil)!
     }
     
     static var astroStatusCritical:UIImage
     {
-        return UIImage(named:"astroStatusCriticalSymbol")!
+        return UIImage(named:"astroStatusCriticalSymbol", in: .module, compatibleWith: nil)!
     }
 
     //——————————————————————————————————————————————————————————————————————————————
@@ -88,32 +88,32 @@ extension NSImage
     //——————————————————————————————————————————————————————————————————————————————
     static var astroStatusOff:NSImage
     {
-        return NSImage(named: "astroStatusOffSymbol")!
+        return NSImage(named: "astroStatusOffSymbol", in: .module, compatibleWith: nil)!
     }
     
     static var astroStatusStandby:NSImage
     {
-        return NSImage(named:"astroStatusStandbySymbol")!
+        return NSImage(named:"astroStatusStandbySymbol", in: .module, compatibleWith: nil)!
     }
     
     static var astroStatusNormal:NSImage
     {
-        return NSImage(named:"astroStatusNormalSymbol")!
+        return NSImage(named:"astroStatusNormalSymbol", in: .module, compatibleWith: nil)!
     }
     
     static var astroStatusCaution:NSImage
     {
-        return NSImage(named:"astroStatusCautionSymbol")!
+        return NSImage(named:"astroStatusCautionSymbol", in: .module, compatibleWith: nil)!
     }
     
     static var astroStatusSerious:NSImage
     {
-        return NSImage(named:"astroStatusSeriousSymbol")!
+        return NSImage(named:"astroStatusSeriousSymbol", in: .module, compatibleWith: nil)!
     }
     
     static var astroStatusCritical:NSImage
     {
-        return NSImage(named:"astroStatusCriticalSymbol")!
+        return NSImage(named:"astroStatusCriticalSymbol", in: .module, compatibleWith: nil)!
     }
 
     //——————————————————————————————————————————————————————————————————————————————
