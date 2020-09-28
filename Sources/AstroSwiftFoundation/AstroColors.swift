@@ -67,22 +67,22 @@ public extension UIColor
     // Astro status colors
     //——————————————————————————————————————————————————————————————————————————————
     static var astroStatusOff:UIColor
-    {  return astroColor(named:"astroStatusOffColor")}
+    {  return astroColor(named:"Astro Status Off Color")}
     
     static var astroStatusStandby:UIColor
-    { return astroColor(named:"astroStatusStandbyColor")}
+    { return astroColor(named:"Astro Status Standby Color")}
 
     static var astroStatusNormal:UIColor
-    { return astroColor(named:"astroStatusNormalColor")}
+    { return astroColor(named:"Astro Status Normal Color")}
     
     static var astroStatusCaution:UIColor
-    { return astroColor(named:"astroStatusCautionColor")}
+    { return astroColor(named:"Astro Status Caution Color")}
     
     static var astroStatusSerious:UIColor
-    { return astroColor(named:"astroStatusSeriousColor")}
+    { return astroColor(named:"Astro Status Serious Color")}
     
     static var astroStatusCritical:UIColor
-    { return astroColor(named:"astroStatusCriticalColor")}
+    { return astroColor(named:"Astro Status Critical Color")}
     
 
     //MARK: Astro Color Convenience Functions
@@ -181,22 +181,22 @@ extension NSColor
     // Astro status colors
     //——————————————————————————————————————————————————————————————————————————————
     public static var astroStatusOff:NSColor
-    {  return astroColor(named:"astroStatusOffColor")}
+    {  return astroColor(named:"Astro Status Off Color")}
     
     public static var astroStatusStandby:NSColor
-    { return astroColor(named:"astroStatusStandbyColor")}
+    { return astroColor(named:"Astro Status Standby Color")}
 
     public static var astroStatusNormal:NSColor
-    { return astroColor(named:"astroStatusNormalColor")}
+    { return astroColor(named:"Astro Status Normal Color")}
     
     public static var astroStatusCaution:NSColor
-    { return astroColor(named:"astroStatusCautionColor")}
+    { return astroColor(named:"Astro Status Caution Color")}
     
     public static var astroStatusSerious:NSColor
-    { return astroColor(named:"astroStatusSeriousColor")}
+    { return astroColor(named:"Astro Status Serious Color")}
     
     public static var astroStatusCritical:NSColor
-    { return astroColor(named:"astroStatusCriticalColor")}
+    { return astroColor(named:"Astro Status Critical Color")}
     
 
     //MARK: Astro Color Convenience Functions
