@@ -1,7 +1,5 @@
 # AstroSwiftFoundation
 
-AstroSwiftCore provides Swift support for the Astro UX Design System on iOS, iPadOS, watchOS, macOS, and tvOS
+AstroSwiftFoundation is a Swift Package that brings the Astro Space UX Design system to Apple platforms. Astro's colors, icons, symbols, and data types are imported as assets and code. Astro Swift Foundation works with iOS, macOS, watchOS, and tvOS.
 
-AstroSwiftFoundation provides Astro's semantic UI colors, standard icons, status colors, and status symbols. 
-
-Astro guidelines - https://www.astrouxds.com/
+To use AstroSwiftFoundation in your Xcode project, select File->Swift Packages->Add Package Dependency, and enter the URL of this repository.
