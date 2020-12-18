@@ -14,12 +14,28 @@ import UIKit
 import AppKit
 #endif
 
-#if os(iOS) || os(tvOS) || os(watchOS)
+#if os(watchOS)
+import WatchKit
+#endif
+
+#if os(iOS) || os(tvOS)
 public class StatusView: UIImageView {
     
     public func setAstroStatus(_ status:AstroStatus)
     {
         self.image = UIImage.imageForAstroStatus(status)
+    }
+}
+#endif
+
+
+
+#if os(watchOS)
+public class StatusView: WKInterfaceImage {
+    
+    public func setAstroStatus(_ status:AstroStatus)
+    {
+        self.setImage(UIImage.imageForAstroStatus(status))
     }
 }
 #endif

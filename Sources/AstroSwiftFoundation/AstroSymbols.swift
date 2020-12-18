@@ -22,36 +22,52 @@ import AppKit
 public extension UIImage
 {
     //——————————————————————————————————————————————————————————————————————————————
+    // Wrap the the UIImage constructor to return a debug image instead of nil on failure
+    //——————————————————————————————————————————————————————————————————————————————
+    private static func astroImage(named:String)->UIImage
+    {
+        #if os(iOS) || os(tvOS)
+        return UIImage(named: named, in: .module, compatibleWith: nil) ?? UIImage(systemName: "nosign")!
+
+        #endif
+        
+        #if os(watchOS)
+        return UIImage(named:named) ?? UIImage(systemName: "nosign")!
+        #endif
+    }
+    
+    
+    //——————————————————————————————————————————————————————————————————————————————
     // Astro Status symbols
     //——————————————————————————————————————————————————————————————————————————————
     static var astroStatusOff:UIImage
     {
-        return UIImage(named: "Astro Status Off Symbol", in: .module, compatibleWith: nil)!
+        return astroImage(named: "Astro Status Off Symbol")
     }
     
     static var astroStatusStandby:UIImage
     {
-        return UIImage(named:"Astro Status Standby Symbol", in: .module, compatibleWith: nil)!
+        return astroImage(named:"Astro Status Standby Symbol")
     }
     
     static var astroStatusNormal:UIImage
     {
-        return UIImage(named:"Astro Status Normal Symbol", in: .module, compatibleWith: nil)!
+        return astroImage(named:"Astro Status Normal Symbol")
     }
     
     static var astroStatusCaution:UIImage
     {
-        return UIImage(named:"Astro Status Caution Symbol", in: .module, compatibleWith: nil)!
+        return astroImage(named:"Astro Status Caution Symbol")
     }
     
     static var astroStatusSerious:UIImage
     {
-        return UIImage(named:"Astro Status Serious Symbol", in: .module, compatibleWith: nil)!
+        return astroImage(named:"Astro Status Serious Symbol")
     }
     
     static var astroStatusCritical:UIImage
     {
-        return UIImage(named:"Astro Status Critical Symbol", in: .module, compatibleWith: nil)!
+        return astroImage(named:"Astro Status Critical Symbol")
     }
 
     //——————————————————————————————————————————————————————————————————————————————
@@ -83,37 +99,46 @@ public extension UIImage
 #if os(macOS)
 extension NSImage
 {
+    
+    //——————————————————————————————————————————————————————————————————————————————
+    // Wrap the the NSImage constructor to return a debug image instead of nil on failure
+    //——————————————————————————————————————————————————————————————————————————————
+    private static func astroImage(named:String)->NSImage
+    {
+        return NSImage(named:named) ?? NSImage(named:NSImage.stopProgressFreestandingTemplateName)!
+    }
+
     //——————————————————————————————————————————————————————————————————————————————
     // Astro Status symbols
     //——————————————————————————————————————————————————————————————————————————————
     static var astroStatusOff:NSImage
     {
-        return NSImage(named: "Astro Status Off Symbol", in: .module, compatibleWith: nil)!
+        return astroImage(named: "Astro Status Off Symbol")
     }
     
     static var astroStatusStandby:NSImage
     {
-        return NSImage(named:"Astro Status Standby Symbol", in: .module, compatibleWith: nil)!
+        return astroImage(named:"Astro Status Standby Symbol")
     }
     
     static var astroStatusNormal:NSImage
     {
-        return NSImage(named:"Astro Status Normal Symbol", in: .module, compatibleWith: nil)!
+        return astroImage(named:"Astro Status Normal Symbol")
     }
     
     static var astroStatusCaution:NSImage
     {
-        return NSImage(named:"Astro Status Caution Symbol", in: .module, compatibleWith: nil)!
+        return astroImage(named:"Astro Status Caution Symbol")
     }
     
     static var astroStatusSerious:NSImage
     {
-        return NSImage(named:"Astro Status Serious Symbol", in: .module, compatibleWith: nil)!
+        return astroImage(named:"Astro Status Serious Symbol")
     }
     
     static var astroStatusCritical:NSImage
     {
-        return NSImage(named:"Astro Status Critical Symbol", in: .module, compatibleWith: nil)!
+        return astroImage(named:"Astro Status Critical Symbol")
     }
 
     //——————————————————————————————————————————————————————————————————————————————
