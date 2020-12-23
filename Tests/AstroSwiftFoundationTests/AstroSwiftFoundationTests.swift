@@ -1,3 +1,4 @@
+#if !os(watchOS)
 import XCTest
 @testable import AstroSwiftFoundation
 
@@ -13,3 +14,4 @@ final class AstroSwiftFoundationTests: XCTestCase {
         ("testExample", testExample),
     ]
 }
+#endif

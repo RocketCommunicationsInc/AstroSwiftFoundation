@@ -32,7 +32,13 @@ public extension UIColor
     //——————————————————————————————————————————————————————————————————————————————
     private static func astroColor(named:String)->UIColor
     {
+        #if os(iOS) || os(tvOS)
         return UIColor(named:named, in: .module, compatibleWith: nil) ?? astroDebugColor
+        #endif
+        
+        #if os(watchOS)
+        return UIColor(named:named) ?? astroDebugColor
+        #endif
     }
     
     
@@ -83,6 +89,30 @@ public extension UIColor
     
     static var astroStatusCritical:UIColor
     { return astroColor(named:"Astro Status Critical Color")}
+    
+
+    //MARK: Astro Classification colors
+    //——————————————————————————————————————————————————————————————————————————————
+    // Astro classification colors, from lowest to highest
+    //——————————————————————————————————————————————————————————————————————————————
+    static var astroClassificationUnclassified:UIColor
+    {  return astroColor(named:"Astro Classification Unclassified Color")}
+    
+    static var astroClassificationCUI:UIColor
+    { return astroColor(named:"Astro Classification CUI Color")}
+
+    static var astroClassificationConfidential:UIColor
+    { return astroColor(named:"Astro Classification Confidential Color")}
+    
+    static var astroClassificationSecret:UIColor
+    { return astroColor(named:"Astro Classification Secret Color")}
+    
+    static var astroClassificationTopSecret:UIColor
+    { return astroColor(named:"Astro Classification Top Secret Color")}
+    
+    static var astroClassificationTopSecretSCI:UIColor
+    { return astroColor(named:"Astro Classification Top Secret SCI Color")}
+
     
 
     //MARK: Astro Color Convenience Functions
@@ -146,7 +176,7 @@ extension NSColor
     //——————————————————————————————————————————————————————————————————————————————
     private static func astroColor(named:String)->NSColor
     {
-        return NSColor(named:named, in: .module, compatibleWith: nil) ?? astroDebugColor
+        return NSColor(named:named) ?? astroDebugColor
     }
     
     
@@ -198,7 +228,30 @@ extension NSColor
     public static var astroStatusCritical:NSColor
     { return astroColor(named:"Astro Status Critical Color")}
     
+    
+    //MARK: Astro Classification colors
+    //——————————————————————————————————————————————————————————————————————————————
+    // Astro classification colors, from lowest to highest
+    //——————————————————————————————————————————————————————————————————————————————
+    public static var astroClassificationUnclassified:NSColor
+    {  return astroColor(named:"Astro Classification Unclassified Color")}
+    
+    public static var astroClassificationCUI:NSColor
+    { return astroColor(named:"Astro Classification CUI Color")}
 
+    public static var astroClassificationConfidential:NSColor
+    { return astroColor(named:"Astro Classification Confidential Color")}
+    
+    public static var astroClassificationSecret:NSColor
+    { return astroColor(named:"Astro Classification Secret Color")}
+    
+    public static var astroClassificationTopSecret:NSColor
+    { return astroColor(named:"Astro Classification Top Secret Color")}
+    
+    public static var astroClassificationTopSecretSCI:NSColor
+    { return astroColor(named:"Astro Classification Top Secret SCI Color")}
+
+    
     //MARK: Astro Color Convenience Functions
     //——————————————————————————————————————————————————————————————————————————————
     // Return the Astro status color for the given AstroStatus
