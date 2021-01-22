@@ -1,4 +1,4 @@
-Copyright © 2020 Rocket Communications, Inc.
+Copyright © 2020-2021 Rocket Communications, Inc.
 
 AstroSwiftFoundation, which includes visual components, system functionality, code assets, and design assets (collectively referred to herein as the “Software”), is developed and maintained by Rocket Communications, Inc. 
 
