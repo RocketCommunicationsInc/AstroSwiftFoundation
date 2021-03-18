@@ -1,8 +1,8 @@
 //
-//  AstroColors.swift 
+//  AstroColors.swift
 //
 //  Created by rocketjeff.
-//  Copyright © 2019 Rocket Communications, Inc. All rights reserved.
+//  Copyright © 2019-2021 Rocket Communications, Inc. All rights reserved.
 //
 
 #if os(iOS) || os(tvOS)
@@ -17,7 +17,42 @@ import WatchKit
 import AppKit
 #endif
 
-// Extend UIColor to include many conveniece methods to access the Astro UI and Status colors
+import SwiftUI
+
+// Extend Color, for SwiftUI, to include many conveniece methods to access the Astro UI and Status colors
+// Astro color gudelines - https://www.astrouxds.com/design-guidelines/color
+//
+public extension Color
+{
+    //MARK: Astro UI colors
+    //——————————————————————————————————————————————————————————————————————————————
+    // Astro semantic UI colors
+    //——————————————————————————————————————————————————————————————————————————————
+    static var astroUIBar:Color
+    {return Color("Astro UI Bar Color")} // astroUIQuaternaryLighten3,astroUITertiaryDarken3
+
+    static var astroUITint:Color
+    {return Color("Astro UI Tint Color")} //astroUISecondary
+
+    static var astroUITableCell:Color
+    {return Color("Astro UI Table Cell Color")} // white, astroUITertiaryDarken1
+    
+    static var astroUITableCellLabel:Color
+    {return Color("Astro UI Table Cell Label Color")} // astroUIQuaternaryDarken4, white
+
+    static var astroUITableSelectedCell:Color
+    {return Color("Astro UI Table Selected Cell Color")} // astroUIPrimary, astroUIQuaternaryLighten3
+
+    static var astroUITableSeparator:Color
+    {return Color("Astro UI Table Separator Color")} // astroUIQuaternary, astroUITertiaryDarken2
+
+    static var astroUIBackground:Color
+    {return Color("Astro UI Background Color")} //astroUIQuaternaryLighten3, astroUITertiaryDarken1
+
+}
+
+
+// Extend UIColor, for iOS, tvOS, an watchOS, to include many conveniece methods to access the Astro UI and Status colors
 // Astro color gudelines - https://www.astrouxds.com/design-guidelines/color
 //
 #if os(iOS) || os(tvOS) || os(watchOS)
@@ -165,6 +200,9 @@ public extension UIColor
 #endif
 
 #if os(macOS)
+// Extend NSColor, for macOS, to include many conveniece methods to access the Astro UI and Status colors
+// Astro color gudelines - https://www.astrouxds.com/design-guidelines/color
+//
 extension NSColor
 {
     //MARK: colorDebugging
