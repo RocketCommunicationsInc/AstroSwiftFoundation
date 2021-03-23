@@ -24,52 +24,60 @@ import SwiftUI
 //
 public extension Color
 {
+    //——————————————————————————————————————————————————————————————————————————————
+    // Wrap the the Color constructor
+    //——————————————————————————————————————————————————————————————————————————————
+    private static func astroColor(_ named:String)->Color
+    {
+        return Color(named, bundle: .module)
+    }
+    
     //MARK: Color - Astro UI colors
     //——————————————————————————————————————————————————————————————————————————————
     // Astro semantic UI colors
     //——————————————————————————————————————————————————————————————————————————————
     static var astroUIBar:Color
-    {return Color("Astro UI Bar Color")} // astroUIQuaternaryLighten3,astroUITertiaryDarken3
+    {return astroColor("Astro UI Bar Color")} // astroUIQuaternaryLighten3,astroUITertiaryDarken3
 
     static var astroUITint:Color
-    {return Color("Astro UI Tint Color")} //astroUISecondary
+    {return astroColor("Astro UI Tint Color")} //astroUISecondary
 
     static var astroUITableCell:Color
-    {return Color("Astro UI Table Cell Color")} // white, astroUITertiaryDarken1
+    {return astroColor("Astro UI Table Cell Color")} // white, astroUITertiaryDarken1
     
     static var astroUITableCellLabel:Color
-    {return Color("Astro UI Table Cell Label Color")} // astroUIQuaternaryDarken4, white
+    {return astroColor("Astro UI Table Cell Label Color")} // astroUIQuaternaryDarken4, white
 
     static var astroUITableSelectedCell:Color
-    {return Color("Astro UI Table Selected Cell Color")} // astroUIPrimary, astroUIQuaternaryLighten3
+    {return astroColor("Astro UI Table Selected Cell Color")} // astroUIPrimary, astroUIQuaternaryLighten3
 
     static var astroUITableSeparator:Color
-    {return Color("Astro UI Table Separator Color")} // astroUIQuaternary, astroUITertiaryDarken2
+    {return astroColor("Astro UI Table Separator Color")} // astroUIQuaternary, astroUITertiaryDarken2
 
     static var astroUIBackground:Color
-    {return Color("Astro UI Background Color")} //astroUIQuaternaryLighten3, astroUITertiaryDarken1
+    {return astroColor("Astro UI Background Color")} //astroUIQuaternaryLighten3, astroUITertiaryDarken1
     
     //MARK: Color - Astro Status colors
     //——————————————————————————————————————————————————————————————————————————————
     // Astro status colors
     //——————————————————————————————————————————————————————————————————————————————
     static var astroStatusOff:Color
-    {  return Color("Astro Status Off Color")}
+    {  return astroColor("Astro Status Off Color")}
     
     static var astroStatusStandby:Color
-    { return Color("Astro Status Standby Color")}
+    { return astroColor("Astro Status Standby Color")}
 
     static var astroStatusNormal:Color
-    { return Color("Astro Status Normal Color")}
+    { return astroColor("Astro Status Normal Color")}
     
     static var astroStatusCaution:Color
-    { return Color("Astro Status Caution Color")}
+    { return astroColor("Astro Status Caution Color")}
     
     static var astroStatusSerious:Color
-    { return Color("Astro Status Serious Color")}
+    { return astroColor("Astro Status Serious Color")}
     
     static var astroStatusCritical:Color
-    { return Color("Astro Status Critical Color")}
+    { return astroColor("Astro Status Critical Color")}
     
 
     //MARK: Color - Astro Classification colors
@@ -77,22 +85,22 @@ public extension Color
     // Astro classification colors, from lowest to highest
     //——————————————————————————————————————————————————————————————————————————————
     static var astroClassificationUnclassified:Color
-    {  return Color("Astro Classification Unclassified Color")}
+    {  return astroColor("Astro Classification Unclassified Color")}
     
     static var astroClassificationCUI:Color
-    { return Color("Astro Classification CUI Color")}
+    { return astroColor("Astro Classification CUI Color")}
 
     static var astroClassificationConfidential:Color
-    { return Color("Astro Classification Confidential Color")}
+    { return astroColor("Astro Classification Confidential Color")}
     
     static var astroClassificationSecret:Color
-    { return Color("Astro Classification Secret Color")}
+    { return astroColor("Astro Classification Secret Color")}
     
     static var astroClassificationTopSecret:Color
-    { return Color("Astro Classification Top Secret Color")}
+    { return astroColor("Astro Classification Top Secret Color")}
     
     static var astroClassificationTopSecretSCI:Color
-    { return Color("Astro Classification Top Secret SCI Color")}
+    { return astroColor("Astro Classification Top Secret SCI Color")}
     
    
     //MARK: Color - Astro Color Convenience Functions
@@ -141,7 +149,7 @@ public extension UIColor
     //——————————————————————————————————————————————————————————————————————————————
     // Wrap the the UIColor constructor to return a debug color instead of nil on failure
     //——————————————————————————————————————————————————————————————————————————————
-    private static func astroColor(named:String)->UIColor
+    private static func astroColor(_ named:String)->UIColor
     {
         #if os(iOS) || os(tvOS)
         return UIColor(named:named, in: .module, compatibleWith: nil) ?? astroDebugColor
@@ -158,25 +166,25 @@ public extension UIColor
     // Astro semantic UI colors
     //——————————————————————————————————————————————————————————————————————————————
     static var astroUIBar:UIColor
-    {return astroColor(named:"Astro UI Bar Color")} // astroUIQuaternaryLighten3,astroUITertiaryDarken3
+    {return astroColor("Astro UI Bar Color")} // astroUIQuaternaryLighten3,astroUITertiaryDarken3
 
     static var astroUITint:UIColor
-    {return astroColor(named:"Astro UI Tint Color")} //astroUISecondary
+    {return astroColor("Astro UI Tint Color")} //astroUISecondary
 
     static var astroUITableCell:UIColor
-    {return astroColor(named:"Astro UI Table Cell Color")} // white, astroUITertiaryDarken1
+    {return astroColor("Astro UI Table Cell Color")} // white, astroUITertiaryDarken1
     
     static var astroUITableCellLabel:UIColor
-    {return astroColor(named:"Astro UI Table Cell Label Color")} // astroUIQuaternaryDarken4, white
+    {return astroColor("Astro UI Table Cell Label Color")} // astroUIQuaternaryDarken4, white
 
     static var astroUITableSelectedCell:UIColor
-    {return astroColor(named:"Astro UI Table Selected Cell Color")} // astroUIPrimary, astroUIQuaternaryLighten3
+    {return astroColor("Astro UI Table Selected Cell Color")} // astroUIPrimary, astroUIQuaternaryLighten3
 
     static var astroUITableSeparator:UIColor
-    {return astroColor(named:"Astro UI Table Separator Color")} // astroUIQuaternary, astroUITertiaryDarken2
+    {return astroColor("Astro UI Table Separator Color")} // astroUIQuaternary, astroUITertiaryDarken2
 
     static var astroUIBackground:UIColor
-    {return astroColor(named:"Astro UI Background Color")} //astroUIQuaternaryLighten3, astroUITertiaryDarken1
+    {return astroColor("Astro UI Background Color")} //astroUIQuaternaryLighten3, astroUITertiaryDarken1
 
     
     //MARK: UIColor - Astro Status colors
@@ -184,22 +192,22 @@ public extension UIColor
     // Astro status colors
     //——————————————————————————————————————————————————————————————————————————————
     static var astroStatusOff:UIColor
-    {  return astroColor(named:"Astro Status Off Color")}
+    {  return astroColor("Astro Status Off Color")}
     
     static var astroStatusStandby:UIColor
-    { return astroColor(named:"Astro Status Standby Color")}
+    { return astroColor("Astro Status Standby Color")}
 
     static var astroStatusNormal:UIColor
-    { return astroColor(named:"Astro Status Normal Color")}
+    { return astroColor("Astro Status Normal Color")}
     
     static var astroStatusCaution:UIColor
-    { return astroColor(named:"Astro Status Caution Color")}
+    { return astroColor("Astro Status Caution Color")}
     
     static var astroStatusSerious:UIColor
-    { return astroColor(named:"Astro Status Serious Color")}
+    { return astroColor("Astro Status Serious Color")}
     
     static var astroStatusCritical:UIColor
-    { return astroColor(named:"Astro Status Critical Color")}
+    { return astroColor("Astro Status Critical Color")}
     
 
     //MARK: UIColor - Astro Classification colors
@@ -207,22 +215,22 @@ public extension UIColor
     // Astro classification colors, from lowest to highest
     //——————————————————————————————————————————————————————————————————————————————
     static var astroClassificationUnclassified:UIColor
-    {  return astroColor(named:"Astro Classification Unclassified Color")}
+    {  return astroColor("Astro Classification Unclassified Color")}
     
     static var astroClassificationCUI:UIColor
-    { return astroColor(named:"Astro Classification CUI Color")}
+    { return astroColor("Astro Classification CUI Color")}
 
     static var astroClassificationConfidential:UIColor
-    { return astroColor(named:"Astro Classification Confidential Color")}
+    { return astroColor("Astro Classification Confidential Color")}
     
     static var astroClassificationSecret:UIColor
-    { return astroColor(named:"Astro Classification Secret Color")}
+    { return astroColor("Astro Classification Secret Color")}
     
     static var astroClassificationTopSecret:UIColor
-    { return astroColor(named:"Astro Classification Top Secret Color")}
+    { return astroColor("Astro Classification Top Secret Color")}
     
     static var astroClassificationTopSecretSCI:UIColor
-    { return astroColor(named:"Astro Classification Top Secret SCI Color")}
+    { return astroColor("Astro Classification Top Secret SCI Color")}
 
     
 
@@ -273,7 +281,7 @@ extension NSColor
     //——————————————————————————————————————————————————————————————————————————————
     // Wrap the the NSColor constructor to return a debug color instead of nil on failure
     //——————————————————————————————————————————————————————————————————————————————
-    private static func astroColor(named:String)->NSColor
+    private static func astroColor(_ named:String)->NSColor
     {
         return NSColor(named:named) ?? astroDebugColor
     }
@@ -284,25 +292,25 @@ extension NSColor
     // Astro semantic UI colors
     //——————————————————————————————————————————————————————————————————————————————
     public static var astroUIBar:NSColor
-    {return astroColor(named:"Astro UI Bar Color")} // astroUIQuaternaryLighten3,astroUITertiaryDarken3
+    {return astroColor("Astro UI Bar Color")} // astroUIQuaternaryLighten3,astroUITertiaryDarken3
 
     public static var astroUITint:NSColor
-    {return astroColor(named:"Astro UI Tint Color")} //astroUISecondary
+    {return astroColor("Astro UI Tint Color")} //astroUISecondary
 
     public static var astroUITableCell:NSColor
-    {return astroColor(named:"Astro UI Table Cell Color")} // white, astroUITertiaryDarken1
+    {return astroColor("Astro UI Table Cell Color")} // white, astroUITertiaryDarken1
     
     public static var astroUITableCellLabel:NSColor
-    {return astroColor(named:"Astro UI Table Cell Label Color")} // astroUIQuaternaryDarken4, white
+    {return astroColor("Astro UI Table Cell Label Color")} // astroUIQuaternaryDarken4, white
 
     public static var astroUITableSelectedCell:NSColor
-    {return astroColor(named:"Astro UI Table Selected Cell Color")} // astroUIPrimary, astroUIQuaternaryLighten3
+    {return astroColor("Astro UI Table Selected Cell Color")} // astroUIPrimary, astroUIQuaternaryLighten3
 
     public static var astroUITableSeparator:NSColor
-    {return astroColor(named:"Astro UI Table Separator Color")} // astroUIQuaternary, astroUITertiaryDarken2
+    {return astroColor("Astro UI Table Separator Color")} // astroUIQuaternary, astroUITertiaryDarken2
 
     public static var astroUIBackground:NSColor
-    {return astroColor(named:"Astro UI Background Color")} //astroUIQuaternaryLighten3, astroUITertiaryDarken1
+    {return astroColor("Astro UI Background Color")} //astroUIQuaternaryLighten3, astroUITertiaryDarken1
 
     
     //MARK: NSColor - Astro Status colors
@@ -310,22 +318,22 @@ extension NSColor
     // Astro status colors
     //——————————————————————————————————————————————————————————————————————————————
     public static var astroStatusOff:NSColor
-    {  return astroColor(named:"Astro Status Off Color")}
+    {  return astroColor("Astro Status Off Color")}
     
     public static var astroStatusStandby:NSColor
-    { return astroColor(named:"Astro Status Standby Color")}
+    { return astroColor("Astro Status Standby Color")}
 
     public static var astroStatusNormal:NSColor
-    { return astroColor(named:"Astro Status Normal Color")}
+    { return astroColor("Astro Status Normal Color")}
     
     public static var astroStatusCaution:NSColor
-    { return astroColor(named:"Astro Status Caution Color")}
+    { return astroColor("Astro Status Caution Color")}
     
     public static var astroStatusSerious:NSColor
-    { return astroColor(named:"Astro Status Serious Color")}
+    { return astroColor("Astro Status Serious Color")}
     
     public static var astroStatusCritical:NSColor
-    { return astroColor(named:"Astro Status Critical Color")}
+    { return astroColor("Astro Status Critical Color")}
     
     
     //MARK: NSColor - Astro Classification colors
@@ -333,22 +341,22 @@ extension NSColor
     // Astro classification colors, from lowest to highest
     //——————————————————————————————————————————————————————————————————————————————
     public static var astroClassificationUnclassified:NSColor
-    {  return astroColor(named:"Astro Classification Unclassified Color")}
+    {  return astroColor("Astro Classification Unclassified Color")}
     
     public static var astroClassificationCUI:NSColor
-    { return astroColor(named:"Astro Classification CUI Color")}
+    { return astroColor("Astro Classification CUI Color")}
 
     public static var astroClassificationConfidential:NSColor
-    { return astroColor(named:"Astro Classification Confidential Color")}
+    { return astroColor("Astro Classification Confidential Color")}
     
     public static var astroClassificationSecret:NSColor
-    { return astroColor(named:"Astro Classification Secret Color")}
+    { return astroColor("Astro Classification Secret Color")}
     
     public static var astroClassificationTopSecret:NSColor
-    { return astroColor(named:"Astro Classification Top Secret Color")}
+    { return astroColor("Astro Classification Top Secret Color")}
     
     public static var astroClassificationTopSecretSCI:NSColor
-    { return astroColor(named:"Astro Classification Top Secret SCI Color")}
+    { return astroColor("Astro Classification Top Secret SCI Color")}
 
     
     //MARK: NSColor - Astro Color Convenience Functions
