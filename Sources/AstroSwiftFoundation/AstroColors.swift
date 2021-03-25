@@ -19,7 +19,7 @@ import AppKit
 
 import SwiftUI
 
-// Extend Color, for SwiftUI, to include many conveniece methods to access the Astro UI and Status colors
+// Extend Color, for SwiftUI, to include many convenience methods to access the Astro UI and Status colors
 // Astro color gudelines - https://www.astrouxds.com/design-guidelines/color
 //
 public extension Color
@@ -29,6 +29,7 @@ public extension Color
     //——————————————————————————————————————————————————————————————————————————————
     private static func astroColor(_ named:String)->Color
     {
+        // The Color constructor is non-failable, so no debug color
         return Color(named, bundle: .module)
     }
     
@@ -137,7 +138,7 @@ public extension Color
 }
 
 
-// Extend UIColor, for iOS, tvOS, an watchOS, to include many conveniece methods to access the Astro UI and Status colors
+// Extend UIColor, for iOS, tvOS, an watchOS, to include many convenience methods to access the Astro UI and Status colors
 // Astro color gudelines - https://www.astrouxds.com/design-guidelines/color
 //
 #if os(iOS) || os(tvOS) || os(watchOS)
@@ -270,10 +271,10 @@ public extension UIColor
 #endif
 
 #if os(macOS)
-// Extend NSColor, for macOS, to include many conveniece methods to access the Astro UI and Status colors
+// Extend NSColor, for macOS, to include many convenience methods to access the Astro UI and Status colors
 // Astro color gudelines - https://www.astrouxds.com/design-guidelines/color
 //
-extension NSColor
+public extension NSColor
 {
     // If an Astro color fails to load from resources, show this noticeable brown debug color instead
     private static var astroDebugColor = NSColor.brown
@@ -291,25 +292,25 @@ extension NSColor
     //——————————————————————————————————————————————————————————————————————————————
     // Astro semantic UI colors
     //——————————————————————————————————————————————————————————————————————————————
-    public static var astroUIBar:NSColor
+    static var astroUIBar:NSColor
     {return astroColor("Astro UI Bar Color")} // astroUIQuaternaryLighten3,astroUITertiaryDarken3
 
-    public static var astroUITint:NSColor
+    static var astroUITint:NSColor
     {return astroColor("Astro UI Tint Color")} //astroUISecondary
 
-    public static var astroUITableCell:NSColor
+    static var astroUITableCell:NSColor
     {return astroColor("Astro UI Table Cell Color")} // white, astroUITertiaryDarken1
     
-    public static var astroUITableCellLabel:NSColor
+    static var astroUITableCellLabel:NSColor
     {return astroColor("Astro UI Table Cell Label Color")} // astroUIQuaternaryDarken4, white
 
-    public static var astroUITableSelectedCell:NSColor
+    static var astroUITableSelectedCell:NSColor
     {return astroColor("Astro UI Table Selected Cell Color")} // astroUIPrimary, astroUIQuaternaryLighten3
 
-    public static var astroUITableSeparator:NSColor
+    static var astroUITableSeparator:NSColor
     {return astroColor("Astro UI Table Separator Color")} // astroUIQuaternary, astroUITertiaryDarken2
 
-    public static var astroUIBackground:NSColor
+    static var astroUIBackground:NSColor
     {return astroColor("Astro UI Background Color")} //astroUIQuaternaryLighten3, astroUITertiaryDarken1
 
     
@@ -317,22 +318,22 @@ extension NSColor
     //——————————————————————————————————————————————————————————————————————————————
     // Astro status colors
     //——————————————————————————————————————————————————————————————————————————————
-    public static var astroStatusOff:NSColor
+    static var astroStatusOff:NSColor
     {  return astroColor("Astro Status Off Color")}
     
-    public static var astroStatusStandby:NSColor
+    static var astroStatusStandby:NSColor
     { return astroColor("Astro Status Standby Color")}
 
-    public static var astroStatusNormal:NSColor
+    static var astroStatusNormal:NSColor
     { return astroColor("Astro Status Normal Color")}
     
-    public static var astroStatusCaution:NSColor
+    static var astroStatusCaution:NSColor
     { return astroColor("Astro Status Caution Color")}
     
-    public static var astroStatusSerious:NSColor
+    static var astroStatusSerious:NSColor
     { return astroColor("Astro Status Serious Color")}
     
-    public static var astroStatusCritical:NSColor
+    static var astroStatusCritical:NSColor
     { return astroColor("Astro Status Critical Color")}
     
     
@@ -340,22 +341,22 @@ extension NSColor
     //——————————————————————————————————————————————————————————————————————————————
     // Astro classification colors, from lowest to highest
     //——————————————————————————————————————————————————————————————————————————————
-    public static var astroClassificationUnclassified:NSColor
+    static var astroClassificationUnclassified:NSColor
     {  return astroColor("Astro Classification Unclassified Color")}
     
-    public static var astroClassificationCUI:NSColor
+    static var astroClassificationCUI:NSColor
     { return astroColor("Astro Classification CUI Color")}
 
-    public static var astroClassificationConfidential:NSColor
+    static var astroClassificationConfidential:NSColor
     { return astroColor("Astro Classification Confidential Color")}
     
-    public static var astroClassificationSecret:NSColor
+    static var astroClassificationSecret:NSColor
     { return astroColor("Astro Classification Secret Color")}
     
-    public static var astroClassificationTopSecret:NSColor
+    static var astroClassificationTopSecret:NSColor
     { return astroColor("Astro Classification Top Secret Color")}
     
-    public static var astroClassificationTopSecretSCI:NSColor
+    static var astroClassificationTopSecretSCI:NSColor
     { return astroColor("Astro Classification Top Secret SCI Color")}
 
     
@@ -363,7 +364,7 @@ extension NSColor
     //——————————————————————————————————————————————————————————————————————————————
     // Return the Astro status color for the given AstroStatus
     //——————————————————————————————————————————————————————————————————————————————
-    public static func colorForAstroStatus(_ status:AstroStatus)->NSColor
+    static func colorForAstroStatus(_ status:AstroStatus)->NSColor
     {
         switch status {
         case .Off:
@@ -386,7 +387,7 @@ extension NSColor
     // Return a random Astro status color.
     // Useful for debugging or demo.
     //——————————————————————————————————————————————————————————————————————————————
-    public static func randomStatusColor()->NSColor
+    static func randomStatusColor()->NSColor
     {
         return colorForAstroStatus(AstroStatus.randomStatus())
     }
