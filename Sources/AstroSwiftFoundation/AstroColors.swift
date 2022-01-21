@@ -33,30 +33,134 @@ public extension Color
         return Color(named, bundle: .module)
     }
     
-    //MARK: Color - Astro UI colors
+
+    //MARK: Color - New (2.0) Astro Semantic colors
+    //——————————————————————————————————————————————————————————————————————————————
+    // Astro semantic UI colors
+    //——————————————————————————————————————————————————————————————————————————————
+    
+    /* Foreground colors for static text and related elements.
+     */
+    static var astroUILabel: Color { return astroColor("Astro UI Bar Color") }
+
+    static var astroUISecondaryLabel: Color { return astroColor("Astro UI Bar Color")}
+
+    static var astroUITertiaryLabel: Color { return astroColor("Astro UI Bar Color") }
+
+    static var astroUIQuaternaryLabel: Color { return astroColor("Astro UI Bar Color") }
+
+    
+    /* Foreground color for standard system links.
+     */
+    static var astroUILink: Color { return astroColor("Astro UI Bar Color") }
+
+    
+    /* Foreground color for placeholder text in controls or text fields or text views.
+     */
+    static var astroUIPlaceholderText: Color { return astroColor("Astro UI Bar Color") }
+
+    
+    /* Foreground colors for separators (thin border or divider lines).
+     * `separatorColor` may be partially transparent, so it can go on top of any content.
+     * `opaqueSeparatorColor` is intended to look similar, but is guaranteed to be opaque, so it will
+     * completely cover anything behind it. Depending on the situation, you may need one or the other.
+     */
+    static var astroUISeparator: Color { return astroColor("Astro UI Bar Color") }
+
+    static var astroUIOpaqueSeparator: Color { return astroColor("Astro UI Bar Color") }
+
+    
+    /* We provide two design systems (also known as "stacks") for structuring an iOS app's backgrounds.
+     *
+     * Each stack has three "levels" of background colors. The first color is intended to be the
+     * main background, farthest back. Secondary and tertiary colors are layered on top
+     * of the main background, when appropriate.
+     *
+     * Inside of a discrete piece of UI, choose a stack, then use colors from that stack.
+     * We do not recommend mixing and matching background colors between stacks.
+     * The foreground colors above are designed to work in both stacks.
+     *
+     * 1. systemBackground
+     *    Use this stack for views with standard table views, and designs which have a white
+     *    primary background in light mode.
+     */
+    static var astroUIBackground: Color { return astroColor("Astro UI Bar Color") }
+
+    static var astroUISecondaryBackground: Color { return astroColor("Astro UI Bar Color") }
+
+    static var astroUITertiaryBackground: Color { return astroColor("Astro UI Bar Color") }
+
+    
+    /* 2. systemGroupedBackground
+     *    Use this stack for views with grouped content, such as grouped tables and
+     *    platter-based designs. These are like grouped table views, but you may use these
+     *    colors in places where a table view wouldn't make sense.
+     */
+    static var astroUIGroupedBackground:Color { return astroColor("Astro UI Bar Color") }
+
+    static var astroUISecondaryGroupedBackground:Color { return astroColor("Astro UI Bar Color") }
+
+    static var astroUITertiaryGroupedBackground:Color { astroColor("Astro UI Bar Color") }
+
+    
+    /* Fill colors for UI elements.
+     * These are meant to be used over the background colors, since their alpha component is less than 1.
+     *
+     * systemFillColor is appropriate for filling thin and small shapes.
+     * Example: The track of a slider.
+     */
+    static var astroUIFill: Color { return astroColor("Astro UI Bar Color") }
+
+    
+    /* secondarySystemFillColor is appropriate for filling medium-size shapes.
+     * Example: The background of a switch.
+     */
+    static var astroUISecondaryFill: Color { return astroColor("Astro UI Bar Color") }
+
+    
+    /* tertiarySystemFillColor is appropriate for filling large shapes.
+     * Examples: Input fields, search bars, buttons.
+     */
+    static var astroUITertiaryFill: Color { return astroColor("Astro UI Bar Color") }
+
+    
+    /* quaternarySystemFillColor is appropriate for filling large areas containing complex content.
+     * Example: Expanded table cells.
+     */
+    static var astroUIQuaternaryFill: Color { return astroColor("Astro UI Bar Color") }
+
+    
+    //MARK: Color - OLD Astro UI colors, retooled to always reference the new semantic colors above
     //——————————————————————————————————————————————————————————————————————————————
     // Astro semantic UI colors
     //——————————————————————————————————————————————————————————————————————————————
     static var astroUIBar:Color
-    {return astroColor("Astro UI Bar Color")} // astroUIQuaternaryLighten3,astroUITertiaryDarken3
+    {return astroUIFill}
 
     static var astroUITint:Color
     {return astroColor("Astro UI Tint Color")} //astroUISecondary
 
     static var astroUITableCell:Color
-    {return astroColor("Astro UI Table Cell Color")} // white, astroUITertiaryDarken1
+    {return astroUIBackground}
     
+    static var astroUIGroupedTableCell:Color
+    {return astroUISecondaryBackground}
+
     static var astroUITableCellLabel:Color
-    {return astroColor("Astro UI Table Cell Label Color")} // astroUIQuaternaryDarken4, white
+    {return astroUILabel}
 
     static var astroUITableSelectedCell:Color
-    {return astroColor("Astro UI Table Selected Cell Color")} // astroUIPrimary, astroUIQuaternaryLighten3
+    {return astroUISecondaryBackground}
+
+    static var astroUIGroupedTableSelectedCell:Color
+    {return astroUITertiaryBackground}
 
     static var astroUITableSeparator:Color
-    {return astroColor("Astro UI Table Separator Color")} // astroUIQuaternary, astroUITertiaryDarken2
+    {return astroUISeparator}
 
-    static var astroUIBackground:Color
-    {return astroColor("Astro UI Background Color")} //astroUIQuaternaryLighten3, astroUITertiaryDarken1
+    // re-using this name
+    // static var astroUIBackground:Color
+    // {return astroColor("Astro UI Background Color")} //astroUIQuaternaryLighten3, astroUITertiaryDarken1
     
     //MARK: Color - Astro Status colors
     //——————————————————————————————————————————————————————————————————————————————
