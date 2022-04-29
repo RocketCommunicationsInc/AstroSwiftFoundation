@@ -113,7 +113,18 @@ public extension Color
             return Color(uiColor:.systemBackground)
         }
     }
-    static var astroUISecondaryBackground: Color { return astroColor("Astro UI Bar Color") }
+    
+    static func astroUISecondaryBackground(_ colorScheme:ColorScheme)-> Color
+    {
+        if colorScheme == .dark {
+            return Color("Astro UI Secondary Background Color", bundle: .module)
+        }
+        else {
+            return Color(uiColor:.secondarySystemBackground)
+        }
+    }
+
+//    static var astroUISecondaryBackground: Color { return astroColor("Astro UI Bar Color") }
 
 //    static var astroUITertiaryBackground: Color { return astroColor("Astro UI Bar Color") }
 
