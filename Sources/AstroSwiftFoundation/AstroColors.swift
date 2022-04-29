@@ -104,6 +104,15 @@ public extension Color
      */
     static var astroUIBackground: Color { return astroColor("Astro UI Background Color", light: Color(uiColor:.systemBackground)) }
 
+    static func astroUIBackground(colorScheme:ColorScheme)-> Color
+    {
+        if colorScheme == .dark {
+            return Color("Astro UI Background Color", bundle: .module)
+        }
+        else {
+            return Color(uiColor:.systemBackground)
+        }
+    }
     static var astroUISecondaryBackground: Color { return astroColor("Astro UI Bar Color") }
 
 //    static var astroUITertiaryBackground: Color { return astroColor("Astro UI Bar Color") }
