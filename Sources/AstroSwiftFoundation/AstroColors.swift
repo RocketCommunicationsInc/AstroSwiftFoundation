@@ -34,22 +34,22 @@ public extension Color
         return Color(named, bundle: .module)
     }
     
-    //——————————————————————————————————————————————————————————————————————————————
-    // Wrap the the Color constructor
-    //——————————————————————————————————————————————————————————————————————————————
-    private static func astroColor(_ named:String, light:Color)->Color
-    {
-        @Environment(\.colorScheme) var colorScheme
-
-        // The Color constructor is non-failable, so no debug color
-        if colorScheme == .dark {
-            return Color(named, bundle: .module)
-        }
-        else {
-            return light
-        }
-    }
-    
+//    //——————————————————————————————————————————————————————————————————————————————
+//    // Wrap the the Color constructor
+//    //——————————————————————————————————————————————————————————————————————————————
+//    private static func astroColor(_ named:String, light:Color)->Color
+//    {
+//        @Environment(\.colorScheme) var colorScheme
+//
+//        // The Color constructor is non-failable, so no debug color
+//        if colorScheme == .dark {
+//            return Color(named, bundle: .module)
+//        }
+//        else {
+//            return light
+//        }
+//    }
+//
     
 
     //MARK: Color - New (2.0) Astro Semantic colors
@@ -102,9 +102,9 @@ public extension Color
      *    Use this stack for views with standard table views, and designs which have a white
      *    primary background in light mode.
      */
-    static var astroUIBackground: Color { return astroColor("Astro UI Background Color", light: Color(uiColor:.systemBackground)) }
+//    static var astroUIBackground: Color { return astroColor("Astro UI Background Color", light: Color(uiColor:.systemBackground)) }
 
-    static func astroUIBackground(colorScheme:ColorScheme)-> Color
+    static func astroUIBackground(_ colorScheme:ColorScheme)-> Color
     {
         if colorScheme == .dark {
             return Color("Astro UI Background Color", bundle: .module)
