@@ -102,7 +102,7 @@ public extension Color
      *    Use this stack for views with standard table views, and designs which have a white
      *    primary background in light mode.
      */
-    static var astroUIBackground: Color { return astroColor("Astro UI Background Color", light: Color(uiColor:.label)) }
+    static var astroUIBackground: Color { return astroColor("Astro UI Background Color", light: Color(uiColor:.systemBackground)) }
 
     static var astroUISecondaryBackground: Color { return astroColor("Astro UI Bar Color") }
 
