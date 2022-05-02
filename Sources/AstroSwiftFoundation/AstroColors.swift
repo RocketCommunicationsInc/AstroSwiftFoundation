@@ -136,6 +136,9 @@ public extension Color
         }
     }
 
+    static var astroUITint:Color
+    {  return astroColor("Astro UI Tint Color")}
+
 
     
     //MARK: Color - Astro Status colors
