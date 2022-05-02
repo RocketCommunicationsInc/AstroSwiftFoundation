@@ -34,21 +34,21 @@ public extension Color
         return Color(named, bundle: .module)
     }
     
-    //——————————————————————————————————————————————————————————————————————————————
-    // Wrap the the Color constructor
-    //——————————————————————————————————————————————————————————————————————————————
-    private static func astroColorFunc(_ named:String, light:UIColor)->Color
-    {
-        @Environment(\.colorScheme) var colorScheme
-
-        // The Color constructor is non-failable, so no debug color
-        if colorScheme == .dark {
-            return Color(named, bundle: .module)
-        }
-        else {
-            return Color(uiColor: light)
-        }
-    }
+//    //——————————————————————————————————————————————————————————————————————————————
+//    // Wrap the the Color constructor
+//    //——————————————————————————————————————————————————————————————————————————————
+//    private static func astroColorFunc(_ named:String, light:UIColor)->Color
+//    {
+//        @Environment(\.colorScheme) var colorScheme
+//
+//        // The Color constructor is non-failable, so no debug color
+//        if colorScheme == .dark {
+//            return Color(named, bundle: .module)
+//        }
+//        else {
+//            return Color(uiColor: light)
+//        }
+//    }
 
     
 
@@ -73,19 +73,19 @@ public extension Color
      *    primary background in light mode.
      */
 
-//    static func astroUIBackground(_ colorScheme:ColorScheme)-> Color {
-//        if colorScheme == .dark {
-//            return Color("Astro UI Background Color", bundle: .module)
-//        }
-//        else {
-//            return Color(uiColor:.systemBackground)
-//        }
-//    }
-    
     static func astroUIBackground(_ colorScheme:ColorScheme)-> Color {
-        return astroColorFunc("Astro UI Background Color", light:.systemBackground)
+        if colorScheme == .dark {
+            return Color("Astro UI Background Color", bundle: .module)
+        }
+        else {
+            return Color(uiColor:.systemBackground)
+        }
     }
     
+//    static func astroUIBackground(_ colorScheme:ColorScheme)-> Color {
+//        return astroColorFunc("Astro UI Background Color", light:.systemBackground)
+//    }
+//
     static func astroUISecondaryBackground(_ colorScheme:ColorScheme)-> Color {
         if colorScheme == .dark {
             return Color("Astro UI Secondary Background Color", bundle: .module)
