@@ -104,8 +104,7 @@ public extension Color
      */
 //    static var astroUIBackground: Color { return astroColor("Astro UI Background Color", light: Color(uiColor:.systemBackground)) }
 
-    static func astroUIBackground(_ colorScheme:ColorScheme)-> Color
-    {
+    static func astroUIBackground(_ colorScheme:ColorScheme)-> Color {
         if colorScheme == .dark {
             return Color("Astro UI Background Color", bundle: .module)
         }
@@ -114,8 +113,7 @@ public extension Color
         }
     }
     
-    static func astroUISecondaryBackground(_ colorScheme:ColorScheme)-> Color
-    {
+    static func astroUISecondaryBackground(_ colorScheme:ColorScheme)-> Color {
         if colorScheme == .dark {
             return Color("Astro UI Secondary Background Color", bundle: .module)
         }
@@ -124,22 +122,46 @@ public extension Color
         }
     }
 
-//    static var astroUISecondaryBackground: Color { return astroColor("Astro UI Bar Color") }
+    static func astroUITertiaryBackground(_ colorScheme:ColorScheme)-> Color {
+        if colorScheme == .dark {
+            return Color("Astro UI Tertiary Background Color", bundle: .module)
+        }
+        else {
+            return Color(uiColor:.tertiarySystemBackground)
+        }
+    }
 
-//    static var astroUITertiaryBackground: Color { return astroColor("Astro UI Bar Color") }
-
-    
     /* 2. systemGroupedBackground
      *    Use this stack for views with grouped content, such as grouped tables and
      *    platter-based designs. These are like grouped table views, but you may use these
      *    colors in places where a table view wouldn't make sense.
      */
-    static var astroUIGroupedBackground:Color { return astroColor("Astro UI Bar Color") }
+    static func astroUIGroupedBackground(_ colorScheme:ColorScheme)-> Color{
+        if colorScheme == .dark {
+            return Color("Astro UI Grouped Background Color", bundle: .module)
+        }
+        else {
+            return Color(uiColor:.systemGroupedBackground)
+        }
+    }
 
-    static var astroUISecondaryGroupedBackground:Color { return astroColor("Astro UI Bar Color") }
+    static func astroUISecondaryGroupedBackground(_ colorScheme:ColorScheme)-> Color {
+        if colorScheme == .dark {
+            return Color("Astro UI Secondary Grouped Background Color", bundle: .module)
+        }
+        else {
+            return Color(uiColor:.secondarySystemGroupedBackground)
+        }
+    }
 
-    static var astroUITertiaryGroupedBackground:Color { astroColor("Astro UI Bar Color") }
-
+    static func astroUITertiaryGroupedBackground(_ colorScheme:ColorScheme)-> Color {
+        if colorScheme == .dark {
+            return Color("Astro UI Tertiary Grouped Background Color", bundle: .module)
+        }
+        else {
+            return Color(uiColor:.tertiarySystemGroupedBackground)
+        }
+    }
     
     /* Fill colors for UI elements.
      * These are meant to be used over the background colors, since their alpha component is less than 1.
@@ -168,33 +190,6 @@ public extension Color
 //    static var astroUIQuaternaryFill: Color { return astroColor("Astro UI Bar Color") }
 
     
-    //MARK: Color - OLD Astro UI colors, retooled to always reference the new semantic colors above
-    //——————————————————————————————————————————————————————————————————————————————
-    // Astro semantic UI colors
-    //——————————————————————————————————————————————————————————————————————————————
-//    static var astroUIBar:Color
-//    {return astroUIFill}
-//
-//    static var astroUITint:Color
-//    {return astroColor("Astro UI Tint Color")} //astroUISecondary
-//
-//    static var astroUITableCell:Color
-//    {return astroUIBackground}
-//
-//    static var astroUIGroupedTableCell:Color
-//    {return astroUISecondaryBackground}
-//
-//    static var astroUITableCellLabel:Color
-//    {return astroUILabel}
-//
-//    static var astroUITableSelectedCell:Color
-//    {return astroUISecondaryBackground}
-//
-//    static var astroUIGroupedTableSelectedCell:Color
-//    {return astroUITertiaryBackground}
-//
-//    static var astroUITableSeparator:Color
-//    {return astroUISeparator}
 
     // re-using this name
     // static var astroUIBackground:Color
