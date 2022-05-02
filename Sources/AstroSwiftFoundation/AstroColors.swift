@@ -34,61 +34,31 @@ public extension Color
         return Color(named, bundle: .module)
     }
     
-//    //——————————————————————————————————————————————————————————————————————————————
-//    // Wrap the the Color constructor
-//    //——————————————————————————————————————————————————————————————————————————————
-//    private static func astroColor(_ named:String, light:Color)->Color
-//    {
-//        @Environment(\.colorScheme) var colorScheme
-//
-//        // The Color constructor is non-failable, so no debug color
-//        if colorScheme == .dark {
-//            return Color(named, bundle: .module)
-//        }
-//        else {
-//            return light
-//        }
-//    }
-//
+    //——————————————————————————————————————————————————————————————————————————————
+    // Wrap the the Color constructor
+    //——————————————————————————————————————————————————————————————————————————————
+    private static func astroColorFunc(_ named:String, light:UIColor)->Color
+    {
+        @Environment(\.colorScheme) var colorScheme
+
+        // The Color constructor is non-failable, so no debug color
+        if colorScheme == .dark {
+            return Color(named, bundle: .module)
+        }
+        else {
+            return Color(uiColor: light)
+        }
+    }
+
     
 
     //MARK: Color - New (2.0) Astro Semantic colors
     //——————————————————————————————————————————————————————————————————————————————
     // Astro semantic UI colors
     //——————————————————————————————————————————————————————————————————————————————
-    
-    /* Foreground colors for static text and related elements.
-     */
-//    static var astroUILabel: Color { return astroColor("Astro UI Bar Color") }
-//
-//    static var astroUISecondaryLabel: Color { return astroColor("Astro UI Bar Color")}
-//
-//    static var astroUITertiaryLabel: Color { return astroColor("Astro UI Bar Color") }
-//
-//    static var astroUIQuaternaryLabel: Color { return astroColor("Astro UI Bar Color") }
-
-    
-    /* Foreground color for standard system links.
-     */
-    static var astroUILink: Color { return astroColor("Astro UI Bar Color") }
-
-    
-    /* Foreground color for placeholder text in controls or text fields or text views.
-     */
-//    static var astroUIPlaceholderText: Color { return astroColor("Astro UI Bar Color") }
-
-    
-    /* Foreground colors for separators (thin border or divider lines).
-     * `separatorColor` may be partially transparent, so it can go on top of any content.
-     * `opaqueSeparatorColor` is intended to look similar, but is guaranteed to be opaque, so it will
-     * completely cover anything behind it. Depending on the situation, you may need one or the other.
-     */
-    static var astroUISeparator: Color { return astroColor("Astro UI Bar Color") }
-
-    static var astroUIOpaqueSeparator: Color { return astroColor("Astro UI Bar Color") }
-
-    
-    /* We provide two design systems (also known as "stacks") for structuring an iOS app's backgrounds.
+        
+    /* Apple defines two systems (also known as "stacks") for structuring an iOS app's backgrounds.
+     * Astro offers these alternative background colors to give an Astro look in Dark mode
      *
      * Each stack has three "levels" of background colors. The first color is intended to be the
      * main background, farthest back. Secondary and tertiary colors are layered on top
@@ -102,15 +72,18 @@ public extension Color
      *    Use this stack for views with standard table views, and designs which have a white
      *    primary background in light mode.
      */
-//    static var astroUIBackground: Color { return astroColor("Astro UI Background Color", light: Color(uiColor:.systemBackground)) }
 
+//    static func astroUIBackground(_ colorScheme:ColorScheme)-> Color {
+//        if colorScheme == .dark {
+//            return Color("Astro UI Background Color", bundle: .module)
+//        }
+//        else {
+//            return Color(uiColor:.systemBackground)
+//        }
+//    }
+    
     static func astroUIBackground(_ colorScheme:ColorScheme)-> Color {
-        if colorScheme == .dark {
-            return Color("Astro UI Background Color", bundle: .module)
-        }
-        else {
-            return Color(uiColor:.systemBackground)
-        }
+        return astroColorFunc("Astro UI Background Color", light:.systemBackground)
     }
     
     static func astroUISecondaryBackground(_ colorScheme:ColorScheme)-> Color {
@@ -162,38 +135,8 @@ public extension Color
             return Color(uiColor:.tertiarySystemGroupedBackground)
         }
     }
-    
-    /* Fill colors for UI elements.
-     * These are meant to be used over the background colors, since their alpha component is less than 1.
-     *
-     * systemFillColor is appropriate for filling thin and small shapes.
-     * Example: The track of a slider.
-     */
- //   static var astroUIFill: Color { return astroColor("Astro UI Bar Color") }
 
-    
-    /* secondarySystemFillColor is appropriate for filling medium-size shapes.
-     * Example: The background of a switch.
-     */
-//    static var astroUISecondaryFill: Color { return astroColor("Astro UI Bar Color") }
 
-    
-    /* tertiarySystemFillColor is appropriate for filling large shapes.
-     * Examples: Input fields, search bars, buttons.
-     */
-//    static var astroUITertiaryFill: Color { return astroColor("Astro UI Bar Color") }
-
-    
-    /* quaternarySystemFillColor is appropriate for filling large areas containing complex content.
-     * Example: Expanded table cells.
-     */
-//    static var astroUIQuaternaryFill: Color { return astroColor("Astro UI Bar Color") }
-
-    
-
-    // re-using this name
-    // static var astroUIBackground:Color
-    // {return astroColor("Astro UI Background Color")} //astroUIQuaternaryLighten3, astroUITertiaryDarken1
     
     //MARK: Color - Astro Status colors
     //——————————————————————————————————————————————————————————————————————————————
