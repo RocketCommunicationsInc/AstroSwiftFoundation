@@ -34,23 +34,6 @@ public extension Color
         return Color(named, bundle: .module)
     }
     
-//    //——————————————————————————————————————————————————————————————————————————————
-//    // Wrap the the Color constructor
-//    //——————————————————————————————————————————————————————————————————————————————
-//    private static func astroColorFunc(_ named:String, light:UIColor)->Color
-//    {
-//        @Environment(\.colorScheme) var colorScheme
-//
-//        // The Color constructor is non-failable, so no debug color
-//        if colorScheme == .dark {
-//            return Color(named, bundle: .module)
-//        }
-//        else {
-//            return Color(uiColor: light)
-//        }
-//    }
-
-    
 
     //MARK: Color - New (2.0) Astro Semantic colors
     //——————————————————————————————————————————————————————————————————————————————
@@ -72,73 +55,21 @@ public extension Color
      *    Use this stack for views with standard table views, and designs which have a white
      *    primary background in light mode.
      */
-
-    static func astroUIBackground(_ colorScheme:ColorScheme)-> Color {
-        if colorScheme == .dark {
-            return Color("Astro UI Background Color", bundle: .module)
-        }
-        else {
-            return Color(uiColor:.systemBackground)
-        }
-    }
-    
-//    static func astroUIBackground(_ colorScheme:ColorScheme)-> Color {
-//        return astroColorFunc("Astro UI Background Color", light:.systemBackground)
-//    }
-//
-    static func astroUISecondaryBackground(_ colorScheme:ColorScheme)-> Color {
-        if colorScheme == .dark {
-            return Color("Astro UI Secondary Background Color", bundle: .module)
-        }
-        else {
-            return Color(uiColor:.secondarySystemBackground)
-        }
-    }
-
-    static func astroUITertiaryBackground(_ colorScheme:ColorScheme)-> Color {
-        if colorScheme == .dark {
-            return Color("Astro UI Tertiary Background Color", bundle: .module)
-        }
-        else {
-            return Color(uiColor:.tertiarySystemBackground)
-        }
-    }
+    static var astroUIBackground:Color { return astroColor("Astro UI Background Color")}
+    static var astroUISecondaryBackground:Color { return astroColor("Astro UI Secondary Background Color")}
+    static var astroUITertiaryBackground:Color { return astroColor("Astro UI Tertiary Background Color")}
 
     /* 2. systemGroupedBackground
      *    Use this stack for views with grouped content, such as grouped tables and
      *    platter-based designs. These are like grouped table views, but you may use these
      *    colors in places where a table view wouldn't make sense.
      */
-    static func astroUIGroupedBackground(_ colorScheme:ColorScheme)-> Color{
-        if colorScheme == .dark {
-            return Color("Astro UI Grouped Background Color", bundle: .module)
-        }
-        else {
-            return Color(uiColor:.systemGroupedBackground)
-        }
-    }
+    static var astroUIGroupedBackground:Color { return astroColor("Astro UI Grouped Background Color")}
+    static var astroUISecondaryGroupedBackground:Color { return astroColor("Astro UI Secondary Grouped Background Color")}
+    static var astroUITertiaryGroupedBackground:Color { return astroColor("Astro UI Tertiary Grouped Background Color")}
 
-    static func astroUISecondaryGroupedBackground(_ colorScheme:ColorScheme)-> Color {
-        if colorScheme == .dark {
-            return Color("Astro UI Secondary Grouped Background Color", bundle: .module)
-        }
-        else {
-            return Color(uiColor:.secondarySystemGroupedBackground)
-        }
-    }
-
-    static func astroUITertiaryGroupedBackground(_ colorScheme:ColorScheme)-> Color {
-        if colorScheme == .dark {
-            return Color("Astro UI Tertiary Grouped Background Color", bundle: .module)
-        }
-        else {
-            return Color(uiColor:.tertiarySystemGroupedBackground)
-        }
-    }
-
-    static var astroUITint:Color
-    {  return astroColor("Astro UI Tint Color")}
-
+    // tint color is applied to all controls, buttons
+    static var astroUITint:Color { return astroColor("Astro UI Tint Color")}
 
     
     //MARK: Color - Astro Status colors
