@@ -68,8 +68,8 @@ public extension Color
     static var astroUISecondaryGroupedBackground:Color { return astroColor("Astro UI Secondary Grouped Background Color")}
     static var astroUITertiaryGroupedBackground:Color { return astroColor("Astro UI Tertiary Grouped Background Color")}
 
-    // tint color is applied to all controls, buttons
-    static var astroUITint:Color { return astroColor("Astro UI Tint Color")}
+    // Accent color is applied to all controls, also used for Tint
+    static var astroUIAccent:Color { return astroColor("Astro UI Accent Color")}
 
     
     //MARK: Color - Astro Status colors
