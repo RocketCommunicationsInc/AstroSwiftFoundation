@@ -71,36 +71,14 @@ public extension Color
     // Accent color is applied to all controls, also used for Tint
     static var astroUIAccent:Color { return astroColor("Astro UI Accent Color")}
 
-    @available(iOS, introduced: 13.0, deprecated: 100000.0, message: "Use Color(uiColor:) when converting a UIColor, or create a standard Color directly")
-    @available(macOS, introduced: 13.0, deprecated: 100000.0, message: "Use Color(uiColor:) when converting a UIColor, or create a standard Color directly" )
-    @available(tvOS, introduced: 13.0, deprecated: 100000.0, message: "Use Color(uiColor:) when converting a UIColor, or create a standard Color directly")
-    @available(watchOS, introduced: 6.0, deprecated: 100000.0, message: "Use Color(uiColor:) when converting a UIColor, or create a standard Color directly")
-    static var astroUIBar:Color = .red
-//    {return astroColor("Astro UI Bar Color")} // astroUIQuaternaryLighten3,astroUITertiaryDarken3
+    /* Obsolete vars. Sadly the Siwft @available attributes don't work on static vars  */
+    //static var astroUIBar:UIColor // No longer recommended to colorize Bars, let them be system-standard translucent
+    //static var astroUITint:UIColor // now called astroUIAccent
+    //static var astroUITableCell:UIColor // set table cell backgrounds to astroUIBackground
+    //static var astroUITableCellLabel:UIColor // use Swift's .label
+    //static var astroUITableSelectedCell:UIColor // use default selection color
+    //static var astroUITableSeparator:UIColor // use default separator color
 
-    @available(iOS, introduced: 13.0, deprecated: 100000.0, message: "Use Color(uiColor:) when converting a UIColor, or create a standard Color directly")
-    @available(macOS, introduced: 13.0, deprecated: 100000.0, message: "Use Color(uiColor:) when converting a UIColor, or create a standard Color directly" )
-    @available(tvOS, introduced: 13.0, deprecated: 100000.0, message: "Use Color(uiColor:) when converting a UIColor, or create a standard Color directly")
-    @available(watchOS, introduced: 6.0, deprecated: 100000.0, message: "Use Color(uiColor:) when converting a UIColor, or create a standard Color directly")
-    static var astroUITint:Color = .red
- //   {return astroColor("Astro UI Tint Color")} //astroUISecondary
-
-    static var astroUITableCell:Color
-    {return astroColor("Astro UI Table Cell Color")} // white, astroUITertiaryDarken1
-    
-    static var astroUITableCellLabel:Color
-    {return astroColor("Astro UI Table Cell Label Color")} // astroUIQuaternaryDarken4, white
-
-    static var astroUITableSelectedCell:Color
-    {return astroColor("Astro UI Table Selected Cell Color")} // astroUIPrimary, astroUIQuaternaryLighten3
-
-    static var astroUITableSeparator:Color
-    {return astroColor("Astro UI Table Separator Color")} // astroUIQuaternary, astroUITertiaryDarken2
-
-//    static var astroUIBackground:Color
-//    {return astroColor("Astro UI Background Color")} //astroUIQuaternaryLighten3, astroUITertiaryDarken1
-    
-    
     //MARK: Color - Astro Status colors
     //——————————————————————————————————————————————————————————————————————————————
     // Astro status colors
