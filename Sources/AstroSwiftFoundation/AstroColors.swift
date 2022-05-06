@@ -187,6 +187,7 @@ public extension UIColor
     //——————————————————————————————————————————————————————————————————————————————
     // Astro semantic UI colors
     //——————————————————————————————————————————————————————————————————————————————
+    @available(*, unavailable)
     static var astroUIBar:UIColor
     {return astroColor("Astro UI Bar Color")} // astroUIQuaternaryLighten3,astroUITertiaryDarken3
 
