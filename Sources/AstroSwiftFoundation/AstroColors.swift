@@ -183,7 +183,44 @@ public extension UIColor
     }
     
     
-    //MARK: UIColor - Astro UI colors
+    //MARK: Color - New (2.0) Astro Semantic colors
+    //——————————————————————————————————————————————————————————————————————————————
+    // Astro semantic UI colors
+    //——————————————————————————————————————————————————————————————————————————————
+        
+    /* Apple defines two systems (also known as "stacks") for structuring an iOS app's backgrounds.
+     * Astro offers these alternative background colors to give an Astro look in Dark mode
+     *
+     * Each stack has three "levels" of background colors. The first color is intended to be the
+     * main background, farthest back. Secondary and tertiary colors are layered on top
+     * of the main background, when appropriate.
+     *
+     * Inside of a discrete piece of UI, choose a stack, then use colors from that stack.
+     * We do not recommend mixing and matching background colors between stacks.
+     * The foreground colors above are designed to work in both stacks.
+     *
+     * 1. systemBackground
+     *    Use this stack for views with standard table views, and designs which have a white
+     *    primary background in light mode.
+     */
+    static var astroUIBackground:UIColor { return astroColor("Astro UI Background Color")}
+    static var astroUISecondaryBackground:UIColor { return astroColor("Astro UI Secondary Background Color")}
+    static var astroUITertiaryBackground:UIColor { return astroColor("Astro UI Tertiary Background Color")}
+
+    /* 2. systemGroupedBackground
+     *    Use this stack for views with grouped content, such as grouped tables and
+     *    platter-based designs. These are like grouped table views, but you may use these
+     *    colors in places where a table view wouldn't make sense.
+     */
+    static var astroUIGroupedBackground:UIColor { return astroColor("Astro UI Grouped Background Color")}
+    static var astroUISecondaryGroupedBackground:UIColor { return astroColor("Astro UI Secondary Grouped Background Color")}
+    static var astroUITertiaryGroupedBackground:UIColor { return astroColor("Astro UI Tertiary Grouped Background Color")}
+
+    // Accent color is applied to all controls, also used for Tint
+    static var astroUIAccent:UIColor { return astroColor("Astro UI Accent Color")}
+
+    
+    //MARK: UIColor - OBSOLETE Astro UI colors
     //——————————————————————————————————————————————————————————————————————————————
     // Astro semantic UI colors
     //——————————————————————————————————————————————————————————————————————————————
