@@ -71,11 +71,11 @@ public extension Color
     // Accent color is applied to all controls, also used for Tint
     static var astroUIAccent:Color { return astroColor("Astro UI Accent Color")}
 
-    @available(*, obsoleted:0 , message:"Applying color to Bars is no longer recommented")
+    @available(*, deprecated , message:"Applying color to Bars is no longer recommented")
     static var astroUIBar:Color = .red
 //    {return astroColor("Astro UI Bar Color")} // astroUIQuaternaryLighten3,astroUITertiaryDarken3
 
-    @available(*, deprecated:0 , renamed:"astroUIAccent")
+    @available(*, deprecated , renamed:"astroUIAccent")
     static var astroUITint:Color = .red
  //   {return astroColor("Astro UI Tint Color")} //astroUISecondary
 
