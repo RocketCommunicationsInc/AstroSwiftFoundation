@@ -187,27 +187,29 @@ public extension UIColor
     //——————————————————————————————————————————————————————————————————————————————
     // Astro semantic UI colors
     //——————————————————————————————————————————————————————————————————————————————
-    @available(*, unavailable)
+    @available(*, unavailable, message: "Setting Astro colors on Bars is no longer recommended")
     static var astroUIBar:UIColor
-    {return astroColor("Astro UI Bar Color")} // astroUIQuaternaryLighten3,astroUITertiaryDarken3
+    {return astroColor("Unavailable")} // will never run, here for compiler demands
 
+    @available(*, unavailable, renamed: "astroUIAccent")
     static var astroUITint:UIColor
-    {return astroColor("Astro UI Tint Color")} //astroUISecondary
+    {return astroColor("Unavailable")} // will never run, here for compiler demands
 
+    @available(*, unavailable, renamed: "astroUIBackground")
     static var astroUITableCell:UIColor
-    {return astroColor("Astro UI Table Cell Color")} // white, astroUITertiaryDarken1
-    
+    {return astroColor("Unavailable")} // will never run, here for compiler demands
+
+    @available(*, unavailable, renamed: "label")
     static var astroUITableCellLabel:UIColor
-    {return astroColor("Astro UI Table Cell Label Color")} // astroUIQuaternaryDarken4, white
+    {return astroColor("Unavailable")} // will never run, here for compiler demands
 
+    @available(*, unavailable, message: "Setting Astro colors on Cell Selection is no longer recommended")
     static var astroUITableSelectedCell:UIColor
-    {return astroColor("Astro UI Table Selected Cell Color")} // astroUIPrimary, astroUIQuaternaryLighten3
+    {return astroColor("Unavailable")} // will never run, here for compiler demands
 
+    @available(*, unavailable, message: "Setting Astro colors on Table Separator is no longer recommended")
     static var astroUITableSeparator:UIColor
-    {return astroColor("Astro UI Table Separator Color")} // astroUIQuaternary, astroUITertiaryDarken2
-
-    static var astroUIBackground:UIColor
-    {return astroColor("Astro UI Background Color")} //astroUIQuaternaryLighten3, astroUITertiaryDarken1
+    {return astroColor("Unavailable")} // will never run, here for compiler demands
 
     
     //MARK: UIColor - Astro Status colors
