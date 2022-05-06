@@ -71,6 +71,29 @@ public extension Color
     // Accent color is applied to all controls, also used for Tint
     static var astroUIAccent:Color { return astroColor("Astro UI Accent Color")}
 
+    @available(*, obsoleted:0 , message:"Applying color to Bars is no longer recommented")
+    static var astroUIBar:Color = .red
+//    {return astroColor("Astro UI Bar Color")} // astroUIQuaternaryLighten3,astroUITertiaryDarken3
+
+    @available(*, deprecated:0 , renamed:"astroUIAccent")
+    static var astroUITint:Color = .red
+ //   {return astroColor("Astro UI Tint Color")} //astroUISecondary
+
+    static var astroUITableCell:Color
+    {return astroColor("Astro UI Table Cell Color")} // white, astroUITertiaryDarken1
+    
+    static var astroUITableCellLabel:Color
+    {return astroColor("Astro UI Table Cell Label Color")} // astroUIQuaternaryDarken4, white
+
+    static var astroUITableSelectedCell:Color
+    {return astroColor("Astro UI Table Selected Cell Color")} // astroUIPrimary, astroUIQuaternaryLighten3
+
+    static var astroUITableSeparator:Color
+    {return astroColor("Astro UI Table Separator Color")} // astroUIQuaternary, astroUITertiaryDarken2
+
+//    static var astroUIBackground:Color
+//    {return astroColor("Astro UI Background Color")} //astroUIQuaternaryLighten3, astroUITertiaryDarken1
+    
     
     //MARK: Color - Astro Status colors
     //——————————————————————————————————————————————————————————————————————————————
@@ -306,11 +329,12 @@ public extension NSColor
     //——————————————————————————————————————————————————————————————————————————————
     // Astro semantic UI colors
     //——————————————————————————————————————————————————————————————————————————————
+    @available(*, deprecated, message:"Dont colorize bars")
     static var astroUIBar:NSColor
-    {return astroColor("Astro UI Bar Color")} // astroUIQuaternaryLighten3,astroUITertiaryDarken3
+//    {return astroColor("Astro UI Bar Color")} // astroUIQuaternaryLighten3,astroUITertiaryDarken3
 
     static var astroUITint:NSColor
-    {return astroColor("Astro UI Tint Color")} //astroUISecondary
+//  {return astroColor("Astro UI Tint Color")} //astroUISecondary
 
     static var astroUITableCell:NSColor
     {return astroColor("Astro UI Table Cell Color")} // white, astroUITertiaryDarken1
