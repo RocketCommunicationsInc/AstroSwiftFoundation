@@ -71,11 +71,17 @@ public extension Color
     // Accent color is applied to all controls, also used for Tint
     static var astroUIAccent:Color { return astroColor("Astro UI Accent Color")}
 
-    @available(*, deprecated , message:"Applying color to Bars is no longer recommented")
+    @available(iOS, introduced: 13.0, deprecated: 100000.0, message: "Use Color(uiColor:) when converting a UIColor, or create a standard Color directly")
+    @available(macOS, introduced: 13.0, deprecated: 100000.0, message: "Use Color(uiColor:) when converting a UIColor, or create a standard Color directly" )
+    @available(tvOS, introduced: 13.0, deprecated: 100000.0, message: "Use Color(uiColor:) when converting a UIColor, or create a standard Color directly")
+    @available(watchOS, introduced: 6.0, deprecated: 100000.0, message: "Use Color(uiColor:) when converting a UIColor, or create a standard Color directly")
     static var astroUIBar:Color = .red
 //    {return astroColor("Astro UI Bar Color")} // astroUIQuaternaryLighten3,astroUITertiaryDarken3
 
-    @available(*, deprecated , renamed:"astroUIAccent")
+    @available(iOS, introduced: 13.0, deprecated: 100000.0, message: "Use Color(uiColor:) when converting a UIColor, or create a standard Color directly")
+    @available(macOS, introduced: 13.0, deprecated: 100000.0, message: "Use Color(uiColor:) when converting a UIColor, or create a standard Color directly" )
+    @available(tvOS, introduced: 13.0, deprecated: 100000.0, message: "Use Color(uiColor:) when converting a UIColor, or create a standard Color directly")
+    @available(watchOS, introduced: 6.0, deprecated: 100000.0, message: "Use Color(uiColor:) when converting a UIColor, or create a standard Color directly")
     static var astroUITint:Color = .red
  //   {return astroColor("Astro UI Tint Color")} //astroUISecondary
 
