@@ -2,7 +2,7 @@
 //  AstroColors.swift
 //
 //  Created by rocketjeff.
-//  Copyright © 2019-2021 Rocket Communications, Inc. All rights reserved.
+//  Copyright © 2019-2022 Rocket Communications, Inc. All rights reserved.
 //
 
 #if os(iOS) || os(tvOS)
@@ -71,14 +71,35 @@ public extension Color
     // Accent color is applied to all controls, also used for Tint
     static var astroUIAccent:Color { return astroColor("Astro UI Accent Color")}
 
-    /* Obsolete vars. Sadly the Siwft @available attributes don't work on static vars  */
-    //static var astroUIBar:UIColor // No longer recommended to colorize Bars, let them be system-standard translucent
-    //static var astroUITint:UIColor // now called astroUIAccent
-    //static var astroUITableCell:UIColor // set table cell backgrounds to astroUIBackground
-    //static var astroUITableCellLabel:UIColor // use Swift's .label
-    //static var astroUITableSelectedCell:UIColor // use default selection color
-    //static var astroUITableSeparator:UIColor // use default separator color
+    //MARK: Color - OBSOLETE Astro UI colors
+    //——————————————————————————————————————————————————————————————————————————————
+    // Astro OBSOLETE UI colors
+    //——————————————————————————————————————————————————————————————————————————————
+    @available(*, unavailable, message: "Setting Astro colors on Bars is no longer recommended")
+    static var astroUIBar:Color
+    {return astroColor("Unavailable")} // will never run, here for compiler demands
 
+    @available(*, unavailable, renamed: "astroUIAccent")
+    static var astroUITint:Color
+    {return astroColor("Unavailable")} // will never run, here for compiler demands
+
+    @available(*, unavailable, renamed: "astroUIBackground")
+    static var astroUITableCell:Color
+    {return astroColor("Unavailable")} // will never run, here for compiler demands
+
+    @available(*, unavailable, renamed: "label")
+    static var astroUITableCellLabel:Color
+    {return astroColor("Unavailable")} // will never run, here for compiler demands
+
+    @available(*, unavailable, message: "Setting Astro colors on Cell Selection is no longer recommended")
+    static var astroUITableSelectedCell:Color
+    {return astroColor("Unavailable")} // will never run, here for compiler demands
+
+    @available(*, unavailable, message: "Setting Astro colors on Table Separator is no longer recommended")
+    static var astroUITableSeparator:Color
+    {return astroColor("Unavailable")} // will never run, here for compiler demands
+
+    
     //MARK: Color - Astro Status colors
     //——————————————————————————————————————————————————————————————————————————————
     // Astro status colors
@@ -222,7 +243,7 @@ public extension UIColor
     
     //MARK: UIColor - OBSOLETE Astro UI colors
     //——————————————————————————————————————————————————————————————————————————————
-    // Astro semantic UI colors
+    // Astro OBSOLETE UI colors
     //——————————————————————————————————————————————————————————————————————————————
     @available(*, unavailable, message: "Setting Astro colors on Bars is no longer recommended")
     static var astroUIBar:UIColor
@@ -349,31 +370,71 @@ public extension NSColor
     }
     
     
-    //MARK: NSColor - Astro UI colors
+    
+    //MARK: NSColor - New (2.0) Astro Semantic colors
     //——————————————————————————————————————————————————————————————————————————————
     // Astro semantic UI colors
     //——————————————————————————————————————————————————————————————————————————————
-    @available(*, deprecated, message:"Dont colorize bars")
-    static var astroUIBar:NSColor
-//    {return astroColor("Astro UI Bar Color")} // astroUIQuaternaryLighten3,astroUITertiaryDarken3
+        
+    /* Apple defines two systems (also known as "stacks") for structuring an iOS app's backgrounds.
+     * Astro offers these alternative background colors to give an Astro look in Dark mode
+     *
+     * Each stack has three "levels" of background colors. The first color is intended to be the
+     * main background, farthest back. Secondary and tertiary colors are layered on top
+     * of the main background, when appropriate.
+     *
+     * Inside of a discrete piece of UI, choose a stack, then use colors from that stack.
+     * We do not recommend mixing and matching background colors between stacks.
+     * The foreground colors above are designed to work in both stacks.
+     *
+     * 1. systemBackground
+     *    Use this stack for views with standard table views, and designs which have a white
+     *    primary background in light mode.
+     */
+    static var astroUIBackground:NSColor { return astroColor("Astro UI Background Color")}
+    static var astroUISecondaryBackground:NSColor { return astroColor("Astro UI Secondary Background Color")}
+    static var astroUITertiaryBackground:NSColor { return astroColor("Astro UI Tertiary Background Color")}
 
-    static var astroUITint:NSColor
-//  {return astroColor("Astro UI Tint Color")} //astroUISecondary
+    /* 2. systemGroupedBackground
+     *    Use this stack for views with grouped content, such as grouped tables and
+     *    platter-based designs. These are like grouped table views, but you may use these
+     *    colors in places where a table view wouldn't make sense.
+     */
+    static var astroUIGroupedBackground:NSColor { return astroColor("Astro UI Grouped Background Color")}
+    static var astroUISecondaryGroupedBackground:NSColor { return astroColor("Astro UI Secondary Grouped Background Color")}
+    static var astroUITertiaryGroupedBackground:NSColor { return astroColor("Astro UI Tertiary Grouped Background Color")}
 
-    static var astroUITableCell:NSColor
-    {return astroColor("Astro UI Table Cell Color")} // white, astroUITertiaryDarken1
+    // Accent color is applied to all controls, also used for Tint
+    static var astroUIAccent:NSColor { return astroColor("Astro UI Accent Color")}
     
+    //MARK: NSColor - OBSOLETE Astro UI colors
+    //——————————————————————————————————————————————————————————————————————————————
+    // Astro OBSOLETE UI colors
+    //——————————————————————————————————————————————————————————————————————————————
+    @available(*, unavailable, message: "Setting Astro colors on Bars is no longer recommended")
+    static var astroUIBar:NSColor
+    {return astroColor("Unavailable")} // will never run, here for compiler demands
+
+    @available(*, unavailable, renamed: "astroUIAccent")
+    static var astroUITint:NSColor
+    {return astroColor("Unavailable")} // will never run, here for compiler demands
+
+    @available(*, unavailable, renamed: "astroUIBackground")
+    static var astroUITableCell:NSColor
+    {return astroColor("Unavailable")} // will never run, here for compiler demands
+
+    @available(*, unavailable, renamed: "label")
     static var astroUITableCellLabel:NSColor
-    {return astroColor("Astro UI Table Cell Label Color")} // astroUIQuaternaryDarken4, white
+    {return astroColor("Unavailable")} // will never run, here for compiler demands
 
+    @available(*, unavailable, message: "Setting Astro colors on Cell Selection is no longer recommended")
     static var astroUITableSelectedCell:NSColor
-    {return astroColor("Astro UI Table Selected Cell Color")} // astroUIPrimary, astroUIQuaternaryLighten3
+    {return astroColor("Unavailable")} // will never run, here for compiler demands
 
+    @available(*, unavailable, message: "Setting Astro colors on Table Separator is no longer recommended")
     static var astroUITableSeparator:NSColor
-    {return astroColor("Astro UI Table Separator Color")} // astroUIQuaternary, astroUITertiaryDarken2
+    {return astroColor("Unavailable")} // will never run, here for compiler demands
 
-    static var astroUIBackground:NSColor
-    {return astroColor("Astro UI Background Color")} //astroUIQuaternaryLighten3, astroUITertiaryDarken1
 
     
     //MARK: NSColor - Astro Status colors
