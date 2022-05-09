@@ -43,32 +43,32 @@ public extension Image
     //——————————————————————————————————————————————————————————————————————————————
     static var astroStatusOff:Image
     {
-        return Image("Astro Status Off Symbol").foregroundColor(Color.colorForAstroStatus(.Off)) as! Image
+        return Image("off").foregroundColor(Color.colorForAstroStatus(.Off)) as! Image
     }
     
     static var astroStatusStandby:Image
     {
-        return astroImage("Astro Status Standby Symbol")
+        return astroImage("standby")
     }
     
     static var astroStatusNormal:Image
     {
-        return astroImage("Astro Status Normal Symbol")
+        return astroImage("normal")
     }
     
     static var astroStatusCaution:Image
     {
-        return astroImage("Astro Status Caution Symbol")
+        return astroImage("caution")
     }
     
     static var astroStatusSerious:Image
     {
-        return astroImage("Astro Status Serious Symbol")
+        return astroImage("serious")
     }
     
     static var astroStatusCritical:Image
     {
-        return astroImage("Astro Status Critical Symbol")
+        return astroImage("critical")
     }
 
 
