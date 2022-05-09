@@ -43,7 +43,7 @@ public extension Image
     //——————————————————————————————————————————————————————————————————————————————
     static var astroStatusOff:Image
     {
-        return Image("off").foregroundColor(Color.colorForAstroStatus(.Off)) as! Image
+        return Image("off")
     }
     
     static var astroStatusStandby:Image
