@@ -17,6 +17,63 @@ import WatchKit
 import AppKit
 #endif
 
+import SwiftUI
+
+
+// Extend Image to include many conveniece methods to access Astro Status symbols
+public extension UIImage
+{
+    //——————————————————————————————————————————————————————————————————————————————
+    // Wrap the the UIImage constructor to return a debug image instead of nil on failure
+    //——————————————————————————————————————————————————————————————————————————————
+    private static func astroImage(_ named:String)->Image
+    {
+        #if os(iOS) || os(tvOS)
+        return Image(named)
+
+        #endif
+        
+        #if os(watchOS)
+        return Image(named)
+        #endif
+    }
+    
+    //——————————————————————————————————————————————————————————————————————————————
+    // Astro Status symbols
+    //——————————————————————————————————————————————————————————————————————————————
+    static var astroStatusOff:Image
+    {
+        return Image("Astro Status Off Symbol").foregroundColor(Color.colorForAstroStatus(.Off)) as! Image
+    }
+    
+    static var astroStatusStandby:Image
+    {
+        return astroImage("Astro Status Standby Symbol")
+    }
+    
+    static var astroStatusNormal:Image
+    {
+        return astroImage("Astro Status Normal Symbol")
+    }
+    
+    static var astroStatusCaution:Image
+    {
+        return astroImage("Astro Status Caution Symbol")
+    }
+    
+    static var astroStatusSerious:Image
+    {
+        return astroImage("Astro Status Serious Symbol")
+    }
+    
+    static var astroStatusCritical:Image
+    {
+        return astroImage("Astro Status Critical Symbol")
+    }
+
+
+}
+
 // Extend UIImage to include many conveniece methods to access Astro Status symbols
 #if os(iOS) || os(tvOS) || os(watchOS)
 public extension UIImage
