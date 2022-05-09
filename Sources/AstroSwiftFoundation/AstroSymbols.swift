@@ -21,7 +21,7 @@ import SwiftUI
 
 
 // Extend Image to include many conveniece methods to access Astro Status symbols
-public extension UIImage
+public extension Image
 {
     //——————————————————————————————————————————————————————————————————————————————
     // Wrap the the UIImage constructor to return a debug image instead of nil on failure
