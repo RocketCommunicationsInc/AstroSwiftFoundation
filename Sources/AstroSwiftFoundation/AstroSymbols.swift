@@ -24,12 +24,12 @@ import SwiftUI
 public extension Image
 {
     //——————————————————————————————————————————————————————————————————————————————
-    // Wrap the the UIImage constructor to return a debug image instead of nil on failure
+    // Wrap the the UIImage constructor to use .module access
     //——————————————————————————————————————————————————————————————————————————————
-    private static func astroImage(_ named:String)->Image
+    static func astroImage(_ named:String)->Image
     {
         #if os(iOS) || os(tvOS)
-        return Image(named)
+        return Image(named, bundle: .module)
 
         #endif
         
@@ -43,35 +43,55 @@ public extension Image
     //——————————————————————————————————————————————————————————————————————————————
     static var astroStatusOff:Image
     {
-        return Image("off")
+        return astroImage("astro.off")
     }
     
     static var astroStatusStandby:Image
     {
-        return astroImage("standby")
+        return astroImage("astro.standby")
     }
     
     static var astroStatusNormal:Image
     {
-        return astroImage("normal")
+        return astroImage("astro.normal")
     }
     
     static var astroStatusCaution:Image
     {
-        return astroImage("caution")
+        return astroImage("astro.caution")
     }
     
     static var astroStatusSerious:Image
     {
-        return astroImage("serious")
+        return astroImage("astro.serious")
     }
     
     static var astroStatusCritical:Image
     {
-        return astroImage("critical")
+        return astroImage("astro.critical")
     }
-
-
+    
+    
+    //——————————————————————————————————————————————————————————————————————————————
+    // Return the Astro status symbol for the given AstroStatus
+    //——————————————————————————————————————————————————————————————————————————————
+    static func imageForAstroStatus(_ status:AstroStatus)->Image
+    {
+        switch status {
+        case .Off:
+            return astroImage("astro.off")
+        case .Standby:
+            return astroImage("astro.standby")
+        case .Normal:
+            return astroImage("astro.normal")
+        case .Caution:
+            return astroImage("astro.caution")
+        case .Serious:
+            return astroImage("astro.serious")
+        case .Critical:
+            return astroImage("astro.critical")
+        }
+    }
 }
 
 // Extend UIImage to include many conveniece methods to access Astro Status symbols
@@ -81,7 +101,7 @@ public extension UIImage
     //——————————————————————————————————————————————————————————————————————————————
     // Wrap the the UIImage constructor to return a debug image instead of nil on failure
     //——————————————————————————————————————————————————————————————————————————————
-    private static func astroImage(named:String)->UIImage
+    static func astroImage(named:String)->UIImage
     {
         #if os(iOS) || os(tvOS)
         return UIImage(named: named, in: .module, compatibleWith: nil) ?? UIImage(systemName: "nosign")!
@@ -156,7 +176,6 @@ public extension UIImage
 #if os(macOS)
 extension NSImage
 {
-    
     //——————————————————————————————————————————————————————————————————————————————
     // Wrap the the NSImage constructor to return a debug image instead of nil on failure
     //——————————————————————————————————————————————————————————————————————————————

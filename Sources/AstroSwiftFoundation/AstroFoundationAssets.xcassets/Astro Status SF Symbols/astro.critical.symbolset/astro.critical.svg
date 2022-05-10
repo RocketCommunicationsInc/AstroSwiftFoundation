@@ -5,9 +5,9 @@ PUBLIC "-//W3C//DTD SVG 1.1//EN"
        "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="3300" height="2200">
  <!--glyph: "", point size: 100.0, font version: "17.3d3e1", template writer version: "65.1"-->
- <style>.multicolor-0:custom {fill:#FCE83A;opacity:1.0}
+ <style>.multicolor-0:custom {fill:#FF3838;opacity:1.0}
 
-.SFSymbolsPreviewFCE83A {fill:#FCE83A;opacity:1.0}
+.SFSymbolsPreviewFF3838 {fill:#FF3838;opacity:1.0}
 </style>
  <g id="Notes">
   <rect height="2200" id="artboard" style="fill:white;opacity:1" width="3300" x="0" y="0"/>
@@ -54,7 +54,7 @@ PUBLIC "-//W3C//DTD SVG 1.1//EN"
   <text style="stroke:none;fill:black;font-family:sans-serif;font-size:13;" transform="matrix(1 0 0 1 1289 1989)">design is preserved when submitting to Xcode.</text>
   <text id="template-version" style="stroke:none;fill:black;font-family:sans-serif;font-size:13;text-anchor:end;" transform="matrix(1 0 0 1 3036 1933)">Template v.3.0</text>
   <text style="stroke:none;fill:black;font-family:sans-serif;font-size:13;text-anchor:end;" transform="matrix(1 0 0 1 3036 1951)">Requires Xcode 13 or greater</text>
-  <text id="descriptive-name" style="stroke:none;fill:black;font-family:sans-serif;font-size:13;text-anchor:end;" transform="matrix(1 0 0 1 3036 1969)">Generated from caution</text>
+  <text id="descriptive-name" style="stroke:none;fill:black;font-family:sans-serif;font-size:13;text-anchor:end;" transform="matrix(1 0 0 1 3036 1969)">Generated from astro.critical</text>
   <text style="stroke:none;fill:black;font-family:sans-serif;font-size:13;text-anchor:end;" transform="matrix(1 0 0 1 3036 1987)">Typeset at 100 points</text>
   <text style="stroke:none;fill:black;font-family:sans-serif;font-size:13;" transform="matrix(1 0 0 1 263 726)">Small</text>
   <text style="stroke:none;fill:black;font-family:sans-serif;font-size:13;" transform="matrix(1 0 0 1 263 1156)">Medium</text>
@@ -133,85 +133,85 @@ PUBLIC "-//W3C//DTD SVG 1.1//EN"
  </g>
  <g id="Symbols">
   <g id="Black-L" transform="matrix(1 0 0 1 2843.26 1556)">
-   <path class="multicolor-0:custom SFSymbolsPreviewFCE83A" d="M36.817-88.552L143.455-88.552L143.455 18.093L36.817 18.093Z"/>
+   <path class="multicolor-0:custom SFSymbolsPreviewFF3838" d="M170.109-108.539L90.137 38.08L10.164-108.539L170.109-108.539Z"/>
   </g>
   <g id="Heavy-L" transform="matrix(1 0 0 1 2548.19 1556)">
-   <path class="multicolor-0:custom SFSymbolsPreviewFCE83A" d="M36.018-87.691L140.936-87.691L140.936 17.233L36.018 17.233Z"/>
+   <path class="multicolor-0:custom SFSymbolsPreviewFF3838" d="M167.16-107.354L88.478 36.896L9.794-107.354L167.16-107.354Z"/>
   </g>
   <g id="Bold-L" transform="matrix(1 0 0 1 2253.31 1556)">
-   <path class="multicolor-0:custom SFSymbolsPreviewFCE83A" d="M35.071-86.831L138.268-86.831L138.268 16.372L35.071 16.372Z"/>
+   <path class="multicolor-0:custom SFSymbolsPreviewFF3838" d="M164.062-106.173L86.671 35.713L9.277-106.173L164.062-106.173Z"/>
   </g>
   <g id="Semibold-L" transform="matrix(1 0 0 1 1957.87 1556)">
-   <path class="multicolor-0:custom SFSymbolsPreviewFCE83A" d="M34.661-85.971L136.139-85.971L136.139 15.512L34.661 15.512Z"/>
+   <path class="multicolor-0:custom SFSymbolsPreviewFF3838" d="M161.501-104.989L85.401 34.532L9.298-104.989L161.501-104.989Z"/>
   </g>
   <g id="Medium-L" transform="matrix(1 0 0 1 1662.13 1556)">
-   <path class="multicolor-0:custom SFSymbolsPreviewFCE83A" d="M34.545-85.11L134.302-85.11L134.302 14.653L34.545 14.653Z"/>
+   <path class="multicolor-0:custom SFSymbolsPreviewFF3838" d="M159.236-103.807L84.425 33.348L9.611-103.807L159.236-103.807Z"/>
   </g>
   <g id="Regular-L" transform="matrix(1 0 0 1 1366.67 1556)">
-   <path class="multicolor-0:custom SFSymbolsPreviewFCE83A" d="M34.159-84.251L132.196-84.251L132.196 13.792L34.159 13.792Z"/>
+   <path class="multicolor-0:custom SFSymbolsPreviewFF3838" d="M156.7-102.625L83.178 32.166L9.656-102.625L156.7-102.625Z"/>
   </g>
   <g id="Light-L" transform="matrix(1 0 0 1 1071.49 1556)">
-   <path class="multicolor-0:custom SFSymbolsPreviewFCE83A" d="M33.457-83.389L129.773-83.389L129.773 12.931L33.457 12.931Z"/>
+   <path class="multicolor-0:custom SFSymbolsPreviewFF3838" d="M153.848-101.442L81.615 30.984L9.383-101.442L153.848-101.442Z"/>
   </g>
   <g id="Thin-L" transform="matrix(1 0 0 1 776.808 1556)">
-   <path class="multicolor-0:custom SFSymbolsPreviewFCE83A" d="M32.291-82.53L126.888-82.53L126.888 12.072L32.291 12.072Z"/>
+   <path class="multicolor-0:custom SFSymbolsPreviewFF3838" d="M150.532-100.259L79.589 29.8L8.647-100.259L150.532-100.259Z"/>
   </g>
   <g id="Ultralight-L" transform="matrix(1 0 0 1 481.146 1556)">
-   <path class="multicolor-0:custom SFSymbolsPreviewFCE83A" d="M32.176-81.67L125.052-81.67L125.052 11.211L32.176 11.211Z"/>
+   <path class="multicolor-0:custom SFSymbolsPreviewFF3838" d="M148.266-99.077L78.614 28.618L8.961-99.077L148.266-99.077Z"/>
   </g>
   <g id="Black-M" transform="matrix(1 0 0 1 2862.7 1126)">
-   <path class="multicolor-0:custom SFSymbolsPreviewFCE83A" d="M29.364-76.867L112.029-76.867L112.029 5.802L29.364 5.802Z"/>
+   <path class="multicolor-0:custom SFSymbolsPreviewFF3838" d="M132.689-92.359L70.698 21.29L8.704-92.359L132.689-92.359Z"/>
   </g>
   <g id="Heavy-M" transform="matrix(1 0 0 1 2567.26 1126)">
-   <path class="multicolor-0:custom SFSymbolsPreviewFCE83A" d="M28.74-76.2L110.072-76.2L110.072 5.136L28.74 5.136Z"/>
+   <path class="multicolor-0:custom SFSymbolsPreviewFF3838" d="M130.398-91.442L69.407 20.373L8.414-91.442L130.398-91.442Z"/>
   </g>
   <g id="Bold-M" transform="matrix(1 0 0 1 2271.96 1126)">
-   <path class="multicolor-0:custom SFSymbolsPreviewFCE83A" d="M28.021-75.533L108.019-75.533L108.019 4.469L28.021 4.469Z"/>
+   <path class="multicolor-0:custom SFSymbolsPreviewFF3838" d="M128.013-90.526L68.021 19.457L8.028-90.526L128.013-90.526Z"/>
   </g>
   <g id="Semibold-M" transform="matrix(1 0 0 1 1976.25 1126)">
-   <path class="multicolor-0:custom SFSymbolsPreviewFCE83A" d="M27.688-74.866L106.353-74.866L106.353 3.803L27.688 3.803Z"/>
+   <path class="multicolor-0:custom SFSymbolsPreviewFF3838" d="M126.012-89.609L67.021 18.54L8.028-89.609L126.012-89.609Z"/>
   </g>
   <g id="Medium-M" transform="matrix(1 0 0 1 1680.27 1126)">
-   <path class="multicolor-0:custom SFSymbolsPreviewFCE83A" d="M27.618-74.199L104.949-74.199L104.949 3.136L27.618 3.136Z"/>
+   <path class="multicolor-0:custom SFSymbolsPreviewFF3838" d="M124.276-88.692L66.285 17.623L8.292-88.692L124.276-88.692Z"/>
   </g>
   <g id="Regular-M" transform="matrix(1 0 0 1 1384.54 1126)">
-   <path class="multicolor-0:custom SFSymbolsPreviewFCE83A" d="M27.309-73.533L103.307-73.533L103.307 2.468L27.309 2.468Z"/>
+   <path class="multicolor-0:custom SFSymbolsPreviewFF3838" d="M122.3-87.775L65.308 16.707L8.315-87.775L122.3-87.775Z"/>
   </g>
   <g id="Light-M" transform="matrix(1 0 0 1 1089.19 1126)">
-   <path class="multicolor-0:custom SFSymbolsPreviewFCE83A" d="M26.584-72.866L101.248-72.866L101.248 1.801L26.584 1.801Z"/>
+   <path class="multicolor-0:custom SFSymbolsPreviewFF3838" d="M119.909-86.859L63.917 15.79L7.924-86.859L119.909-86.859Z"/>
   </g>
   <g id="Thin-M" transform="matrix(1 0 0 1 794.313 1126)">
-   <path class="multicolor-0:custom SFSymbolsPreviewFCE83A" d="M25.419-72.199L98.75-72.199L98.75 1.135L25.419 1.135Z"/>
+   <path class="multicolor-0:custom SFSymbolsPreviewFF3838" d="M117.077-85.942L62.084 14.873L7.092-85.942L117.077-85.942Z"/>
   </g>
   <g id="Ultralight-M" transform="matrix(1 0 0 1 498.529 1126)">
-   <path class="multicolor-0:custom SFSymbolsPreviewFCE83A" d="M25.232-71.532L97.229-71.532L97.229 0.468L25.232 0.468Z"/>
+   <path class="multicolor-0:custom SFSymbolsPreviewFF3838" d="M115.223-85.025L61.231 13.956L7.238-85.025L115.223-85.025Z"/>
   </g>
   <g id="Black-S" transform="matrix(1 0 0 1 2877.69 696)">
-   <path class="multicolor-0:custom SFSymbolsPreviewFCE83A" d="M23.343-67.594L88.071-67.594L88.071-2.864L23.343-2.864Z"/>
+   <path class="multicolor-0:custom SFSymbolsPreviewFF3838" d="M104.246-79.72L55.709 9.261L7.169-79.72L104.246-79.72Z"/>
   </g>
   <g id="Heavy-S" transform="matrix(1 0 0 1 2581.9 696)">
-   <path class="multicolor-0:custom SFSymbolsPreviewFCE83A" d="M22.924-67.072L86.608-67.072L86.608-3.386L22.924-3.386Z"/>
+   <path class="multicolor-0:custom SFSymbolsPreviewFF3838" d="M102.521-79.002L54.767 8.543L7.011-79.002L102.521-79.002Z"/>
   </g>
   <g id="Bold-S" transform="matrix(1 0 0 1 2286.19 696)">
-   <path class="multicolor-0:custom SFSymbolsPreviewFCE83A" d="M22.472-66.55L85.111-66.55L85.111-3.908L22.472-3.908Z"/>
+   <path class="multicolor-0:custom SFSymbolsPreviewFF3838" d="M100.764-78.284L53.793 7.826L6.819-78.284L100.764-78.284Z"/>
   </g>
   <g id="Semibold-S" transform="matrix(1 0 0 1 1990.19 696)">
-   <path class="multicolor-0:custom SFSymbolsPreviewFCE83A" d="M22.284-66.028L83.879-66.028L83.879-4.43L22.284-4.43Z"/>
+   <path class="multicolor-0:custom SFSymbolsPreviewFF3838" d="M99.27-77.566L53.083 7.108L6.892-77.566L99.27-77.566Z"/>
   </g>
   <g id="Medium-S" transform="matrix(1 0 0 1 1694.02 696)">
-   <path class="multicolor-0:custom SFSymbolsPreviewFCE83A" d="M22.258-65.506L82.808-65.506L82.808-4.952L22.258-4.952Z"/>
+   <path class="multicolor-0:custom SFSymbolsPreviewFF3838" d="M97.94-76.849L52.535 6.39L7.127-76.849L97.94-76.849Z"/>
   </g>
   <g id="Regular-S" transform="matrix(1 0 0 1 1398.01 696)">
-   <path class="multicolor-0:custom SFSymbolsPreviewFCE83A" d="M22.085-64.984L81.591-64.984L81.591-5.475L22.085-5.475Z"/>
+   <path class="multicolor-0:custom SFSymbolsPreviewFF3838" d="M96.461-76.13L51.838 5.672L7.215-76.13L96.461-76.13Z"/>
   </g>
   <g id="Light-S" transform="matrix(1 0 0 1 1102.52 696)">
-   <path class="multicolor-0:custom SFSymbolsPreviewFCE83A" d="M21.354-64.461L79.816-64.461L79.816-5.997L21.354-5.997Z"/>
+   <path class="multicolor-0:custom SFSymbolsPreviewFF3838" d="M94.425-75.413L50.585 4.955L6.745-75.413L94.425-75.413Z"/>
   </g>
   <g id="Thin-S" transform="matrix(1 0 0 1 807.398 696)">
-   <path class="multicolor-0:custom SFSymbolsPreviewFCE83A" d="M20.29-63.939L77.708-63.939L77.708-6.519L20.29-6.519Z"/>
+   <path class="multicolor-0:custom SFSymbolsPreviewFF3838" d="M92.057-74.695L48.999 4.237L5.942-74.695L92.057-74.695Z"/>
   </g>
   <g id="Ultralight-S" transform="matrix(1 0 0 1 511.518 696)">
-   <path class="multicolor-0:custom SFSymbolsPreviewFCE83A" d="M20.055-63.417L76.429-63.417L76.429-7.041L20.055-7.041Z"/>
+   <path class="multicolor-0:custom SFSymbolsPreviewFF3838" d="M90.516-73.978L48.242 3.519L5.967-73.978L90.516-73.978Z"/>
   </g>
  </g>
 </svg>
