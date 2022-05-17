@@ -18,6 +18,20 @@ import AppKit
 import WatchKit
 #endif
 
+import SwiftUI
+
+public struct Status: View {
+    @Binding var status: AstroStatus
+
+    public init(instatus: Binding<AstroStatus>) {
+        self._status = instatus
+    }
+
+    public var body: some View {
+        Image.imageForAstroStatus(status).foregroundColor(Color.colorForAstroStatus(status))
+    }
+}
+
 #if os(iOS) || os(tvOS)
 public class StatusView: UIImageView {
     

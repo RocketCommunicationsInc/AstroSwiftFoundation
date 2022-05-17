@@ -28,9 +28,8 @@ public extension Image
     //——————————————————————————————————————————————————————————————————————————————
     static func astroImage(_ named:String)->Image
     {
-        #if os(iOS) || os(tvOS)
+        #if os(iOS) || os(tvOS)  || os(macOS)
         return Image(named, bundle: .module)
-
         #endif
         
         #if os(watchOS)
