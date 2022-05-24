@@ -23,12 +23,24 @@
         "color-space" : "srgb",
         "components" : {
           "alpha" : "1.000",
-          "blue" : "0x23",
-          "green" : "0x19",
-          "red" : "0x10"
+          "blue" : "0.137",
+          "green" : "0.098",
+          "red" : "0.063"
         }
       },
       "idiom" : "universal"
+    },
+    {
+      "color" : {
+        "color-space" : "srgb",
+        "components" : {
+          "alpha" : "1.000",
+          "blue" : "0.137",
+          "green" : "0.098",
+          "red" : "0.063"
+        }
+      },
+      "idiom" : "watch"
     }
   ],
   "info" : {
