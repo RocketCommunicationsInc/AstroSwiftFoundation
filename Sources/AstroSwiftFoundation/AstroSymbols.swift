@@ -19,7 +19,6 @@ import AppKit
 
 import SwiftUI
 
-
 // Extend Image to include many conveniece methods to access Astro Status symbols
 public extension Image
 {
@@ -28,48 +27,35 @@ public extension Image
     //——————————————————————————————————————————————————————————————————————————————
     static func astroImage(_ named:String)->Image
     {
-        #if os(iOS) || os(tvOS)  || os(macOS)
         return Image(named, bundle: .module)
-        #endif
-        
-        #if os(watchOS)
-        return Image(named)
-        #endif
     }
     
     //——————————————————————————————————————————————————————————————————————————————
     // Astro Status symbols
     //——————————————————————————————————————————————————————————————————————————————
-    static var astroStatusOff:Image
-    {
+    static var astroStatusOff:Image {
         return astroImage("astro.off")
     }
     
-    static var astroStatusStandby:Image
-    {
+    static var astroStatusStandby:Image {
         return astroImage("astro.standby")
     }
     
-    static var astroStatusNormal:Image
-    {
+    static var astroStatusNormal:Image {
         return astroImage("astro.normal")
     }
     
-    static var astroStatusCaution:Image
-    {
+    static var astroStatusCaution:Image {
         return astroImage("astro.caution")
     }
     
-    static var astroStatusSerious:Image
-    {
+    static var astroStatusSerious:Image {
         return astroImage("astro.serious")
     }
     
-    static var astroStatusCritical:Image
-    {
+    static var astroStatusCritical:Image {
         return astroImage("astro.critical")
     }
-    
     
     //——————————————————————————————————————————————————————————————————————————————
     // Return the Astro status symbol for the given AstroStatus
@@ -78,20 +64,21 @@ public extension Image
     {
         switch status {
         case .Off:
-            return astroImage("astro.off")
+            return astroStatusOff
         case .Standby:
-            return astroImage("astro.standby")
+            return astroStatusStandby
         case .Normal:
-            return astroImage("astro.normal")
+            return astroStatusNormal
         case .Caution:
-            return astroImage("astro.caution")
+            return astroStatusCaution
         case .Serious:
-            return astroImage("astro.serious")
+            return astroStatusSerious
         case .Critical:
-            return astroImage("astro.critical")
+            return astroStatusCritical
         }
     }
 }
+
 
 // Extend UIImage to include many conveniece methods to access Astro Status symbols
 #if os(iOS) || os(tvOS) || os(watchOS)
@@ -112,40 +99,33 @@ public extension UIImage
         #endif
     }
     
-    
     //——————————————————————————————————————————————————————————————————————————————
     // Astro Status symbols
     //——————————————————————————————————————————————————————————————————————————————
-    static var astroStatusOff:UIImage
-    {
-        return astroImage(named: "Astro Status Off Symbol")
+    static var astroStatusOff:UIImage {
+        return astroImage(named: "astro.off")
     }
     
-    static var astroStatusStandby:UIImage
-    {
-        return astroImage(named:"Astro Status Standby Symbol")
+    static var astroStatusStandby:UIImage {
+        return astroImage(named:"astro.standby")
     }
     
-    static var astroStatusNormal:UIImage
-    {
-        return astroImage(named:"Astro Status Normal Symbol")
+    static var astroStatusNormal:UIImage {
+        return astroImage(named:"astro.normal")
     }
     
-    static var astroStatusCaution:UIImage
-    {
-        return astroImage(named:"Astro Status Caution Symbol")
+    static var astroStatusCaution:UIImage {
+        return astroImage(named:"astro.caution")
     }
     
-    static var astroStatusSerious:UIImage
-    {
-        return astroImage(named:"Astro Status Serious Symbol")
+    static var astroStatusSerious:UIImage {
+        return astroImage(named:"astro.serious")
     }
     
-    static var astroStatusCritical:UIImage
-    {
-        return astroImage(named:"Astro Status Critical Symbol")
+    static var astroStatusCritical:UIImage {
+        return astroImage(named:"astro.critical")
     }
-
+    
     //——————————————————————————————————————————————————————————————————————————————
     // Return the Astro status symbol for the given AstroStatus
     //——————————————————————————————————————————————————————————————————————————————
@@ -166,7 +146,6 @@ public extension UIImage
             return UIImage.astroStatusCritical
         }
     }
-
 }
 #endif
 
@@ -186,36 +165,30 @@ extension NSImage
     //——————————————————————————————————————————————————————————————————————————————
     // Astro Status symbols
     //——————————————————————————————————————————————————————————————————————————————
-    static var astroStatusOff:NSImage
-    {
-        return astroImage(named: "Astro Status Off Symbol")
+    static var astroStatusOff:NSImage {
+        return astroImage(named: "astro.off")
     }
     
-    static var astroStatusStandby:NSImage
-    {
-        return astroImage(named:"Astro Status Standby Symbol")
+    static var astroStatusStandby:NSImage {
+        return astroImage(named:"astro.standby")
     }
     
-    static var astroStatusNormal:NSImage
-    {
-        return astroImage(named:"Astro Status Normal Symbol")
+    static var astroStatusNormal:NSImage {
+        return astroImage(named:"astro.normal")
     }
     
-    static var astroStatusCaution:NSImage
-    {
-        return astroImage(named:"Astro Status Caution Symbol")
+    static var astroStatusCaution:NSImage {
+        return astroImage(named:"astro.caution")
     }
     
-    static var astroStatusSerious:NSImage
-    {
-        return astroImage(named:"Astro Status Serious Symbol")
+    static var astroStatusSerious:NSImage {
+        return astroImage(named:"astro.serious")
     }
     
-    static var astroStatusCritical:NSImage
-    {
-        return astroImage(named:"Astro Status Critical Symbol")
+    static var astroStatusCritical:NSImage {
+        return astroImage(named:"astro.critical")
     }
-
+    
     //——————————————————————————————————————————————————————————————————————————————
     // Return the Astro status symbol for the given AstroStatus
     //——————————————————————————————————————————————————————————————————————————————
@@ -236,6 +209,5 @@ extension NSImage
             return NSImage.astroStatusCritical
         }
     }
-
 }
 #endif
