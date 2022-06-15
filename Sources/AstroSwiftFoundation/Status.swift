@@ -22,10 +22,10 @@ import SwiftUI
 
 /// A SwiftUI view representing an Astro Status Symbol
 public struct Status: View {
-    @Binding var status: AstroStatus
+    public var status: AstroStatus
 
-    public init(_ status: Binding<AstroStatus>) {
-        self._status = status
+    public init(_ status: AstroStatus) {
+        self.status = status
     }
 
     public var body: some View {

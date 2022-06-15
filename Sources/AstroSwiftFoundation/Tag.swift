@@ -49,7 +49,6 @@ public struct Tag: View {
             Text(text)
              .font(font)//.foregroundColor(Color(.label))
              .lineLimit(1)
-             .fixedSize(horizontal: true, vertical: false)
         }
         .padding([.leading, .trailing],horizontalPadding).padding([.top, .bottom],verticalPadding)
         .background(RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
