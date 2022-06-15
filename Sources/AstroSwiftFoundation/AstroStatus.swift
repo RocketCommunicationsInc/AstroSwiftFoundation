@@ -16,7 +16,24 @@ public enum AstroStatus {
     case Serious
     case Critical
     
-    
+    public var description: String {
+        switch self
+        {
+        case .Off:
+            return "Off"
+        case .Standby:
+            return "Standby"
+        case .Normal:
+            return "Normal"
+        case .Caution:
+            return "Caution"
+        case .Serious:
+            return "Serious"
+        case .Critical:
+            return "Critical"
+        }
+    }
+        
     //——————————————————————————————————————————————————————————————————————————————
     // Return a random AstroStatus.
     // Useful for debugging or demo.

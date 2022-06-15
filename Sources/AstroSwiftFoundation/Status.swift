@@ -1,5 +1,5 @@
 //
-//  StatusView.swift
+//  View.swift
 //  Astro iOS Demo
 //
 //  Created by rocketjeff on 4/17/19.
@@ -20,11 +20,12 @@ import WatchKit
 
 import SwiftUI
 
+/// A SwiftUI view representing an Astro Status Symbol
 public struct Status: View {
     @Binding var status: AstroStatus
 
-    public init(instatus: Binding<AstroStatus>) {
-        self._status = instatus
+    public init(_ status: Binding<AstroStatus>) {
+        self._status = status
     }
 
     public var body: some View {

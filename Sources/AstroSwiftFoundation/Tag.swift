@@ -7,11 +7,12 @@
 
 import SwiftUI
 
+
 // A tag using Astro Status Colors and Status Symbols. Uses the .caption font.
 // Scales in response to accessibility settings.
-struct Tag: View {
-    var text:String
-    var status:AstroStatus?
+public struct Tag: View {
+    public var text:String
+    public var status:AstroStatus?
     private let font:Font = .caption
     @ScaledMetric private var cornerRadius: CGFloat = 3
     @ScaledMetric private var verticalPadding: CGFloat = 3
@@ -20,8 +21,18 @@ struct Tag: View {
     @ScaledMetric private var shadowRadius: CGFloat = 1
     @Environment(\.colorScheme) var colorScheme
     
+    public init (text: String)
+    {
+        self.text = text
+    }
     
-    var body: some View {
+    public init (text: String, status: AstroStatus?)
+    {
+        self.text = text
+        self.status = status
+    }
+    
+    public var body: some View {
         
         // set the stroke color, Astro blue if no status, status color otherwise
         var strokeColor:Color = Color.astroUIAccent
@@ -37,6 +48,8 @@ struct Tag: View {
             }
             Text(text)
              .font(font)//.foregroundColor(Color(.label))
+             .lineLimit(1)
+             .fixedSize(horizontal: true, vertical: false)
         }
         .padding([.leading, .trailing],horizontalPadding).padding([.top, .bottom],verticalPadding)
         .background(RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
