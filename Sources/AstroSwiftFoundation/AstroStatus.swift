@@ -9,31 +9,44 @@ import Foundation
 
 // The basic 6 Astro Statuses, used by AstroColors and AstroSymbols, or for any code tracking status
 public enum AstroStatus {
+    @available(*, unavailable , renamed: "off")
     case Off
+    @available(*, unavailable , renamed: "standby")
     case Standby
+    @available(*, unavailable , renamed: "normal")
     case Normal
+    @available(*, unavailable , renamed: "caution")
     case Caution
+    @available(*, unavailable , renamed: "serious")
     case Serious
+    @available(*, unavailable , renamed: "critical")
     case Critical
     
+    case off
+    case standby
+    case normal
+    case caution
+    case serious
+    case critical
+
     public var description: String {
         switch self
         {
-        case .Off:
+        case .off:
             return "Off"
-        case .Standby:
+        case .standby:
             return "Standby"
-        case .Normal:
+        case .normal:
             return "Normal"
-        case .Caution:
+        case .caution:
             return "Caution"
-        case .Serious:
+        case .serious:
             return "Serious"
-        case .Critical:
+        case .critical:
             return "Critical"
         }
     }
-        
+    
     //——————————————————————————————————————————————————————————————————————————————
     // Return a random AstroStatus.
     // Useful for debugging or demo.
@@ -44,20 +57,20 @@ public enum AstroStatus {
         switch randomIndex
         {
         case 0:
-            return .Off
+            return .off
         case 1:
-            return .Standby
+            return .standby
         case 2:
-            return .Normal
+            return .normal
         case 3:
-            return .Caution
+            return .caution
         case 4:
-            return .Serious
+            return .serious
         case 5:
-            return .Critical
+            return .critical
             
         default:
-            return .Off
+            return .off
         }
     }
 }

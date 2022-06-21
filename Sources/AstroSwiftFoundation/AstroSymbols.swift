@@ -63,17 +63,17 @@ public extension Image
     static func imageForAstroStatus(_ status:AstroStatus)->Image
     {
         switch status {
-        case .Off:
+        case .off:
             return astroStatusOff
-        case .Standby:
+        case .standby:
             return astroStatusStandby
-        case .Normal:
+        case .normal:
             return astroStatusNormal
-        case .Caution:
+        case .caution:
             return astroStatusCaution
-        case .Serious:
+        case .serious:
             return astroStatusSerious
-        case .Critical:
+        case .critical:
             return astroStatusCritical
         }
     }
@@ -132,17 +132,17 @@ public extension UIImage
     static func imageForAstroStatus(_ status:AstroStatus)->UIImage
     {
         switch status {
-        case .Off:
+        case .off:
             return UIImage.astroStatusOff
-        case .Standby:
+        case .standby:
             return UIImage.astroStatusStandby
-        case .Normal:
+        case .normal:
             return UIImage.astroStatusNormal
-        case .Caution:
+        case .caution:
             return UIImage.astroStatusCaution
-        case .Serious:
+        case .serious:
             return UIImage.astroStatusSerious
-        case .Critical:
+        case .critical:
             return UIImage.astroStatusCritical
         }
     }
@@ -195,17 +195,17 @@ extension NSImage
     static func imageForAstroStatus(_ status:AstroStatus)->NSImage
     {
         switch status {
-        case .Off:
+        case .off:
             return NSImage.astroStatusOff
-        case .Standby:
+        case .standby:
             return NSImage.astroStatusStandby
-        case .Normal:
+        case .normal:
             return NSImage.astroStatusNormal
-        case .Caution:
+        case .caution:
             return NSImage.astroStatusCaution
-        case .Serious:
+        case .serious:
             return NSImage.astroStatusSerious
-        case .Critical:
+        case .critical:
             return NSImage.astroStatusCritical
         }
     }

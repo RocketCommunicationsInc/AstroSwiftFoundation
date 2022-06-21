@@ -153,17 +153,17 @@ public extension Color
     static func colorForAstroStatus(_ status:AstroStatus)->Color
     {
         switch status {
-        case .Off:
+        case .off:
             return Color.astroStatusOff
-        case .Standby:
+        case .standby:
             return Color.astroStatusStandby
-        case .Normal:
+        case .normal:
             return Color.astroStatusNormal
-        case .Caution:
+        case .caution:
             return Color.astroStatusCaution
-        case .Serious:
+        case .serious:
             return Color.astroStatusSerious
-        case .Critical:
+        case .critical:
             return Color.astroStatusCritical
         }
     }
@@ -324,17 +324,17 @@ public extension UIColor
     static func colorForAstroStatus(_ status:AstroStatus)->UIColor
     {
         switch status {
-        case .Off:
+        case .off:
             return UIColor.astroStatusOff
-        case .Standby:
+        case .standby:
             return UIColor.astroStatusStandby
-        case .Normal:
+        case .normal:
             return UIColor.astroStatusNormal
-        case .Caution:
+        case .caution:
             return UIColor.astroStatusCaution
-        case .Serious:
+        case .serious:
             return UIColor.astroStatusSerious
-        case .Critical:
+        case .critical:
             return UIColor.astroStatusCritical
         }
     }
@@ -490,17 +490,17 @@ public extension NSColor
     static func colorForAstroStatus(_ status:AstroStatus)->NSColor
     {
         switch status {
-        case .Off:
+        case .off:
             return NSColor.astroStatusOff
-        case .Standby:
+        case .standby:
             return NSColor.astroStatusStandby
-        case .Normal:
+        case .normal:
             return NSColor.astroStatusNormal
-        case .Caution:
+        case .caution:
             return NSColor.astroStatusCaution
-        case .Serious:
+        case .serious:
             return NSColor.astroStatusSerious
-        case .Critical:
+        case .critical:
             return NSColor.astroStatusCritical
         }
     }
