@@ -24,13 +24,13 @@ import SwiftUI
 //
 public extension Color
 {
-
     //——————————————————————————————————————————————————————————————————————————————
-    // Wrap the the Color constructor
+    // Wrap the the Color constructor for a convenient debug breakpoint
     //——————————————————————————————————————————————————————————————————————————————
     private static func astroColor(_ named:String)->Color
     {
-        // The Color constructor is non-failable, so no debug color
+        // The Color constructor is non-failable, so no debug color.
+        // If the color fails to load, it is set to white, without an error
         return Color(named, bundle: .module)
     }
     
@@ -146,6 +146,41 @@ public extension Color
     { return astroColor("Astro Classification Top Secret SCI Color")}
     
    
+    //——————————————————————————————————————————————————————————————————————————————
+    // Return the appropriate color for the given Classification
+    //——————————————————————————————————————————————————————————————————————————————
+    static func colorForClassification(_ classification:Classification)->Color
+    {
+        switch classification {
+        case .unclassified:
+            return Color.astroClassificationUnclassified
+        case .cui:
+            return Color.astroClassificationCUI
+        case .confidential:
+            return Color.astroClassificationConfidential
+        case .secret:
+            return Color.astroClassificationSecret
+        case .topSecret:
+            return Color.astroClassificationTopSecret
+        case .topSecretSCI:
+            return Color.astroClassificationTopSecretSCI
+        }
+    }
+   
+   //——————————————————————————————————————————————————————————————————————————————
+   // Return the appropriate text color to contrast with the given Classification
+   //——————————————————————————————————————————————————————————————————————————————
+   static func textColorForClassification(_ classification:Classification)->Color
+   {
+       switch classification {
+       case .unclassified, .cui, .confidential, .secret:
+           return .white
+       case .topSecret,.topSecretSCI:
+           return .black
+       }
+   }
+    
+
     //MARK: Color - Astro Color Convenience Functions
     //——————————————————————————————————————————————————————————————————————————————
     // Return the Astro status color for the given AstroStatus
@@ -208,7 +243,7 @@ public extension UIColor
     //——————————————————————————————————————————————————————————————————————————————
     // Astro semantic UI colors
     //——————————————————————————————————————————————————————————————————————————————
-        
+     
     /* Apple defines two systems (also known as "stacks") for structuring an iOS app's backgrounds.
      * Astro offers these alternative background colors to give an Astro look in Dark mode
      *
@@ -339,7 +374,6 @@ public extension UIColor
         }
     }
     
-
     //——————————————————————————————————————————————————————————————————————————————
     // Return a random Astro status color.
     // Useful for debugging or demo.

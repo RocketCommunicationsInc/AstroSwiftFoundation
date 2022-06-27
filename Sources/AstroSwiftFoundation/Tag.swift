@@ -59,7 +59,7 @@ public struct Tag: View {
 }
 
 
-struct SwiftUIView_Previews: PreviewProvider {
+struct Tag_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
             Tag(text: "Astro")
