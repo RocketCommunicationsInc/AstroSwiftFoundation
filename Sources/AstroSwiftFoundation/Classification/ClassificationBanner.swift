@@ -7,9 +7,12 @@
 
 import SwiftUI
 
+
+//——————————————————————————————————————————————————————————————————————————————
 // A banner using Astro Classification Colors. Uses the .body font.
 // Scales in response to accessibility settings.
-struct ClassificationBanner: View {
+//——————————————————————————————————————————————————————————————————————————————
+public struct ClassificationBanner: View {
     public var classification:Classification
     @ScaledMetric private var verticalPadding: CGFloat = 3
     @ScaledMetric private var horizontalPadding: CGFloat = 5
@@ -32,8 +35,6 @@ struct ClassificationBanner: View {
             .lineLimit(1)
     }
 }
-
-
 
 
 struct ClassificationBanner_Previews: PreviewProvider {

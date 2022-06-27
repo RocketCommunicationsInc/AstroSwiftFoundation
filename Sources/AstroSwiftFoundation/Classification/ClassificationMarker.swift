@@ -8,7 +8,12 @@
 import SwiftUI
 
 
-struct ClassificationMarker: View {
+//——————————————————————————————————————————————————————————————————————————————
+// A tag using Astro Classification Colors and abbreviated names.
+// Uses the .caption font.
+// Scales in response to accessibility settings.
+//——————————————————————————————————————————————————————————————————————————————
+public struct ClassificationMarker: View {
     public var classification:Classification
 
     @ScaledMetric private var cornerRadius: CGFloat = 3
