@@ -27,11 +27,11 @@ public struct ClassificationBanner: View {
         Text(classification.description)
             .font(.body)
             .fontWeight(.semibold)
-            .foregroundColor(Color.textColorForClassification(classification))
+            .foregroundColor(classification.textColor)
             .padding([.leading, .trailing],horizontalPadding)
             .padding([.top, .bottom],verticalPadding)
             .frame(maxWidth:.infinity)
-            .background(Rectangle().fill(Color.colorForClassification(classification)))
+            .background(Rectangle().fill(classification.color))
             .lineLimit(1)
     }
 }

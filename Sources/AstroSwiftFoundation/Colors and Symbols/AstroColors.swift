@@ -2,7 +2,6 @@
 //  AstroColors.swift
 //
 //  Created by rocketjeff.
-//  Copyright © 2019-2022 Rocket Communications, Inc. All rights reserved.
 //
 
 #if os(iOS) || os(tvOS)
@@ -145,41 +144,7 @@ public extension Color
     static var astroClassificationTopSecretSCI:Color
     { return astroColor("Astro Classification Topsecretsci")}
     
-   
-    //——————————————————————————————————————————————————————————————————————————————
-    // Return the appropriate color for the given Classification
-    //——————————————————————————————————————————————————————————————————————————————
-    static func colorForClassification(_ classification:Classification)->Color
-    {
-        switch classification {
-        case .unclassified:
-            return Color.astroClassificationUnclassified
-        case .cui:
-            return Color.astroClassificationCUI
-        case .confidential:
-            return Color.astroClassificationConfidential
-        case .secret:
-            return Color.astroClassificationSecret
-        case .topSecret:
-            return Color.astroClassificationTopSecret
-        case .topSecretSCI:
-            return Color.astroClassificationTopSecretSCI
-        }
-    }
-   
-   //——————————————————————————————————————————————————————————————————————————————
-   // Return the appropriate text color to contrast with the given Classification
-   //——————————————————————————————————————————————————————————————————————————————
-   static func textColorForClassification(_ classification:Classification)->Color
-   {
-       switch classification {
-       case .unclassified, .cui, .confidential, .secret:
-           return .white
-       case .topSecret,.topSecretSCI:
-           return .black
-       }
-   }
-    
+
 
     //MARK: Color - Astro Color Convenience Functions
     //——————————————————————————————————————————————————————————————————————————————

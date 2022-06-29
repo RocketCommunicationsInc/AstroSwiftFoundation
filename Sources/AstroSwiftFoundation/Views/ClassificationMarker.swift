@@ -1,7 +1,6 @@
 //
 //  ClassificationMarker.swift
 //  
-//
 //  Created by rocketjeff on 6/27/22.
 //
 
@@ -32,10 +31,10 @@ public struct ClassificationMarker: View {
         Text(classification.abbreviation)
             .font(.caption)
             .fontWeight(.semibold)
-            .foregroundColor(Color.textColorForClassification(classification))
+            .foregroundColor(classification.textColor)
             .padding([.leading, .trailing],horizontalPadding)
             .padding([.top, .bottom],verticalPadding)
-            .background(RoundedRectangle(cornerRadius: cornerRadius, style: .continuous).fill(Color.colorForClassification(classification)))
+            .background(RoundedRectangle(cornerRadius: cornerRadius, style: .continuous).fill(classification.color))
             .lineLimit(1)
     }
 }

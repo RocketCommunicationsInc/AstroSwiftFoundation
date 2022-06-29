@@ -2,13 +2,21 @@
 //  AstroStatus.swift
 //
 //  Created by rocketjeff on 3/27/19.
-//  Copyright © 2019 Rocket Communications, Inc. All rights reserved.
 //
 
 import Foundation
 
 // The basic 6 Astro Statuses, used by AstroColors and AstroSymbols, or for any code tracking status
 public enum AstroStatus {
+    
+    case off
+    case standby
+    case normal
+    case caution
+    case serious
+    case critical
+    
+    // give a warning that case names were changed 
     @available(*, unavailable , renamed: "off")
     case Off
     @available(*, unavailable , renamed: "standby")
@@ -21,13 +29,7 @@ public enum AstroStatus {
     case Serious
     @available(*, unavailable , renamed: "critical")
     case Critical
-    
-    case off
-    case standby
-    case normal
-    case caution
-    case serious
-    case critical
+
 
     public var description: String {
         switch self
