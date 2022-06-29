@@ -55,21 +55,21 @@ public extension Color
      *    Use this stack for views with standard table views, and designs which have a white
      *    primary background in light mode.
      */
-    static var astroUIBackground:Color { return astroColor("Astro UI Background Color")}
-    static var astroUISecondaryBackground:Color { return astroColor("Astro UI Secondary Background Color")}
-    static var astroUITertiaryBackground:Color { return astroColor("Astro UI Tertiary Background Color")}
+    static var astroUIBackground:Color { return astroColor("Astro UI Background")}
+    static var astroUISecondaryBackground:Color { return astroColor("Astro UI Secondary Background")}
+    static var astroUITertiaryBackground:Color { return astroColor("Astro UI Tertiary Background")}
 
     /* 2. systemGroupedBackground
      *    Use this stack for views with grouped content, such as grouped tables and
      *    platter-based designs. These are like grouped table views, but you may use these
      *    colors in places where a table view wouldn't make sense.
      */
-    static var astroUIGroupedBackground:Color { return astroColor("Astro UI Grouped Background Color")}
-    static var astroUISecondaryGroupedBackground:Color { return astroColor("Astro UI Secondary Grouped Background Color")}
-    static var astroUITertiaryGroupedBackground:Color { return astroColor("Astro UI Tertiary Grouped Background Color")}
+    static var astroUIGroupedBackground:Color { return astroColor("Astro UI Grouped Background")}
+    static var astroUISecondaryGroupedBackground:Color { return astroColor("Astro UI Secondary Grouped Background")}
+    static var astroUITertiaryGroupedBackground:Color { return astroColor("Astro UI Tertiary Grouped Background")}
 
     // Accent color is applied to all controls, also used for Tint
-    static var astroUIAccent:Color { return astroColor("Astro UI Accent Color")}
+    static var astroUIAccent:Color { return astroColor("Astro UI Accent")}
 
     //MARK: Color - OBSOLETE Astro UI colors
     //——————————————————————————————————————————————————————————————————————————————
@@ -105,22 +105,22 @@ public extension Color
     // Astro status colors
     //——————————————————————————————————————————————————————————————————————————————
     static var astroStatusOff:Color
-    {  return astroColor("Astro Status Off Color")}
+    {  return astroColor("Astro Status Off")}
     
     static var astroStatusStandby:Color
-    { return astroColor("Astro Status Standby Color")}
+    { return astroColor("Astro Status Standby")}
 
     static var astroStatusNormal:Color
-    { return astroColor("Astro Status Normal Color")}
+    { return astroColor("Astro Status Normal")}
     
     static var astroStatusCaution:Color
-    { return astroColor("Astro Status Caution Color")}
+    { return astroColor("Astro Status Caution")}
     
     static var astroStatusSerious:Color
-    { return astroColor("Astro Status Serious Color")}
+    { return astroColor("Astro Status Serious")}
     
     static var astroStatusCritical:Color
-    { return astroColor("Astro Status Critical Color")}
+    { return astroColor("Astro Status Critical")}
     
 
     //MARK: Color - Astro Classification colors
@@ -128,22 +128,22 @@ public extension Color
     // Astro classification colors, from lowest to highest
     //——————————————————————————————————————————————————————————————————————————————
     static var astroClassificationUnclassified:Color
-    {  return astroColor("Astro Classification Unclassified Color")}
+    {  return astroColor("Astro Classification Unclassified")}
     
     static var astroClassificationCUI:Color
-    { return astroColor("Astro Classification CUI Color")}
+    { return astroColor("Astro Classification CUI")}
 
     static var astroClassificationConfidential:Color
-    { return astroColor("Astro Classification Confidential Color")}
+    { return astroColor("Astro Classification Confidential")}
     
     static var astroClassificationSecret:Color
-    { return astroColor("Astro Classification Secret Color")}
+    { return astroColor("Astro Classification Secret")}
     
     static var astroClassificationTopSecret:Color
-    { return astroColor("Astro Classification Top Secret Color")}
+    { return astroColor("Astro Classification Topsecret")}
     
     static var astroClassificationTopSecretSCI:Color
-    { return astroColor("Astro Classification Top Secret SCI Color")}
+    { return astroColor("Astro Classification Topsecretsci")}
     
    
     //——————————————————————————————————————————————————————————————————————————————
@@ -259,21 +259,21 @@ public extension UIColor
      *    Use this stack for views with standard table views, and designs which have a white
      *    primary background in light mode.
      */
-    static var astroUIBackground:UIColor { return astroColor("Astro UI Background Color")}
-    static var astroUISecondaryBackground:UIColor { return astroColor("Astro UI Secondary Background Color")}
-    static var astroUITertiaryBackground:UIColor { return astroColor("Astro UI Tertiary Background Color")}
+    static var astroUIBackground:UIColor { return astroColor("Astro UI Background")}
+    static var astroUISecondaryBackground:UIColor { return astroColor("Astro UI Secondary Background")}
+    static var astroUITertiaryBackground:UIColor { return astroColor("Astro UI Tertiary Background")}
 
     /* 2. systemGroupedBackground
      *    Use this stack for views with grouped content, such as grouped tables and
      *    platter-based designs. These are like grouped table views, but you may use these
      *    colors in places where a table view wouldn't make sense.
      */
-    static var astroUIGroupedBackground:UIColor { return astroColor("Astro UI Grouped Background Color")}
-    static var astroUISecondaryGroupedBackground:UIColor { return astroColor("Astro UI Secondary Grouped Background Color")}
-    static var astroUITertiaryGroupedBackground:UIColor { return astroColor("Astro UI Tertiary Grouped Background Color")}
+    static var astroUIGroupedBackground:UIColor { return astroColor("Astro UI Grouped Background")}
+    static var astroUISecondaryGroupedBackground:UIColor { return astroColor("Astro UI Secondary Grouped Background")}
+    static var astroUITertiaryGroupedBackground:UIColor { return astroColor("Astro UI Tertiary Grouped Background")}
 
     // Accent color is applied to all controls, also used for Tint
-    static var astroUIAccent:UIColor { return astroColor("Astro UI Accent Color")}
+    static var astroUIAccent:UIColor { return astroColor("Astro UI Accent")}
 
     
     //MARK: UIColor - OBSOLETE Astro UI colors
@@ -310,22 +310,22 @@ public extension UIColor
     // Astro status colors
     //——————————————————————————————————————————————————————————————————————————————
     static var astroStatusOff:UIColor
-    {  return astroColor("Astro Status Off Color")}
+    {  return astroColor("Astro Status Off")}
     
     static var astroStatusStandby:UIColor
-    { return astroColor("Astro Status Standby Color")}
+    { return astroColor("Astro Status Standby")}
 
     static var astroStatusNormal:UIColor
-    { return astroColor("Astro Status Normal Color")}
+    { return astroColor("Astro Status Normal")}
     
     static var astroStatusCaution:UIColor
-    { return astroColor("Astro Status Caution Color")}
+    { return astroColor("Astro Status Caution")}
     
     static var astroStatusSerious:UIColor
-    { return astroColor("Astro Status Serious Color")}
+    { return astroColor("Astro Status Serious")}
     
     static var astroStatusCritical:UIColor
-    { return astroColor("Astro Status Critical Color")}
+    { return astroColor("Astro Status Critical")}
     
 
     //MARK: UIColor - Astro Classification colors
@@ -333,22 +333,22 @@ public extension UIColor
     // Astro classification colors, from lowest to highest
     //——————————————————————————————————————————————————————————————————————————————
     static var astroClassificationUnclassified:UIColor
-    {  return astroColor("Astro Classification Unclassified Color")}
+    {  return astroColor("Astro Classification Unclassified")}
     
     static var astroClassificationCUI:UIColor
-    { return astroColor("Astro Classification CUI Color")}
+    { return astroColor("Astro Classification CUI")}
 
     static var astroClassificationConfidential:UIColor
-    { return astroColor("Astro Classification Confidential Color")}
+    { return astroColor("Astro Classification Confidential")}
     
     static var astroClassificationSecret:UIColor
-    { return astroColor("Astro Classification Secret Color")}
+    { return astroColor("Astro Classification Secret")}
     
     static var astroClassificationTopSecret:UIColor
-    { return astroColor("Astro Classification Top Secret Color")}
+    { return astroColor("Astro Classification Topsecret")}
     
     static var astroClassificationTopSecretSCI:UIColor
-    { return astroColor("Astro Classification Top Secret SCI Color")}
+    { return astroColor("Astro Classification Topsecretsci")}
 
     
 
@@ -425,21 +425,21 @@ public extension NSColor
      *    Use this stack for views with standard table views, and designs which have a white
      *    primary background in light mode.
      */
-    static var astroUIBackground:NSColor { return astroColor("Astro UI Background Color")}
-    static var astroUISecondaryBackground:NSColor { return astroColor("Astro UI Secondary Background Color")}
-    static var astroUITertiaryBackground:NSColor { return astroColor("Astro UI Tertiary Background Color")}
+    static var astroUIBackground:NSColor { return astroColor("Astro UI Background")}
+    static var astroUISecondaryBackground:NSColor { return astroColor("Astro UI Secondary Background")}
+    static var astroUITertiaryBackground:NSColor { return astroColor("Astro UI Tertiary Background")}
 
     /* 2. systemGroupedBackground
      *    Use this stack for views with grouped content, such as grouped tables and
      *    platter-based designs. These are like grouped table views, but you may use these
      *    colors in places where a table view wouldn't make sense.
      */
-    static var astroUIGroupedBackground:NSColor { return astroColor("Astro UI Grouped Background Color")}
-    static var astroUISecondaryGroupedBackground:NSColor { return astroColor("Astro UI Secondary Grouped Background Color")}
-    static var astroUITertiaryGroupedBackground:NSColor { return astroColor("Astro UI Tertiary Grouped Background Color")}
+    static var astroUIGroupedBackground:NSColor { return astroColor("Astro UI Grouped Background")}
+    static var astroUISecondaryGroupedBackground:NSColor { return astroColor("Astro UI Secondary Grouped Background")}
+    static var astroUITertiaryGroupedBackground:NSColor { return astroColor("Astro UI Tertiary Grouped Background")}
 
     // Accent color is applied to all controls, also used for Tint
-    static var astroUIAccent:NSColor { return astroColor("Astro UI Accent Color")}
+    static var astroUIAccent:NSColor { return astroColor("Astro UI Accent")}
     
     //MARK: NSColor - OBSOLETE Astro UI colors
     //——————————————————————————————————————————————————————————————————————————————
@@ -476,22 +476,22 @@ public extension NSColor
     // Astro status colors
     //——————————————————————————————————————————————————————————————————————————————
     static var astroStatusOff:NSColor
-    {  return astroColor("Astro Status Off Color")}
+    {  return astroColor("Astro Status Off")}
     
     static var astroStatusStandby:NSColor
-    { return astroColor("Astro Status Standby Color")}
+    { return astroColor("Astro Status Standby")}
 
     static var astroStatusNormal:NSColor
-    { return astroColor("Astro Status Normal Color")}
+    { return astroColor("Astro Status Normal")}
     
     static var astroStatusCaution:NSColor
-    { return astroColor("Astro Status Caution Color")}
+    { return astroColor("Astro Status Caution")}
     
     static var astroStatusSerious:NSColor
-    { return astroColor("Astro Status Serious Color")}
+    { return astroColor("Astro Status Serious")}
     
     static var astroStatusCritical:NSColor
-    { return astroColor("Astro Status Critical Color")}
+    { return astroColor("Astro Status Critical")}
     
     
     //MARK: NSColor - Astro Classification colors
@@ -499,22 +499,22 @@ public extension NSColor
     // Astro classification colors, from lowest to highest
     //——————————————————————————————————————————————————————————————————————————————
     static var astroClassificationUnclassified:NSColor
-    {  return astroColor("Astro Classification Unclassified Color")}
+    {  return astroColor("Astro Classification Unclassified")}
     
     static var astroClassificationCUI:NSColor
-    { return astroColor("Astro Classification CUI Color")}
+    { return astroColor("Astro Classification CUI")}
 
     static var astroClassificationConfidential:NSColor
-    { return astroColor("Astro Classification Confidential Color")}
+    { return astroColor("Astro Classification Confidential")}
     
     static var astroClassificationSecret:NSColor
-    { return astroColor("Astro Classification Secret Color")}
+    { return astroColor("Astro Classification Secret")}
     
     static var astroClassificationTopSecret:NSColor
-    { return astroColor("Astro Classification Top Secret Color")}
+    { return astroColor("Astro Classification Topsecret")}
     
     static var astroClassificationTopSecretSCI:NSColor
-    { return astroColor("Astro Classification Top Secret SCI Color")}
+    { return astroColor("Astro Classification Topsecretsci")}
 
     
     //MARK: NSColor - Astro Color Convenience Functions
