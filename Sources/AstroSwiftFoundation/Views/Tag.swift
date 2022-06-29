@@ -50,7 +50,7 @@ public struct Tag: View {
              .lineLimit(1)
         }
         .padding([.leading, .trailing],horizontalPadding).padding([.top, .bottom],verticalPadding)
-        .background(RoundedRectangle(cornerRadius: SizeConstants.sharedCornerRadius, style: .continuous)
+        .background(RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
         .stroke(strokeColor, style: StrokeStyle(lineWidth: 1))
                         .background(colorScheme == .light ? strokeColor.opacity(0.1) : strokeColor.opacity(0.1) )
                         .shadow(color:strokeColor, radius: shadowRadius, x:0, y: 0))
