@@ -131,7 +131,7 @@ public extension Color
     {  return astroColor("Astro Classification Unclassified")}
     
     static var astroClassificationCUI:Color
-    { return astroColor("Astro Classification CUI")}
+    { return astroColor("Astro Classification Cui")}
 
     static var astroClassificationConfidential:Color
     { return astroColor("Astro Classification Confidential")}
@@ -336,7 +336,7 @@ public extension UIColor
     {  return astroColor("Astro Classification Unclassified")}
     
     static var astroClassificationCUI:UIColor
-    { return astroColor("Astro Classification CUI")}
+    { return astroColor("Astro Classification Cui")}
 
     static var astroClassificationConfidential:UIColor
     { return astroColor("Astro Classification Confidential")}
@@ -502,7 +502,7 @@ public extension NSColor
     {  return astroColor("Astro Classification Unclassified")}
     
     static var astroClassificationCUI:NSColor
-    { return astroColor("Astro Classification CUI")}
+    { return astroColor("Astro Classification Cui")}
 
     static var astroClassificationConfidential:NSColor
     { return astroColor("Astro Classification Confidential")}
