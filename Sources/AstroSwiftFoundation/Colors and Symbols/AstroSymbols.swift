@@ -2,7 +2,6 @@
 //  AstroSymbols.swift
 //
 //  Created by rocketjeff on 4/17/19.
-//  Copyright © 2019 Rocket Communications, Inc. All rights reserved.
 //
 
 #if os(iOS) || os(tvOS)
@@ -60,23 +59,9 @@ public extension Image
     //——————————————————————————————————————————————————————————————————————————————
     // Return the Astro status symbol for the given AstroStatus
     //——————————————————————————————————————————————————————————————————————————————
+    @available(*, unavailable, message: "Use AstroStatus.image")
     static func imageForAstroStatus(_ status:AstroStatus)->Image
-    {
-        switch status {
-        case .off:
-            return astroStatusOff
-        case .standby:
-            return astroStatusStandby
-        case .normal:
-            return astroStatusNormal
-        case .caution:
-            return astroStatusCaution
-        case .serious:
-            return astroStatusSerious
-        case .critical:
-            return astroStatusCritical
-        }
-    }
+    {return Image(systemName: "circle.slash")} // will never run, here for compiler demands
 }
 
 

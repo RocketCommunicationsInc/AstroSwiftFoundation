@@ -1,7 +1,6 @@
 //
-//  SwiftUIView.swift
+//  Tag.swift
 //  
-//
 //  Created by rocketjeff on 6/3/22.
 //
 
@@ -37,14 +36,14 @@ public struct Tag: View {
         // set the stroke color, Astro blue if no status, status color otherwise
         var strokeColor:Color = Color.astroUIAccent
         if let status = status {
-            strokeColor = Color.colorForAstroStatus(status)
+            strokeColor = status.color
         }
 
         // A symbol and text if status, just text otherwise
         return HStack(spacing:spacing){
             if let status = status {
-                 Text(Image.imageForAstroStatus(status))
-                    .font(font).foregroundColor(Color.colorForAstroStatus(status))
+                Text(status.image)
+                    .font(font).foregroundColor(status.color)
             }
             Text(text)
              .font(font)//.foregroundColor(Color(.label))

@@ -2,7 +2,6 @@
 //  AstroColors.swift
 //
 //  Created by rocketjeff.
-//  Copyright © 2019-2022 Rocket Communications, Inc. All rights reserved.
 //
 
 #if os(iOS) || os(tvOS)
@@ -145,73 +144,16 @@ public extension Color
     static var astroClassificationTopSecretSCI:Color
     { return astroColor("Astro Classification Topsecretsci")}
     
-   
-    //——————————————————————————————————————————————————————————————————————————————
-    // Return the appropriate color for the given Classification
-    //——————————————————————————————————————————————————————————————————————————————
-    static func colorForClassification(_ classification:Classification)->Color
-    {
-        switch classification {
-        case .unclassified:
-            return Color.astroClassificationUnclassified
-        case .cui:
-            return Color.astroClassificationCUI
-        case .confidential:
-            return Color.astroClassificationConfidential
-        case .secret:
-            return Color.astroClassificationSecret
-        case .topSecret:
-            return Color.astroClassificationTopSecret
-        case .topSecretSCI:
-            return Color.astroClassificationTopSecretSCI
-        }
-    }
-   
-   //——————————————————————————————————————————————————————————————————————————————
-   // Return the appropriate text color to contrast with the given Classification
-   //——————————————————————————————————————————————————————————————————————————————
-   static func textColorForClassification(_ classification:Classification)->Color
-   {
-       switch classification {
-       case .unclassified, .cui, .confidential, .secret:
-           return .white
-       case .topSecret,.topSecretSCI:
-           return .black
-       }
-   }
-    
+
 
     //MARK: Color - Astro Color Convenience Functions
-    //——————————————————————————————————————————————————————————————————————————————
-    // Return the Astro status color for the given AstroStatus
-    //——————————————————————————————————————————————————————————————————————————————
+    @available(*, unavailable, message: "Use AstroStatus.color")
     static func colorForAstroStatus(_ status:AstroStatus)->Color
-    {
-        switch status {
-        case .off:
-            return Color.astroStatusOff
-        case .standby:
-            return Color.astroStatusStandby
-        case .normal:
-            return Color.astroStatusNormal
-        case .caution:
-            return Color.astroStatusCaution
-        case .serious:
-            return Color.astroStatusSerious
-        case .critical:
-            return Color.astroStatusCritical
-        }
-    }
+    {return astroColor("Unavailable")} // will never run, here for compiler demands
     
-
-    //——————————————————————————————————————————————————————————————————————————————
-    // Return a random Astro status color.
-    // Useful for debugging or demo.
-    //——————————————————————————————————————————————————————————————————————————————
+    @available(*, unavailable, message: "Use AstroStatus.randomStatus().color")
     static func randomStatusColor()->Color
-    {
-        return colorForAstroStatus(AstroStatus.randomStatus())
-    }
+    {return astroColor("Unavailable")} // will never run, here for compiler demands
 }
 
 
@@ -402,8 +344,6 @@ public extension NSColor
     {
         return NSColor(named:named) ?? astroDebugColor
     }
-    
-    
     
     //MARK: NSColor - New (2.0) Astro Semantic colors
     //——————————————————————————————————————————————————————————————————————————————

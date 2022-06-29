@@ -1,9 +1,7 @@
 //
-//  View.swift
-//  Astro iOS Demo
+//  Status.swift
 //
 //  Created by rocketjeff on 4/17/19.
-//  Copyright © 2019 Rocket Communications, Inc. All rights reserved.
 //
 
 #if os(iOS) || os(tvOS)
@@ -29,7 +27,7 @@ public struct Status: View {
     }
 
     public var body: some View {
-        Image.imageForAstroStatus(status).foregroundColor(Color.colorForAstroStatus(status))
+        status.image.foregroundColor(status.color)
     }
 }
 
