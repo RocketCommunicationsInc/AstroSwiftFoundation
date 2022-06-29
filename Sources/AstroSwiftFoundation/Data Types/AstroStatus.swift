@@ -5,6 +5,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 // The basic 6 Astro Statuses, used by AstroColors and AstroSymbols, or for any code tracking status
 public enum AstroStatus {
@@ -16,24 +17,12 @@ public enum AstroStatus {
     case serious
     case critical
     
-    // give a warning that case names were changed 
-    @available(*, unavailable , renamed: "off")
-    case Off
-    @available(*, unavailable , renamed: "standby")
-    case Standby
-    @available(*, unavailable , renamed: "normal")
-    case Normal
-    @available(*, unavailable , renamed: "caution")
-    case Caution
-    @available(*, unavailable , renamed: "serious")
-    case Serious
-    @available(*, unavailable , renamed: "critical")
-    case Critical
 
-
+    //——————————————————————————————————————————————————————————————————————————————
+    // Return the description
+    //——————————————————————————————————————————————————————————————————————————————
     public var description: String {
-        switch self
-        {
+        switch self {
         case .off:
             return "Off"
         case .standby:
@@ -46,6 +35,48 @@ public enum AstroStatus {
             return "Serious"
         case .critical:
             return "Critical"
+        }
+    }
+    
+    //——————————————————————————————————————————————————————————————————————————————
+    // Return the Astro status color for the given AstroStatus
+    //——————————————————————————————————————————————————————————————————————————————
+    public var color:Color
+    {
+        switch self {
+        case .off:
+            return Color.astroStatusOff
+        case .standby:
+            return Color.astroStatusStandby
+        case .normal:
+            return Color.astroStatusNormal
+        case .caution:
+            return Color.astroStatusCaution
+        case .serious:
+            return Color.astroStatusSerious
+        case .critical:
+            return Color.astroStatusCritical
+        }
+    }
+    
+    //——————————————————————————————————————————————————————————————————————————————
+    // Return the image for the given AstroStatus
+    //——————————————————————————————————————————————————————————————————————————————
+    public var image:Image
+    {
+        switch self {
+        case .off:
+            return Image.astroStatusOff
+        case .standby:
+            return Image.astroStatusStandby
+        case .normal:
+            return Image.astroStatusNormal
+        case .caution:
+            return Image.astroStatusCaution
+        case .serious:
+            return Image.astroStatusSerious
+        case .critical:
+            return Image.astroStatusCritical
         }
     }
     
@@ -75,4 +106,21 @@ public enum AstroStatus {
             return .off
         }
     }
+    
+    // Obsolete, warn that case names were changed
+    @available(*, unavailable , renamed: "off")
+    case Off
+    @available(*, unavailable , renamed: "standby")
+    case Standby
+    @available(*, unavailable , renamed: "normal")
+    case Normal
+    @available(*, unavailable , renamed: "caution")
+    case Caution
+    @available(*, unavailable , renamed: "serious")
+    case Serious
+    @available(*, unavailable , renamed: "critical")
+    case Critical
+
 }
+
+

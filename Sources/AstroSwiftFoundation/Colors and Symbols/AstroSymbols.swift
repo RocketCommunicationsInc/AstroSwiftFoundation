@@ -59,23 +59,9 @@ public extension Image
     //——————————————————————————————————————————————————————————————————————————————
     // Return the Astro status symbol for the given AstroStatus
     //——————————————————————————————————————————————————————————————————————————————
+    @available(*, unavailable, message: "Use AstroStatus.image")
     static func imageForAstroStatus(_ status:AstroStatus)->Image
-    {
-        switch status {
-        case .off:
-            return astroStatusOff
-        case .standby:
-            return astroStatusStandby
-        case .normal:
-            return astroStatusNormal
-        case .caution:
-            return astroStatusCaution
-        case .serious:
-            return astroStatusSerious
-        case .critical:
-            return astroStatusCritical
-        }
-    }
+    {return Image(systemName: "circle.slash")} // will never run, here for compiler demands
 }
 
 

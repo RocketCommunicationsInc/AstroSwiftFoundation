@@ -147,36 +147,13 @@ public extension Color
 
 
     //MARK: Color - Astro Color Convenience Functions
-    //——————————————————————————————————————————————————————————————————————————————
-    // Return the Astro status color for the given AstroStatus
-    //——————————————————————————————————————————————————————————————————————————————
+    @available(*, unavailable, message: "Use AstroStatus.color")
     static func colorForAstroStatus(_ status:AstroStatus)->Color
-    {
-        switch status {
-        case .off:
-            return Color.astroStatusOff
-        case .standby:
-            return Color.astroStatusStandby
-        case .normal:
-            return Color.astroStatusNormal
-        case .caution:
-            return Color.astroStatusCaution
-        case .serious:
-            return Color.astroStatusSerious
-        case .critical:
-            return Color.astroStatusCritical
-        }
-    }
+    {return astroColor("Unavailable")} // will never run, here for compiler demands
     
-
-    //——————————————————————————————————————————————————————————————————————————————
-    // Return a random Astro status color.
-    // Useful for debugging or demo.
-    //——————————————————————————————————————————————————————————————————————————————
+    @available(*, unavailable, message: "Use AstroStatus.randomStatus().color")
     static func randomStatusColor()->Color
-    {
-        return colorForAstroStatus(AstroStatus.randomStatus())
-    }
+    {return astroColor("Unavailable")} // will never run, here for compiler demands
 }
 
 
@@ -367,8 +344,6 @@ public extension NSColor
     {
         return NSColor(named:named) ?? astroDebugColor
     }
-    
-    
     
     //MARK: NSColor - New (2.0) Astro Semantic colors
     //——————————————————————————————————————————————————————————————————————————————

@@ -27,7 +27,7 @@ public struct Status: View {
     }
 
     public var body: some View {
-        Image.imageForAstroStatus(status).foregroundColor(Color.colorForAstroStatus(status))
+        status.image.foregroundColor(status.color)
     }
 }
 
