@@ -7,11 +7,11 @@
 import SwiftUI
 
 
-//——————————————————————————————————————————————————————————————————————————————
-// A tag using Astro Classification Colors and abbreviated names.
-// Uses the .caption font.
-// Scales in response to accessibility settings.
-//——————————————————————————————————————————————————————————————————————————————
+/// A control that marks a region of the display containing Classified information.
+///
+/// ClassificationMarker scales in response to accessibility settings.
+///
+/// Read more about  [Classification requirements.](https://www.astrouxds.com/components/classification-markings/)
 public struct ClassificationMarker: View {
     public var classification:Classification
 
@@ -21,6 +21,7 @@ public struct ClassificationMarker: View {
     @ScaledMetric private var shadowRadius: CGFloat = 1
     @Environment(\.colorScheme) var colorScheme
     
+    /// Create a ClassificationMarker with  the specified Classification.
     public init (_ classification: Classification)
     {
         self.classification = classification
@@ -38,7 +39,6 @@ public struct ClassificationMarker: View {
             .lineLimit(1)
     }
 }
-
 
 
 struct ClassificationMarker_Previews: PreviewProvider {

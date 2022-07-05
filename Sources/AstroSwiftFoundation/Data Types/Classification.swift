@@ -11,7 +11,7 @@ import SwiftUI
 ///
 /// Classification is displayed with a ``ClassificationBanner``  or ``ClassificationMarker`` View in SwiftUI apps.
 ///
-///  Read more about  [Classification requirements](https://www.astrouxds.com/components/classification-markings/) .
+///  Read more about  [Classification requirements.](https://www.astrouxds.com/components/classification-markings/)
 public enum Classification {
     case unclassified
     case cui
