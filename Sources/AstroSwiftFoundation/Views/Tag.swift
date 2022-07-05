@@ -7,8 +7,11 @@
 import SwiftUI
 
 
-// A tag using Astro Status Colors and Status Symbols. Uses the .caption font.
-// Scales in response to accessibility settings.
+/// A control that tags or categorizes information.
+///
+/// A tag may be displayed with neutral Astro colors, or be tinted with an ``AstroStatus`` color by setting the ``Tag/status`` property.
+///
+/// Tag scales in response to accessibility settings.
 public struct Tag: View {
     public var text:String
     public var status:AstroStatus?
@@ -20,11 +23,18 @@ public struct Tag: View {
     @ScaledMetric private var shadowRadius: CGFloat = 1
     @Environment(\.colorScheme) var colorScheme
     
+    /// Create a Tag with default color and the specified text.
+    /// - Parameters:
+    ///     - text: The text displayed in the Tag
     public init (text: String)
     {
         self.text = text
     }
     
+    /// Create a Tag with an AstroStatus color and the specified text.
+    /// - Parameters:
+    ///     - text: The text displayed in the Tag
+    ///     - status: The AstroStatus color and symbol
     public init (text: String, status: AstroStatus?)
     {
         self.text = text
