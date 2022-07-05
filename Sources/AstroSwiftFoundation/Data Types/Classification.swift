@@ -7,10 +7,11 @@
 import Foundation
 import SwiftUI
 
-//——————————————————————————————————————————————————————————————————————————————
-// The six government classification levels.
-// Used by the ClassificationBanner and ClassificationMarker Views
-//——————————————————————————————————————————————————————————————————————————————
+/// US Government Classification levels
+///
+/// Classification is displayed with a ``ClassificationBanner``  or ``ClassificationMarker`` View in SwiftUI apps.
+///
+///  Read more about  [Classification requirements.](https://www.astrouxds.com/components/classification-markings/)
 public enum Classification {
     case unclassified
     case cui
@@ -19,6 +20,11 @@ public enum Classification {
     case topSecret
     case topSecretSCI
 
+    /**
+    An English description of the Classification
+     
+    The description should not be altered.
+    */
     public var description: String {
         switch self {
         case .unclassified:
@@ -36,6 +42,12 @@ public enum Classification {
         }
     }
     
+    
+    /**
+    An abbreviation representing the Classification
+     
+    The abbreviation should not be altered.
+    */
     public var abbreviation: String {
         switch self {
         case .unclassified:
@@ -54,9 +66,11 @@ public enum Classification {
     }
     
     
-     //——————————————————————————————————————————————————————————————————————————————
-     // Return the appropriate color for the given Classification
-     //——————————————————————————————————————————————————————————————————————————————
+    /**
+    The color representing the Classification.
+     
+    The color should not be altered.
+    */
     public var color: Color
      {
          switch self {
@@ -75,9 +89,11 @@ public enum Classification {
          }
      }
     
-    //——————————————————————————————————————————————————————————————————————————————
-    // Return the appropriate text color to contrast with the given Classification
-    //——————————————————————————————————————————————————————————————————————————————
+    /**
+    The text color to be used atop the ``color`` representing the Classification.
+     
+    The text color should not be altered.
+    */
     public var textColor : Color
     {
         switch self {

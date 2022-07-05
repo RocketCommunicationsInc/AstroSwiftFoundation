@@ -8,15 +8,17 @@
 import SwiftUI
 
 
-//——————————————————————————————————————————————————————————————————————————————
-// A banner using Astro Classification Colors. Uses the .body font.
-// Scales in response to accessibility settings.
-//——————————————————————————————————————————————————————————————————————————————
+/// A control that spans a large area of the display containing Classified information.
+///
+/// ClassificationBanner spans the width of its parent view, and scales in response to accessibility settings.
+///
+/// Read more about  [Classification requirements.](https://www.astrouxds.com/components/classification-markings/)
 public struct ClassificationBanner: View {
     public var classification:Classification
     @ScaledMetric private var verticalPadding: CGFloat = 3
     @ScaledMetric private var horizontalPadding: CGFloat = 5
     
+    /// Create a ClassificationBanner with  the specified Classification.
     public init (_ classification: Classification)
     {
         self.classification = classification
@@ -35,7 +37,6 @@ public struct ClassificationBanner: View {
             .lineLimit(1)
     }
 }
-
 
 struct ClassificationBanner_Previews: PreviewProvider {
     static var previews: some View {

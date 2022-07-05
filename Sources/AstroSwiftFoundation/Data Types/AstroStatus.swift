@@ -7,9 +7,17 @@
 import Foundation
 import SwiftUI
 
-// The basic 6 Astro Statuses, used by AstroColors and AstroSymbols, or for any code tracking status
+/// Astro Status levels
+///
+/// Consistent use of colors and symbols to convey status is critical for user success.
+/// AstroStatus  represents the **six** Astro Status levels that we recommend for your app.
+///
+/// Status is often displayed with a ``Status`` View in SwiftUI apps, or ``StatusView`` in UIKit and AppKit apps.
+///
+/// You may also apply status colors for to other SwiftUI elements, using the ``AstroStatus/color`` property.
+///
+///  Read more about the [Astro Status System](https://www.astrouxds.com/patterns/status-system/).
 public enum AstroStatus {
-    
     case off
     case standby
     case normal
@@ -17,10 +25,11 @@ public enum AstroStatus {
     case serious
     case critical
     
-
-    //——————————————————————————————————————————————————————————————————————————————
-    // Return the description
-    //——————————————————————————————————————————————————————————————————————————————
+    /**
+    An English description of the Status
+     
+    This is the canonical name of the AstroStatus. Synonymous are also allowed, such as Nominal for Normal.
+    */
     public var description: String {
         switch self {
         case .off:
@@ -38,9 +47,11 @@ public enum AstroStatus {
         }
     }
     
-    //——————————————————————————————————————————————————————————————————————————————
-    // Return the Astro status color for the given AstroStatus
-    //——————————————————————————————————————————————————————————————————————————————
+    /**
+    The color representing the AstroStatus.
+     
+    The color should not be altered.
+    */
     public var color:Color
     {
         switch self {
@@ -59,9 +70,13 @@ public enum AstroStatus {
         }
     }
     
-    //——————————————————————————————————————————————————————————————————————————————
-    // Return the image for the given AstroStatus
-    //——————————————————————————————————————————————————————————————————————————————
+    /**
+    The symbol representing the AstroStatus
+     
+    The symbol should not be altered.
+     
+    Status is often displayed with a ``Status`` View in SwiftUI apps, or ``StatusView`` in UIKit and AppKit apps
+    */
     public var image:Image
     {
         switch self {
@@ -80,10 +95,11 @@ public enum AstroStatus {
         }
     }
     
-    //——————————————————————————————————————————————————————————————————————————————
-    // Return a random AstroStatus.
-    // Useful for debugging or demo.
-    //——————————————————————————————————————————————————————————————————————————————
+    /**
+    A random AstroStatus.
+     
+     Useful for debugging or demo.
+    */
     public static func randomStatus()->AstroStatus
     {
         let randomIndex = Int.random(in: 0 ... 5)
@@ -107,7 +123,6 @@ public enum AstroStatus {
         }
     }
     
-    // Obsolete, warn that case names were changed
     @available(*, unavailable , renamed: "off")
     case Off
     @available(*, unavailable , renamed: "standby")

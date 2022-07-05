@@ -18,10 +18,15 @@ import WatchKit
 
 import SwiftUI
 
-/// A SwiftUI view representing an Astro Status Symbol
+/// A SwiftUI view representing an AstroStatus .
+///
+/// The status may be changed by updating the ``Status/status`` property.
 public struct Status: View {
     public var status: AstroStatus
 
+    /// Create a Status view with the specified AstroStatus.
+    /// - Parameters:
+    ///     - status: The AstroStatus to be displayed
     public init(_ status: AstroStatus) {
         self.status = status
     }
@@ -32,8 +37,11 @@ public struct Status: View {
 }
 
 #if os(iOS) || os(tvOS)
+/// A UIKit view representing an AstroStatus.
+///
 public class StatusView: UIImageView {
     
+    /// Set the AstroStatus to be displayed.
     public func setAstroStatus(_ status:AstroStatus)
     {
         self.image = UIImage.imageForAstroStatus(status)
@@ -44,8 +52,11 @@ public class StatusView: UIImageView {
 
 
 #if os(watchOS)
+/// A WatchKit view representing an AstroStatus.
+///
 public class StatusView: WKInterfaceImage {
     
+    /// Set the AstroStatus to be displayed.
     public func setAstroStatus(_ status:AstroStatus)
     {
         self.setImage(UIImage.imageForAstroStatus(status))
@@ -55,8 +66,11 @@ public class StatusView: WKInterfaceImage {
 
 
 #if os(macOS)
+/// An AppKit view representing an AstroStatus.
+///
 public class StatusView: NSImageView {
     
+    /// Set the AstroStatus to be displayed.
     public func setAstroStatus(_ status:AstroStatus)
     {
         self.image = NSImage.imageForAstroStatus(status)
