@@ -24,5 +24,9 @@ let package = Package(
         .target(
             name: "AstroSwiftFoundation",
             dependencies: []),
+        .testTarget(
+          name: "AstroSwiftFoundationTests",
+          dependencies: ["AstroSwiftFoundation"]),
+
     ]
 )
