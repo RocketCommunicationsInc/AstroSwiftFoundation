@@ -7,7 +7,7 @@
 import SwiftUI
 
 
-/// A control that tags or categorizes information.
+/// A SwiftUI View that tags or categorizes information.
 ///
 /// A tag may be displayed with neutral Astro colors, or be tinted with an ``AstroStatus`` color by setting the ``Tag/status`` property.
 ///

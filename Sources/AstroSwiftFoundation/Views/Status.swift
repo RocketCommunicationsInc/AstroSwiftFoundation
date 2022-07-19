@@ -18,7 +18,7 @@ import WatchKit
 
 import SwiftUI
 
-/// A SwiftUI view representing an AstroStatus .
+/// A SwiftUI view representing an AstroStatus.
 ///
 /// The status may be changed by updating the ``Status/status`` property.
 public struct Status: View {

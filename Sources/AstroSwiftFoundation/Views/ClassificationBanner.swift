@@ -8,7 +8,7 @@
 import SwiftUI
 
 
-/// A control that spans a large area of the display containing Classified information.
+/// A SwiftUI view that marks a large area of Classified information.
 ///
 /// ClassificationBanner spans the width of its parent view, and scales in response to accessibility settings.
 ///

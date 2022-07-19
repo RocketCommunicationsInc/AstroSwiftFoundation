@@ -7,7 +7,7 @@
 import SwiftUI
 
 
-/// A control that marks a region of the display containing Classified information.
+/// A SwiftUI view that marks a small area of Classified information.
 ///
 /// ClassificationMarker scales in response to accessibility settings.
 ///
