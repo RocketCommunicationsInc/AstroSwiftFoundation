@@ -64,12 +64,6 @@ class ColorTests: XCTestCase {
     // Look for colors with zero RGB components (white)
     func findColorsWithZeroComponents(_ colors:[Color])   {
         
-        #if canImport(UIKit)
-        typealias NativeColor = UIColor
-        #elseif canImport(AppKit)
-        typealias NativeColor = NSColor
-        #endif
-
         for color in colors{
             let components = NativeColor(color).cgColor.components! // get color components as an array of floats
             let total = components.reduce(0, +) // sum of the component values
@@ -87,12 +81,6 @@ class ColorTests: XCTestCase {
     // Look for duplicate colors within an array of Colors
     func findDuplicateColors(_ colors:[Color])   {
         var colorDictionary = Set<[CGFloat]>()
-        
-        #if canImport(UIKit)
-        typealias NativeColor = UIColor
-        #elseif canImport(AppKit)
-        typealias NativeColor = NSColor
-        #endif
 
         for color in colors{
             let components = NativeColor(color).cgColor.components! // get color components as an array of floats
