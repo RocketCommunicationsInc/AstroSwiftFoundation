@@ -18,7 +18,6 @@ import AppKit
 
 import SwiftUI
 
-
 // UIColor and NSColor are similar enough that a typealias allows us to use
 // the same code for both class extensions
 #if canImport(UIKit)
@@ -48,17 +47,14 @@ public extension Color
     //——————————————————————————————————————————————————————————————————————————————
         
     /* Apple defines two systems (also known as "stacks") for structuring an iOS app's backgrounds.
-     * Astro offers these alternative background colors to give an Astro look in Dark mode
+     * Astro offers these alternative background colors to give an Astro look in Light and Dark mode
      *
      * Each stack has three "levels" of background colors. The first color is intended to be the
      * main background, farthest back. Secondary and tertiary colors are layered on top
      * of the main background, when appropriate.
      *
-     * Inside of a discrete piece of UI, choose a stack, then use colors from that stack.
-     * We do not recommend mixing and matching background colors between stacks.
-     * The foreground colors above are designed to work in both stacks.
      *
-     * 1. systemBackground
+     * 1. astroUIBackground
      *    Use this stack for views with standard table views, and designs which have a white
      *    primary background in light mode.
      */
@@ -66,7 +62,7 @@ public extension Color
     static var astroUISecondaryBackground:Color { return astroColor("Astro UI Secondary Background")}
     static var astroUITertiaryBackground:Color { return astroColor("Astro UI Tertiary Background")}
 
-    /* 2. systemGroupedBackground
+    /* 2. astroUIGroupedBackground
      *    Use this stack for views with grouped content, such as grouped tables and
      *    platter-based designs. These are like grouped table views, but you may use these
      *    colors in places where a table view wouldn't make sense.
@@ -153,7 +149,6 @@ public extension Color
     { return astroColor("Astro Classification Topsecretsci")}
     
 
-
     //MARK: Color - Astro Color Convenience Functions
     @available(*, unavailable, message: "Use AstroStatus.color")
     static func colorForAstroStatus(_ status:AstroStatus)->Color
@@ -194,17 +189,13 @@ public extension NativeColor
     //——————————————————————————————————————————————————————————————————————————————
      
     /* Apple defines two systems (also known as "stacks") for structuring an iOS app's backgrounds.
-     * Astro offers these alternative background colors to give an Astro look in Dark mode
+     * Astro offers these alternative background colors to give an Astro look in Light and Dark mode
      *
      * Each stack has three "levels" of background colors. The first color is intended to be the
      * main background, farthest back. Secondary and tertiary colors are layered on top
      * of the main background, when appropriate.
      *
-     * Inside of a discrete piece of UI, choose a stack, then use colors from that stack.
-     * We do not recommend mixing and matching background colors between stacks.
-     * The foreground colors above are designed to work in both stacks.
-     *
-     * 1. systemBackground
+     * 1. astroUIBackground
      *    Use this stack for views with standard table views, and designs which have a white
      *    primary background in light mode.
      */
@@ -212,7 +203,7 @@ public extension NativeColor
     static var astroUISecondaryBackground:NativeColor { return astroColor("Astro UI Secondary Background")}
     static var astroUITertiaryBackground:NativeColor { return astroColor("Astro UI Tertiary Background")}
 
-    /* 2. systemGroupedBackground
+    /* 2. astroUIGroupedBackground
      *    Use this stack for views with grouped content, such as grouped tables and
      *    platter-based designs. These are like grouped table views, but you may use these
      *    colors in places where a table view wouldn't make sense.
