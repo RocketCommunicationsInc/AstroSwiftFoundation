@@ -38,7 +38,7 @@ static var astroUITertiaryGroupedBackground:Color
 
 #### Accent Color
 Accent color is applied to all controls, also used for Tint.
-```
+```swift
 static var astroUIAccent:Color
 ```
 
