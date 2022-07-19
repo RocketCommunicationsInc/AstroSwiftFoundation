@@ -18,9 +18,17 @@ import AppKit
 
 import SwiftUI
 
-// Extend Color, for SwiftUI, to include many convenience methods to access the Astro UI and Status colors
+
+// UIColor and NSColor are similar enough that a typealias allows us to use
+// the same code for both class extensions
+#if canImport(UIKit)
+public typealias NativeColor = UIColor
+#elseif canImport(AppKit)
+public typealias NativeColor = NSColor
+#endif
+
+// Extend Color for SwiftUI, to include many convenience methods to access Semantic UI, Status, and Classification colors.
 // Astro color gudelines - https://www.astrouxds.com/design-guidelines/color
-//
 public extension Color
 {
     //——————————————————————————————————————————————————————————————————————————————
@@ -29,7 +37,7 @@ public extension Color
     private static func astroColor(_ named:String)->Color
     {
         // The Color constructor is non-failable, so no debug color.
-        // If the color fails to load, it is set to white, without an error
+        // If the color fails to load it is set to white, without an error
         return Color(named, bundle: .module)
     }
     
@@ -157,26 +165,25 @@ public extension Color
 }
 
 
-// Extend UIColor, for iOS, tvOS, an watchOS, to include many convenience methods to access the Astro UI and Status colors
+// Extend UIColor or NSColor to include many convenience methods to access the Astro UI and Status colors
 // Astro color gudelines - https://www.astrouxds.com/design-guidelines/color
 //
-#if os(iOS) || os(tvOS) || os(watchOS)
-public extension UIColor
+public extension NativeColor
 {
     // If an Astro color fails to load from resources, show this noticeable brown debug color instead
-    private static var astroDebugColor = UIColor.brown
+    private static var astroDebugColor = NativeColor.brown
     
     //——————————————————————————————————————————————————————————————————————————————
     // Wrap the the UIColor constructor to return a debug color instead of nil on failure
     //——————————————————————————————————————————————————————————————————————————————
-    private static func astroColor(_ named:String)->UIColor
+    private static func astroColor(_ named:String)->NativeColor
     {
         #if os(iOS) || os(tvOS)
-        return UIColor(named:named, in: .module, compatibleWith: nil) ?? astroDebugColor
+        return NativeColor(named:named, in: .module, compatibleWith: nil) ?? astroDebugColor
         #endif
         
-        #if os(watchOS)
-        return UIColor(named:named) ?? astroDebugColor
+        #if os(watchOS) || os(macOS)
+        return NativeColor(named:named) ?? astroDebugColor
         #endif
     }
     
@@ -201,21 +208,21 @@ public extension UIColor
      *    Use this stack for views with standard table views, and designs which have a white
      *    primary background in light mode.
      */
-    static var astroUIBackground:UIColor { return astroColor("Astro UI Background")}
-    static var astroUISecondaryBackground:UIColor { return astroColor("Astro UI Secondary Background")}
-    static var astroUITertiaryBackground:UIColor { return astroColor("Astro UI Tertiary Background")}
+    static var astroUIBackground:NativeColor { return astroColor("Astro UI Background")}
+    static var astroUISecondaryBackground:NativeColor { return astroColor("Astro UI Secondary Background")}
+    static var astroUITertiaryBackground:NativeColor { return astroColor("Astro UI Tertiary Background")}
 
     /* 2. systemGroupedBackground
      *    Use this stack for views with grouped content, such as grouped tables and
      *    platter-based designs. These are like grouped table views, but you may use these
      *    colors in places where a table view wouldn't make sense.
      */
-    static var astroUIGroupedBackground:UIColor { return astroColor("Astro UI Grouped Background")}
-    static var astroUISecondaryGroupedBackground:UIColor { return astroColor("Astro UI Secondary Grouped Background")}
-    static var astroUITertiaryGroupedBackground:UIColor { return astroColor("Astro UI Tertiary Grouped Background")}
+    static var astroUIGroupedBackground:NativeColor { return astroColor("Astro UI Grouped Background")}
+    static var astroUISecondaryGroupedBackground:NativeColor { return astroColor("Astro UI Secondary Grouped Background")}
+    static var astroUITertiaryGroupedBackground:NativeColor { return astroColor("Astro UI Tertiary Grouped Background")}
 
     // Accent color is applied to all controls, also used for Tint
-    static var astroUIAccent:UIColor { return astroColor("Astro UI Accent")}
+    static var astroUIAccent:NativeColor { return astroColor("Astro UI Accent")}
 
     
     //MARK: UIColor - OBSOLETE Astro UI colors
@@ -223,27 +230,27 @@ public extension UIColor
     // Astro OBSOLETE UI colors
     //——————————————————————————————————————————————————————————————————————————————
     @available(*, unavailable, message: "Setting Astro colors on Bars is no longer recommended")
-    static var astroUIBar:UIColor
+    static var astroUIBar:NativeColor
     {return astroColor("Unavailable")} // will never run, here for compiler demands
 
     @available(*, unavailable, renamed: "astroUIAccent")
-    static var astroUITint:UIColor
+    static var astroUITint:NativeColor
     {return astroColor("Unavailable")} // will never run, here for compiler demands
 
     @available(*, unavailable, renamed: "astroUIBackground")
-    static var astroUITableCell:UIColor
+    static var astroUITableCell:NativeColor
     {return astroColor("Unavailable")} // will never run, here for compiler demands
 
     @available(*, unavailable, renamed: "label")
-    static var astroUITableCellLabel:UIColor
+    static var astroUITableCellLabel:NativeColor
     {return astroColor("Unavailable")} // will never run, here for compiler demands
 
     @available(*, unavailable, message: "Setting Astro colors on Cell Selection is no longer recommended")
-    static var astroUITableSelectedCell:UIColor
+    static var astroUITableSelectedCell:NativeColor
     {return astroColor("Unavailable")} // will never run, here for compiler demands
 
     @available(*, unavailable, message: "Setting Astro colors on Table Separator is no longer recommended")
-    static var astroUITableSeparator:UIColor
+    static var astroUITableSeparator:NativeColor
     {return astroColor("Unavailable")} // will never run, here for compiler demands
 
     
@@ -251,22 +258,22 @@ public extension UIColor
     //——————————————————————————————————————————————————————————————————————————————
     // Astro status colors
     //——————————————————————————————————————————————————————————————————————————————
-    static var astroStatusOff:UIColor
+    static var astroStatusOff:NativeColor
     {  return astroColor("Astro Status Off")}
     
-    static var astroStatusStandby:UIColor
+    static var astroStatusStandby:NativeColor
     { return astroColor("Astro Status Standby")}
 
-    static var astroStatusNormal:UIColor
+    static var astroStatusNormal:NativeColor
     { return astroColor("Astro Status Normal")}
     
-    static var astroStatusCaution:UIColor
+    static var astroStatusCaution:NativeColor
     { return astroColor("Astro Status Caution")}
     
-    static var astroStatusSerious:UIColor
+    static var astroStatusSerious:NativeColor
     { return astroColor("Astro Status Serious")}
     
-    static var astroStatusCritical:UIColor
+    static var astroStatusCritical:NativeColor
     { return astroColor("Astro Status Critical")}
     
 
@@ -274,45 +281,44 @@ public extension UIColor
     //——————————————————————————————————————————————————————————————————————————————
     // Astro classification colors, from lowest to highest
     //——————————————————————————————————————————————————————————————————————————————
-    static var astroClassificationUnclassified:UIColor
+    static var astroClassificationUnclassified:NativeColor
     {  return astroColor("Astro Classification Unclassified")}
     
-    static var astroClassificationCUI:UIColor
+    static var astroClassificationCUI:NativeColor
     { return astroColor("Astro Classification Cui")}
 
-    static var astroClassificationConfidential:UIColor
+    static var astroClassificationConfidential:NativeColor
     { return astroColor("Astro Classification Confidential")}
     
-    static var astroClassificationSecret:UIColor
+    static var astroClassificationSecret:NativeColor
     { return astroColor("Astro Classification Secret")}
     
-    static var astroClassificationTopSecret:UIColor
+    static var astroClassificationTopSecret:NativeColor
     { return astroColor("Astro Classification Topsecret")}
     
-    static var astroClassificationTopSecretSCI:UIColor
+    static var astroClassificationTopSecretSCI:NativeColor
     { return astroColor("Astro Classification Topsecretsci")}
 
-    
 
     //MARK: UIColor - Astro Color Convenience Functions
     //——————————————————————————————————————————————————————————————————————————————
     // Return the Astro status color for the given AstroStatus
     //——————————————————————————————————————————————————————————————————————————————
-    static func colorForAstroStatus(_ status:AstroStatus)->UIColor
+    static func colorForAstroStatus(_ status:AstroStatus)->NativeColor
     {
         switch status {
         case .off:
-            return UIColor.astroStatusOff
+            return NativeColor.astroStatusOff
         case .standby:
-            return UIColor.astroStatusStandby
+            return NativeColor.astroStatusStandby
         case .normal:
-            return UIColor.astroStatusNormal
+            return NativeColor.astroStatusNormal
         case .caution:
-            return UIColor.astroStatusCaution
+            return NativeColor.astroStatusCaution
         case .serious:
-            return UIColor.astroStatusSerious
+            return NativeColor.astroStatusSerious
         case .critical:
-            return UIColor.astroStatusCritical
+            return NativeColor.astroStatusCritical
         }
     }
     
@@ -320,175 +326,10 @@ public extension UIColor
     // Return a random Astro status color.
     // Useful for debugging or demo.
     //——————————————————————————————————————————————————————————————————————————————
-    static func randomStatusColor()->UIColor
+    static func randomStatusColor()->NativeColor
     {
         return colorForAstroStatus(AstroStatus.randomStatus())
     }
 }
 
-#endif
-
-#if os(macOS)
-// Extend NSColor, for macOS, to include many convenience methods to access the Astro UI and Status colors
-// Astro color gudelines - https://www.astrouxds.com/design-guidelines/color
-//
-public extension NSColor
-{
-    // If an Astro color fails to load from resources, show this noticeable brown debug color instead
-    private static var astroDebugColor = NSColor.brown
-    
-    //——————————————————————————————————————————————————————————————————————————————
-    // Wrap the the NSColor constructor to return a debug color instead of nil on failure
-    //——————————————————————————————————————————————————————————————————————————————
-    private static func astroColor(_ named:String)->NSColor
-    {
-        return NSColor(named:named) ?? astroDebugColor
-    }
-    
-    //MARK: NSColor - New (2.0) Astro Semantic colors
-    //——————————————————————————————————————————————————————————————————————————————
-    // Astro semantic UI colors
-    //——————————————————————————————————————————————————————————————————————————————
-        
-    /* Apple defines two systems (also known as "stacks") for structuring an iOS app's backgrounds.
-     * Astro offers these alternative background colors to give an Astro look in Dark mode
-     *
-     * Each stack has three "levels" of background colors. The first color is intended to be the
-     * main background, farthest back. Secondary and tertiary colors are layered on top
-     * of the main background, when appropriate.
-     *
-     * Inside of a discrete piece of UI, choose a stack, then use colors from that stack.
-     * We do not recommend mixing and matching background colors between stacks.
-     * The foreground colors above are designed to work in both stacks.
-     *
-     * 1. systemBackground
-     *    Use this stack for views with standard table views, and designs which have a white
-     *    primary background in light mode.
-     */
-    static var astroUIBackground:NSColor { return astroColor("Astro UI Background")}
-    static var astroUISecondaryBackground:NSColor { return astroColor("Astro UI Secondary Background")}
-    static var astroUITertiaryBackground:NSColor { return astroColor("Astro UI Tertiary Background")}
-
-    /* 2. systemGroupedBackground
-     *    Use this stack for views with grouped content, such as grouped tables and
-     *    platter-based designs. These are like grouped table views, but you may use these
-     *    colors in places where a table view wouldn't make sense.
-     */
-    static var astroUIGroupedBackground:NSColor { return astroColor("Astro UI Grouped Background")}
-    static var astroUISecondaryGroupedBackground:NSColor { return astroColor("Astro UI Secondary Grouped Background")}
-    static var astroUITertiaryGroupedBackground:NSColor { return astroColor("Astro UI Tertiary Grouped Background")}
-
-    // Accent color is applied to all controls, also used for Tint
-    static var astroUIAccent:NSColor { return astroColor("Astro UI Accent")}
-    
-    //MARK: NSColor - OBSOLETE Astro UI colors
-    //——————————————————————————————————————————————————————————————————————————————
-    // Astro OBSOLETE UI colors
-    //——————————————————————————————————————————————————————————————————————————————
-    @available(*, unavailable, message: "Setting Astro colors on Bars is no longer recommended")
-    static var astroUIBar:NSColor
-    {return astroColor("Unavailable")} // will never run, here for compiler demands
-
-    @available(*, unavailable, renamed: "astroUIAccent")
-    static var astroUITint:NSColor
-    {return astroColor("Unavailable")} // will never run, here for compiler demands
-
-    @available(*, unavailable, renamed: "astroUIBackground")
-    static var astroUITableCell:NSColor
-    {return astroColor("Unavailable")} // will never run, here for compiler demands
-
-    @available(*, unavailable, renamed: "label")
-    static var astroUITableCellLabel:NSColor
-    {return astroColor("Unavailable")} // will never run, here for compiler demands
-
-    @available(*, unavailable, message: "Setting Astro colors on Cell Selection is no longer recommended")
-    static var astroUITableSelectedCell:NSColor
-    {return astroColor("Unavailable")} // will never run, here for compiler demands
-
-    @available(*, unavailable, message: "Setting Astro colors on Table Separator is no longer recommended")
-    static var astroUITableSeparator:NSColor
-    {return astroColor("Unavailable")} // will never run, here for compiler demands
-
-
-    
-    //MARK: NSColor - Astro Status colors
-    //——————————————————————————————————————————————————————————————————————————————
-    // Astro status colors
-    //——————————————————————————————————————————————————————————————————————————————
-    static var astroStatusOff:NSColor
-    {  return astroColor("Astro Status Off")}
-    
-    static var astroStatusStandby:NSColor
-    { return astroColor("Astro Status Standby")}
-
-    static var astroStatusNormal:NSColor
-    { return astroColor("Astro Status Normal")}
-    
-    static var astroStatusCaution:NSColor
-    { return astroColor("Astro Status Caution")}
-    
-    static var astroStatusSerious:NSColor
-    { return astroColor("Astro Status Serious")}
-    
-    static var astroStatusCritical:NSColor
-    { return astroColor("Astro Status Critical")}
-    
-    
-    //MARK: NSColor - Astro Classification colors
-    //——————————————————————————————————————————————————————————————————————————————
-    // Astro classification colors, from lowest to highest
-    //——————————————————————————————————————————————————————————————————————————————
-    static var astroClassificationUnclassified:NSColor
-    {  return astroColor("Astro Classification Unclassified")}
-    
-    static var astroClassificationCUI:NSColor
-    { return astroColor("Astro Classification Cui")}
-
-    static var astroClassificationConfidential:NSColor
-    { return astroColor("Astro Classification Confidential")}
-    
-    static var astroClassificationSecret:NSColor
-    { return astroColor("Astro Classification Secret")}
-    
-    static var astroClassificationTopSecret:NSColor
-    { return astroColor("Astro Classification Topsecret")}
-    
-    static var astroClassificationTopSecretSCI:NSColor
-    { return astroColor("Astro Classification Topsecretsci")}
-
-    
-    //MARK: NSColor - Astro Color Convenience Functions
-    //——————————————————————————————————————————————————————————————————————————————
-    // Return the Astro status color for the given AstroStatus
-    //——————————————————————————————————————————————————————————————————————————————
-    static func colorForAstroStatus(_ status:AstroStatus)->NSColor
-    {
-        switch status {
-        case .off:
-            return NSColor.astroStatusOff
-        case .standby:
-            return NSColor.astroStatusStandby
-        case .normal:
-            return NSColor.astroStatusNormal
-        case .caution:
-            return NSColor.astroStatusCaution
-        case .serious:
-            return NSColor.astroStatusSerious
-        case .critical:
-            return NSColor.astroStatusCritical
-        }
-    }
-    
-
-    //——————————————————————————————————————————————————————————————————————————————
-    // Return a random Astro status color.
-    // Useful for debugging or demo.
-    //——————————————————————————————————————————————————————————————————————————————
-    static func randomStatusColor()->NSColor
-    {
-        return colorForAstroStatus(AstroStatus.randomStatus())
-    }
-
-}
-#endif
 
