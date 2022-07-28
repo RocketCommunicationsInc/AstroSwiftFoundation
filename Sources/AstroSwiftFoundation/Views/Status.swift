@@ -70,8 +70,8 @@ public class StatusView: WKInterfaceImage {
         // The Status images are SFSymbols with custom colors, and should automatically draw in color,
         // but due to a bug in the internal SVG code that the SFSymbols app write our the custom color,
         // they render in black. So, as a workaround, reapply the status color through withTintColor
-        self.image = UIImage.imageForAstroStatus(status).withRenderingMode(.alwaysTemplate)
-        self.tintColor = UIColor(status.color)
+        self.setImage(UIImage.imageForAstroStatus(status).withRenderingMode(.alwaysTemplate))
+        self.setTintColor(UIColor(status.color))
     }
 }
 #endif
