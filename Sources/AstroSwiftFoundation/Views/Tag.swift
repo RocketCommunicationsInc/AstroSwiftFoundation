@@ -57,7 +57,11 @@ public struct Tag: View {
             }
             Text(text)
              .font(font)
-             .foregroundColor(Color(.label)) // apply the system label color
+#if canImport(UIKit)
+             .foregroundColor(Color(.label))
+#elseif canImport(AppKit)
+             .foregroundColor(Color(.labelColor))
+#endif
              .lineLimit(1)
         }
         .padding([.leading, .trailing],horizontalPadding).padding([.top, .bottom],verticalPadding)
