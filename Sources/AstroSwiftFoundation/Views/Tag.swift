@@ -56,7 +56,8 @@ public struct Tag: View {
                     .font(font).foregroundColor(status.color)
             }
             Text(text)
-             .font(font)//.foregroundColor(Color(.label))
+             .font(font)
+             .foregroundColor(Color(.label)) // apply the system label color
              .lineLimit(1)
         }
         .padding([.leading, .trailing],horizontalPadding).padding([.top, .bottom],verticalPadding)
