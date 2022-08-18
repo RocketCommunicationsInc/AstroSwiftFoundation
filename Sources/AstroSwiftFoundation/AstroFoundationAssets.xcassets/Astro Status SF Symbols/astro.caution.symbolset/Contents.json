@@ -1,0 +1,12 @@
+{
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "symbols" : [
+    {
+      "filename" : "astro.caution.svg",
+      "idiom" : "universal"
+    }
+  ]
+}
