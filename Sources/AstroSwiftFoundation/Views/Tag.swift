@@ -58,7 +58,7 @@ public struct Tag: View {
             Text(text)
              .font(font)
 #if canImport(UIKit)
-             .foregroundColor(Color(.label))
+             .foregroundColor(Color(uiColor: .label))
 #elseif canImport(AppKit)
              .foregroundColor(Color(.labelColor))
 #endif
