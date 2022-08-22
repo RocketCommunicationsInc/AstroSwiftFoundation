@@ -90,7 +90,7 @@ public extension Color
     static var astroUITableCell:Color
     {return astroColor("Unavailable")} // will never run, here for compiler demands
 
-    @available(*, unavailable, renamed: "label")
+    @available(*, unavailable, message: "Use UIColor.label")
     static var astroUITableCellLabel:Color
     {return astroColor("Unavailable")} // will never run, here for compiler demands
 
