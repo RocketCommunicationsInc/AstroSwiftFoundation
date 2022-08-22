@@ -6,6 +6,14 @@
 
 import SwiftUI
 
+#if canImport(UIKit)
+import UIKit
+#endif
+
+#if canImport(AppKit)
+import AppKit
+#endif
+
 /// A SwiftUI View that tags or categorizes information.
 ///
 /// A tag may be displayed with neutral Astro colors, or be tinted with an ``AstroStatus`` color by setting the ``Tag/status`` property.
