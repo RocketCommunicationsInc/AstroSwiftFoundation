@@ -6,6 +6,13 @@
 
 import SwiftUI
 
+#if canImport(UIKit)
+import UIKit
+#endif
+
+#if canImport(AppKit)
+import AppKit
+#endif
 
 /// A SwiftUI View that tags or categorizes information.
 ///
@@ -43,6 +50,12 @@ public struct Tag: View {
     
     public var body: some View {
         
+#if canImport(UIKit)
+        let textColor = Color(UIColor.label)
+#elseif canImport(AppKit)
+        let textColor = Color(.labelColor)
+#endif
+
         // set the stroke color, Astro blue if no status, status color otherwise
         var strokeColor:Color = Color.astroUIAccent
         if let status = status {
@@ -57,11 +70,7 @@ public struct Tag: View {
             }
             Text(text)
              .font(font)
-#if canImport(UIKit)
-             .foregroundColor(Color(.label))
-#elseif canImport(AppKit)
-             .foregroundColor(Color(.labelColor))
-#endif
+             .foregroundColor(textColor)
              .lineLimit(1)
         }
         .padding([.leading, .trailing],horizontalPadding).padding([.top, .bottom],verticalPadding)
