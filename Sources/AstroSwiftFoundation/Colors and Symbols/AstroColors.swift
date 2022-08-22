@@ -90,7 +90,7 @@ public extension Color
     static var astroUITableCell:Color
     {return astroColor("Unavailable")} // will never run, here for compiler demands
 
-    @available(*, unavailable, message: "Use UIColor.label")
+    @available(*, unavailable, message: "Use nativel label color")
     static var astroUITableCellLabel:Color
     {return astroColor("Unavailable")} // will never run, here for compiler demands
 
@@ -232,7 +232,7 @@ public extension NativeColor
     static var astroUITableCell:NativeColor
     {return astroColor("Unavailable")} // will never run, here for compiler demands
 
-    @available(*, unavailable, renamed: "label")
+    @available(*, unavailable, message: "Use nativel label color")
     static var astroUITableCellLabel:NativeColor
     {return astroColor("Unavailable")} // will never run, here for compiler demands
 
