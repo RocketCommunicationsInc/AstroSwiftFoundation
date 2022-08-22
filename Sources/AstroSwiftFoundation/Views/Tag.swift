@@ -51,7 +51,7 @@ public struct Tag: View {
     public var body: some View {
         
 #if canImport(UIKit)
-        let textColor = Color(UIColor.label)
+        let textColor = Color(.red)
 #elseif canImport(AppKit)
         let textColor = Color(.labelColor)
 #endif
