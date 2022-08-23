@@ -57,9 +57,9 @@ public struct Tag: View {
     public var body: some View {
         
 #if os(iOS) || os(tvOS)
-        let textColor = Color(UIColor.white)
-#elseif os(watchOS)
         let textColor = Color(UIColor.label)
+#elseif os(watchOS)
+        let textColor = Color(UIColor.white)
 #elseif os(macOS)
         let textColor = Color(.labelColor)
 #endif
