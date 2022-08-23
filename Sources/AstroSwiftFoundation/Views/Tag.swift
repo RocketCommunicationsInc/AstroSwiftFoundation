@@ -14,6 +14,10 @@ import UIKit
 import AppKit
 #endif
 
+#if os(watchOS)
+import WatchKit
+#endif
+
 /// A SwiftUI View that tags or categorizes information.
 ///
 /// A tag may be displayed with neutral Astro colors, or be tinted with an ``AstroStatus`` color by setting the ``Tag/status`` property.
