@@ -32,6 +32,9 @@ public struct Status: View {
     }
 
     public var body: some View {
+        
+        let textColor = Color(UIColor.label)
+
         // The Status images are SFSymbols with custom colors, and should automatically draw in color,
         // but due to a bug in the internal SVG code that the SFSymbols app write our the custom color,
         // they render in black. So, as a workaround, reapply the status color through foregroundColor
