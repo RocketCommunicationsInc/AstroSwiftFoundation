@@ -6,17 +6,19 @@
 
 import SwiftUI
 
-#if canImport(UIKit)
+
+#if os(iOS) || os(tvOS)
 import UIKit
 #endif
 
-#if canImport(AppKit)
+#if os(macOS)
 import AppKit
 #endif
 
 #if os(watchOS)
 import WatchKit
 #endif
+
 
 /// A SwiftUI View that tags or categorizes information.
 ///
@@ -54,9 +56,9 @@ public struct Tag: View {
     
     public var body: some View {
         
-#if canImport(UIKit)
+#if os(iOS) || os(tvOS)
         let textColor = Color(UIColor.label)
-#elseif canImport(AppKit)
+#elseif os(macOS)
         let textColor = Color(.labelColor)
 #endif
 
