@@ -148,6 +148,42 @@ public extension Color
     static var astroClassificationTopSecretSCI:Color
     { return astroColor("Astro Classification Topsecretsci")}
     
+    //MARK: Color - Astro DataVis colors
+    //——————————————————————————————————————————————————————————————————————————————
+    // Astro DataVis colors
+    //——————————————————————————————————————————————————————————————————————————————
+    @available(*, message: "Astro DataVis colors are in development and are subject to change")
+    static var astroDataVis1:Color
+    {  return astroColor("Astro DataVis 1")}
+    
+    @available(*, message: "Astro DataVis colors are in development and are subject to change")
+    static var astroDataVis2:Color
+    { return astroColor("Astro DataVis 2")}
+
+    @available(*, message: "Astro DataVis colors are in development and are subject to change")
+    static var astroDataVis3:Color
+    { return astroColor("Astro DataVis 3")}
+    
+    @available(*, message: "Astro DataVis colors are in development and are subject to change")
+    static var astroDataVis4:Color
+    { return astroColor("Astro DataVis 4")}
+    
+    @available(*, message: "Astro DataVis colors are in development and are subject to change")
+    static var astroDataVis5:Color
+    { return astroColor("Astro DataVis 5")}
+    
+    @available(*, message: "Astro DataVis colors are in development and are subject to change")
+    static var astroDataVis6:Color
+    { return astroColor("Astro DataVis 6")}
+    
+    @available(*, message: "Astro DataVis colors are in development and are subject to change")
+    static var astroDataVis7:Color
+    { return astroColor("Astro DataVis 7")}
+    
+    @available(*, message: "Astro DataVis colors are in development and are subject to change")
+    static var astroDataVis8:Color
+    { return astroColor("Astro DataVis 8")}
+
 
     //MARK: Color - Astro Color Convenience Functions
     @available(*, unavailable, message: "Use AstroStatus.color")
