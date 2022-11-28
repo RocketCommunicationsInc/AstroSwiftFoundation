@@ -152,11 +152,11 @@ public extension Color
     //——————————————————————————————————————————————————————————————————————————————
     // Astro DataVis colors
     //——————————————————————————————————————————————————————————————————————————————
-    @available(100, message: "Astro DataVis colors are in development and are subject to change")
+    @available(*, deprecated, message: "Astro DataVis colors are in development and are subject to change")
     static var astroDataVis1:Color
     {  return astroColor("Astro DataVis 1")}
     
-    @available(100, message: "Astro DataVis colors are in development and are subject to change")
+    @available(*, message: "Astro DataVis colors are in development and are subject to change")
     static var astroDataVis2:Color
     { return astroColor("Astro DataVis 2")}
 
