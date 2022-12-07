@@ -148,7 +148,7 @@ public extension Color
     static var astroClassificationTopSecretSCI:Color
     { return astroColor("Astro Classification Topsecretsci")}
     
-    //MARK: Color - Astro DataVis colors
+    //MARK: Color - New (2.0) Astro DataVis colors
     //——————————————————————————————————————————————————————————————————————————————
     // Astro DataVis colors
     //——————————————————————————————————————————————————————————————————————————————
@@ -175,8 +175,15 @@ public extension Color
     
     static var astroDataVis8:Color
     { return astroColor("Astro DataVis 8")}
+    
+    static var astroDataGridline:Color
+    { return astroColor("Astro DataVis Gridline")}
+
+    static var astroDataThreshold:Color
+    { return astroColor("Astro DataVis Threshold")}
 
 
+    
     //MARK: Color - Astro Color Convenience Functions
     @available(*, unavailable, message: "Use AstroStatus.color")
     static func colorForAstroStatus(_ status:AstroStatus)->Color
