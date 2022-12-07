@@ -176,10 +176,10 @@ public extension Color
     static var astroDataVis8:Color
     { return astroColor("Astro DataVis 8")}
     
-    static var astroDataGridline:Color
+    static var astroDataVisGridline:Color
     { return astroColor("Astro DataVis Gridline")}
 
-    static var astroDataThreshold:Color
+    static var astroDataVisThreshold:Color
     { return astroColor("Astro DataVis Threshold")}
 
 
