@@ -12,3 +12,7 @@ New in version 2.0
 
 To use AstroSwiftFoundation in your Xcode project, select File->Swift Packages->Add Package Dependency, and enter the URL of this repository.
 
+Detailed documentation can be found within the Xcode documenation browser, [or on the web](https://rocketcommunicationsinc.github.io/AstroSwiftFoundation/documentation/astroswiftfoundation/).
+
+Open source sample apps, [Astro Launches](https://github.com/RocketCommunicationsInc/AstroLaunches) and [Astro Sampler](https://github.com/RocketCommunicationsInc/AstroSwiftSampler), demonstrate the package in use.
+
