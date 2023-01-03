@@ -8,11 +8,11 @@ New in version 3.0
 
 New in version 2.0
 • New Tag, Classification Banner, and Classification Marker views for SwiftUI.
-• A simplfified semantic color scheme.
+• A simplified semantic color scheme.
 
 To use AstroSwiftFoundation in your Xcode project, select File->Swift Packages->Add Package Dependency, and enter the URL of this repository.
 
-Detailed documentation can be found within the Xcode documenation browser, [or on the web](https://rocketcommunicationsinc.github.io/AstroSwiftFoundation/documentation/astroswiftfoundation/).
+Detailed documentation can be found within the Xcode documentation browser, [or on the web](https://rocketcommunicationsinc.github.io/AstroSwiftFoundation/documentation/astroswiftfoundation/).
 
 Open source sample apps, [Astro Launches](https://github.com/RocketCommunicationsInc/AstroLaunches) and [Astro Sampler](https://github.com/RocketCommunicationsInc/AstroSwiftSampler), demonstrate the package in use.
 
