@@ -9,38 +9,65 @@ import SwiftUI
 
 struct CounterOptions: OptionSet {
     let rawValue: UInt
-
+    
     static let day = CounterOptions(rawValue: 1 << 0)
     static let hour = CounterOptions(rawValue: 1 << 1)
     static let minute = CounterOptions(rawValue: 1 << 2)
     static let second = CounterOptions(rawValue: 1 << 3)
-
-   // static let standard: CounterOptions = [.day,.hour,.minute,.second]
-    static let all: CounterOptions = [.day,.hour,.minute,.second]
+    static let leadingSign = CounterOptions(rawValue: 1 << 4)
+    static let labels = CounterOptions(rawValue: 1 << 5)
+    
+    static let standard: CounterOptions = [.day,.hour,.minute,.second]
+    static let all: CounterOptions = [.day,.hour,.minute,.second,.leadingSign]
 }
 
 struct Counter: View {
     
-    @State var targetDate:Date
-    @State var timeRemaining: TimeInterval = 0
+    @State public var targetDate:Date
+    @State private var timeRemaining: TimeInterval = 0
+
+    // options
+    var options:CounterOptions = .standard
 
     // defaults sizes can be overridden
     var digitStyle:Font.TextStyle = .body
     var labelStyle:Font.TextStyle = .caption2
     
-    var options:CounterOptions = .all
+//    /// Create a Tag with default color and the specified text.
+//    /// - Parameters:
+//    ///     - text: The text displayed in the Tag
+//    public init (targetDate: Date)
+//    {
+//        _targetDate = State(initialValue:targetDate)
+//        self.options = .standard
+//    }
+//
+//    /// Create a Tag with an AstroStatus color and the specified text.
+//    /// - Parameters:
+//    ///     - text: The text displayed in the Tag
+//    ///     - status: The AstroStatus color and symbol
+//    public init (targetDate: Date, options: CounterOptions)
+//    {
+//        _targetDate = State(initialValue:targetDate)
+//        self.options = options
+//    }
     
     var body: some View {
-        HStack {
-            HStack()
-            {
-                let digitFont = Font.system(digitStyle).weight(.semibold).monospacedDigit()
-                let labelFont = Font.system(labelStyle)
-                
+        HStack()
+        {
+            let digitFont = Font.system(digitStyle)
+                .weight(.semibold)
+                .monospacedDigit()
+            let labelFont = Font.system(labelStyle)
+            
+            // Day
+            if options.contains(.day) {
                 VStack (alignment: .trailing){
                     if options.contains(.day){
                         HStack{
-                            Text(timeRemaining <= 0 ? "-" : "+")
+                            if options.contains(.leadingSign) {
+                                Text(timeRemaining <= 0 ? "-" : "+")
+                            }
                             Text(timeRemaining.days())
                                 .font(digitFont)
                         }
@@ -48,106 +75,75 @@ struct Counter: View {
                             .font(labelFont)
                     }
                 }
-                
+            }
+            
+            // Hour
+            if options.contains(.hour) {
                 VStack (alignment: .trailing){
                     Text(timeRemaining.hours())
                         .font(digitFont)
                     Text("HRS")
                         .font(labelFont)
                 }
-                
+            }
+            
+            // Minute
+            if options.contains(.minute) {
                 VStack (alignment: .trailing){
                     Text(timeRemaining.minutes())
                         .font(digitFont)
-//                        .transition(.opacity.animation(.easeInOut(duration:0.3)))
-//                        .id("Minutes" + timeRemaining.minutes())
                     Text("MIN")
                         .font(labelFont)
                 }
-                
+            }
+            
+            // Second
+            if options.contains(.second){
                 VStack (alignment: .trailing){
                     Text(timeRemaining.seconds())
                         .font(digitFont)
-//                        .transition(.scale.animation(.easeInOut(duration:0.3)))
-//                        .id("Seconds" + timeRemaining.seconds())
-
+                    /*     experimental animation
+                        .transition(.opacity.animation(.easeInOut(duration:0.3))).id("Seconds" + timeRemaining.seconds())
+                     */
                     Text("SEC")
                         .font(labelFont)
                 }
-                
             }
-            
-#if os(iOS)
-    .foregroundColor(Color(.label))
+        }
+        
+#if os(iOS) || os(tvOS) || os(watchOS)
+        .foregroundColor(Color(.label))
 #endif
 #if os(macOS)
-    .foregroundColor(Color(.labelColor))
+        .foregroundColor(Color(.labelColor))
 #endif
-
-            
-            .onReceive(centralTimer) { _ in
-                    // refresh the time every second
-                    calcTimeRemaining()
-                }
-            .onAppear {
-                    // refresh the time when first shown
-                    calcTimeRemaining()
-                }
+        .onReceive(centralTimer) { now in
+            // refresh the time every second
+            calcTimeRemaining(now:now)
+        }
+        .onAppear {
+            // refresh the time when first shown
+            calcTimeRemaining(now: Date())
         }
     }
     
-
-    func calcTimeRemaining()
+    
+    func calcTimeRemaining(now:Date)
     {
-        timeRemaining = Date().timeIntervalSince(targetDate)
+        timeRemaining = now.timeIntervalSince(targetDate)
     }
 }
 
-// extend TimeInterval to output units of time as Strings, always with two digits
-extension TimeInterval{
-    
-    func days()->String {
-        
-        let time = NSInteger(self)
-        let days = abs((time / 86400))
-        
-        return String(format: "%0.2d",days)
-    }
-    
-    func hours()->String {
-        
-        let time = NSInteger(self)
-        let hours = abs((time / 3600) % 24)
-
-        return String(format: "%0.2d",hours)
-    }
-    
-    func minutes()->String {
-        
-        let time = NSInteger(self)
-        let minutes = abs((time / 60) % 60)
-
-        return String(format: "%0.2d",minutes)
-    }
-    
-    func seconds()->String {
-        
-        let time = NSInteger(self)
-        let seconds = abs(time % 60)
-
-        return String(format: "%0.2d",seconds)
-    }
-}
 
 
 struct LaunchCountdown_Previews: PreviewProvider {
     static var previews: some View {
         
-        Counter(targetDate: Date(timeIntervalSinceNow: 500000))
-            .previewLayout(.sizeThatFits)
-        Counter(targetDate: Date())
-            .preferredColorScheme(.dark)
-            .previewLayout(.sizeThatFits)
+        VStack(alignment: .trailing){
+            Counter(targetDate: Date(timeIntervalSinceNow: 500000), options: .all)
+            Counter(targetDate: Date())
+                .preferredColorScheme(.dark)
+        }
     }
 }
 
