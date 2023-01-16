@@ -25,16 +25,13 @@ struct Clock: View {
     
     // depending on which initializers was used, get the body from one of our private classes
     var body: some View {
-        if let verbatimFormatter
-        {
+        if let verbatimFormatter {
             VerbatimClock(digitFont: digitFont, verbatimFormatter: verbatimFormatter)
         }
-        else if let formatter
-        {
+        else if let formatter {
             StyledClock(digitFont: digitFont, formatter: formatter)
         }
-        else
-        {
+        else {
             Text("formatter not set")
         }
     }
