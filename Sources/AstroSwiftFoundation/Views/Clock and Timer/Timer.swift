@@ -1,5 +1,5 @@
 //
-//  Counter.swift
+//  Timer.swift
 //  Astro Launches
 //
 //  Created by rocketjeff on 1/6/22.
@@ -7,50 +7,31 @@
 
 import SwiftUI
 
-struct CounterOptions: OptionSet {
+struct IntervalTimerOptions: OptionSet {
     let rawValue: UInt
     
-    static let day = CounterOptions(rawValue: 1 << 0)
-    static let hour = CounterOptions(rawValue: 1 << 1)
-    static let minute = CounterOptions(rawValue: 1 << 2)
-    static let second = CounterOptions(rawValue: 1 << 3)
-    static let leadingSign = CounterOptions(rawValue: 1 << 4)
-    static let labels = CounterOptions(rawValue: 1 << 5)
+    static let day = IntervalTimerOptions(rawValue: 1 << 0)
+    static let hour = IntervalTimerOptions(rawValue: 1 << 1)
+    static let minute = IntervalTimerOptions(rawValue: 1 << 2)
+    static let second = IntervalTimerOptions(rawValue: 1 << 3)
+    static let leadingSign = IntervalTimerOptions(rawValue: 1 << 4)
+    static let labels = IntervalTimerOptions(rawValue: 1 << 5)
     
-    static let standard: CounterOptions = [.day,.hour,.minute,.second]
-    static let all: CounterOptions = [.day,.hour,.minute,.second,.leadingSign]
+    static let standard: IntervalTimerOptions = [.day,.hour,.minute,.second]
+    static let all: IntervalTimerOptions = [.day,.hour,.minute,.second,.leadingSign]
 }
 
-struct Counter: View {
+struct IntervalTimer: View {
     
     @State public var targetDate:Date
     @State private var timeRemaining: TimeInterval = 0
 
     // options
-    var options:CounterOptions = .standard
+    var options:IntervalTimerOptions = .standard
 
     // defaults sizes can be overridden
     var digitStyle:Font.TextStyle = .body
     var labelStyle:Font.TextStyle = .caption2
-    
-//    /// Create a Tag with default color and the specified text.
-//    /// - Parameters:
-//    ///     - text: The text displayed in the Tag
-//    public init (targetDate: Date)
-//    {
-//        _targetDate = State(initialValue:targetDate)
-//        self.options = .standard
-//    }
-//
-//    /// Create a Tag with an AstroStatus color and the specified text.
-//    /// - Parameters:
-//    ///     - text: The text displayed in the Tag
-//    ///     - status: The AstroStatus color and symbol
-//    public init (targetDate: Date, options: CounterOptions)
-//    {
-//        _targetDate = State(initialValue:targetDate)
-//        self.options = options
-//    }
     
     var body: some View {
         HStack()
@@ -140,8 +121,8 @@ struct LaunchCountdown_Previews: PreviewProvider {
     static var previews: some View {
         
         VStack(alignment: .trailing){
-            Counter(targetDate: Date(timeIntervalSinceNow: 500000), options: .all)
-            Counter(targetDate: Date())
+            IntervalTimer(targetDate: Date(timeIntervalSinceNow: 500000), options: .all)
+            IntervalTimer(targetDate: Date())
                 .preferredColorScheme(.dark)
         }
     }
