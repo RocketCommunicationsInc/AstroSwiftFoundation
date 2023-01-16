@@ -30,17 +30,12 @@ struct IntervalTimer: View {
     var options:IntervalTimerOptions = .standard
 
     // defaults sizes can be overridden
-    var digitStyle:Font.TextStyle = .body
-    var labelStyle:Font.TextStyle = .caption2
+    var digitFont:Font = .system(.body).weight(.semibold).monospacedDigit()
+    var labelFont:Font = .system(.caption2)
     
     var body: some View {
         HStack()
         {
-            let digitFont = Font.system(digitStyle)
-                .weight(.semibold)
-                .monospacedDigit()
-            let labelFont = Font.system(labelStyle)
-            
             // Day
             if options.contains(.day) {
                 VStack (alignment: .trailing){
