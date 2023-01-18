@@ -16,20 +16,22 @@ struct Clock: View {
     static public let astroTime = Date.VerbatimFormatStyle(format: "\(hour: .twoDigits(clock: .twentyFourHour, hourCycle: .oneBased)):\(minute: .twoDigits):\(second: .twoDigits) UTC", locale: .current,timeZone: TimeZone.gmt, calendar: .current)
 
     @State private var now:Date = Date()
-    
-    // defaults font can be overridden
-    var digitFont:Font = .system(.body).weight(.semibold).monospacedDigit()
+   
     // use one of the two initializers to create a clock with either a Date.VerbatimFormatStyle or a simple Date.FormatStyle
     @State var verbatimFormatter: Date.VerbatimFormatStyle?
     @State var formatter: Date.FormatStyle?
+
     
+    // defaults font can be overridden
+    var digitFont:Font = .system(.body).weight(.semibold).monospacedDigit()
+
     // depending on which initializers was used, get the body from one of our private classes
     var body: some View {
         if let verbatimFormatter {
-            VerbatimClock(digitFont: digitFont, verbatimFormatter: verbatimFormatter)
+            VerbatimClock(verbatimFormatter: verbatimFormatter, digitFont: digitFont)
         }
         else if let formatter {
-            StyledClock(digitFont: digitFont, formatter: formatter)
+            StyledClock(formatter: formatter, digitFont: digitFont)
         }
         else {
             Text("formatter not set")
@@ -45,18 +47,12 @@ fileprivate struct VerbatimClock: View {
     @State private var now:Date = Date()
     
     // defaults can be overridden
-    var digitFont:Font
     @State var verbatimFormatter: Date.VerbatimFormatStyle
+    var digitFont:Font
 
     var body: some View {
         let timeStr = now.formatted(verbatimFormatter)
         Text(timeStr).font(digitFont)
-#if os(iOS) || os(tvOS) || os(watchOS)
-        .foregroundColor(Color(.label))
-#endif
-#if os(macOS)
-        .foregroundColor(Color(.labelColor))
-#endif
         .onReceive(centralTimer) { date in
             now = date
         }
@@ -71,18 +67,12 @@ fileprivate struct StyledClock: View {
     @State private var now:Date = Date()
     
     // defaults can be overridden
-    var digitFont:Font
     @State var formatter: Date.FormatStyle
+    var digitFont:Font
 
     var body: some View {
         let timeStr = now.formatted(formatter)
         Text(timeStr).font(digitFont)
-#if os(iOS) || os(tvOS) || os(watchOS)
-        .foregroundColor(Color(.label))
-#endif
-#if os(macOS)
-        .foregroundColor(Color(.labelColor))
-#endif
         .onReceive(centralTimer) { date in
             now = date
         }
@@ -108,7 +98,7 @@ struct SwiftUIView_Previews: PreviewProvider {
                 .era(.abbreviated)
                 .dayOfYear(.defaultDigits)
                 .weekday(.wide)
-                .week(.defaultDigits))
+                .week(.defaultDigits), digitFont:Font.system(.title3)).foregroundColor(.blue).monospacedDigit()
         }
     }
 }

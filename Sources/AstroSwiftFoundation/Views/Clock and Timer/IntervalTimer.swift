@@ -21,6 +21,7 @@ struct IntervalTimerOptions: OptionSet {
     static let all: IntervalTimerOptions = [.day,.hour,.minute,.second,.leadingSign]
 }
 
+
 struct IntervalTimer: View {
     
     @State public var targetDate:Date
@@ -33,6 +34,58 @@ struct IntervalTimer: View {
     var digitFont:Font = .system(.body).weight(.semibold).monospacedDigit()
     var labelFont:Font = .system(.caption2)
     
+    // use one of the two initializers to create a clock with either an optionset or Date.IntervalFormatStyle
+    @State var formatter: Date.IntervalFormatStyle?
+
+    var body: some View {
+                
+        if let formatter {
+            StyledTimer(targetDate: targetDate, digitFont: digitFont, formatter: formatter)
+        }
+        else  {
+            OptionTimer(targetDate: targetDate, digitFont: digitFont)
+        }
+    }
+}
+
+
+fileprivate struct StyledTimer: View {
+    @State public var targetDate:Date
+    @State private var now: Date = Date()
+
+    // defaults sizes can be overridden
+    var digitFont:Font = .system(.body).weight(.semibold).monospacedDigit()
+    var labelFont:Font = .system(.caption2)
+
+    @State var formatter: Date.IntervalFormatStyle
+
+    var body: some View {
+        HStack()
+        {
+            let timeStr = (now..<targetDate).formatted(.timeDuration)
+            Text(timeStr).font(digitFont)
+        }
+        .onReceive(centralTimer) { now in
+            // refresh the time every second
+            self.now = now
+        }
+    }
+}
+
+
+fileprivate struct OptionTimer: View {
+    
+    @State public var targetDate:Date
+    @State private var timeRemaining: TimeInterval = 0
+
+    // options
+    var options:IntervalTimerOptions = .standard
+
+    // defaults sizes can be overridden
+    var digitFont:Font = .system(.body).weight(.semibold).monospacedDigit()
+    var labelFont:Font = .system(.caption2)
+    
+
     var body: some View {
         HStack()
         {
@@ -79,20 +132,13 @@ struct IntervalTimer: View {
                     Text(timeRemaining.seconds())
                         .font(digitFont)
                     /*     experimental animation
-                        .transition(.opacity.animation(.easeInOut(duration:0.3))).id("Seconds" + timeRemaining.seconds())
+                     .transition(.opacity.animation(.easeInOut(duration:0.3))).id("Seconds" + timeRemaining.seconds())
                      */
                     Text("SEC")
                         .font(labelFont)
                 }
             }
         }
-        
-#if os(iOS) || os(tvOS) || os(watchOS)
-        .foregroundColor(Color(.label))
-#endif
-#if os(macOS)
-        .foregroundColor(Color(.labelColor))
-#endif
         .onReceive(centralTimer) { now in
             // refresh the time every second
             calcTimeRemaining(now:now)
@@ -101,15 +147,14 @@ struct IntervalTimer: View {
             // refresh the time when first shown
             calcTimeRemaining(now: Date())
         }
+
     }
-    
     
     func calcTimeRemaining(now:Date)
     {
         timeRemaining = now.timeIntervalSince(targetDate)
     }
 }
-
 
 
 struct LaunchCountdown_Previews: PreviewProvider {
@@ -119,6 +164,7 @@ struct LaunchCountdown_Previews: PreviewProvider {
             IntervalTimer(targetDate: Date(timeIntervalSinceNow: 500000), options: .all)
             IntervalTimer(targetDate: Date())
                 .preferredColorScheme(.dark)
+            IntervalTimer(targetDate: Date(timeIntervalSinceNow: 500000), formatter:(Date.IntervalFormatStyle())).foregroundColor(.red)
         }
     }
 }
