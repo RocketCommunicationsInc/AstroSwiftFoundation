@@ -22,7 +22,7 @@ struct IntervalTimerOptions: OptionSet {
 }
 
 
-struct IntervalTimer: View {
+public struct IntervalTimer: View {
     
     @State public var targetDate:Date
     @State private var timeRemaining: TimeInterval = 0
@@ -37,7 +37,7 @@ struct IntervalTimer: View {
     // use one of the two initializers to create a clock with either an optionset or Date.IntervalFormatStyle
     @State var formatter: Date.IntervalFormatStyle?
 
-    var body: some View {
+    public var body: some View {
                 
         if let formatter {
             StyledTimer(targetDate: targetDate, digitFont: digitFont, formatter: formatter)

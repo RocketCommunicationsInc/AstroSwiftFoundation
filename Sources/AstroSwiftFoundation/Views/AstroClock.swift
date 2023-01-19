@@ -8,7 +8,7 @@
 import SwiftUI
 import Foundation
 
-struct AstroClock: View {
+public struct AstroClock: View {
     
     // Two premade format styles that match Astro clock styling, as typically used in Aerospace
     static public let astroDayTime = Date.VerbatimFormatStyle(format: "\(dayOfYear: .threeDigits) \(hour: .twoDigits(clock: .twentyFourHour, hourCycle: .oneBased)):\(minute: .twoDigits):\(second: .twoDigits) UTC", locale: .current,timeZone: TimeZone.gmt, calendar: .current)
@@ -26,7 +26,7 @@ struct AstroClock: View {
     var digitFont:Font = .system(.body).weight(.semibold).monospacedDigit()
 
     // depending on which initializers was used, get the body from one of our private classes
-    var body: some View {
+    public var body: some View {
         if let verbatimFormatter {
             VerbatimClock(verbatimFormatter: verbatimFormatter, digitFont: digitFont)
         }
