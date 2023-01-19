@@ -41,7 +41,10 @@ public struct IntervalTimer: View {
     // use one of the two initializers to create a clock with either an optionset or Date.IntervalFormatStyle
     @State var formatter: Date.IntervalFormatStyle?
 
-    public init(targetDate: Date, options: IntervalTimerOptions = .standard, digitFont: Font = .system(.body).weight(.semibold).monospacedDigit(), labelFont: Font = .system(.caption2), formatter: Date.IntervalFormatStyle? = nil) {
+    public init(targetDate: Date,
+                options: IntervalTimerOptions = .standard,
+                digitFont: Font = .system(.body).weight(.semibold).monospacedDigit(),
+                labelFont: Font = .system(.caption2), formatter: Date.IntervalFormatStyle? = nil) {
         self.targetDate = targetDate
         self.options = options
         self.digitFont = digitFont
