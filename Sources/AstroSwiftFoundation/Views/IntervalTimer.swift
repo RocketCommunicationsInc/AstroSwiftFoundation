@@ -7,24 +7,28 @@
 
 import SwiftUI
 
-struct IntervalTimerOptions: OptionSet {
-    let rawValue: UInt
+public struct IntervalTimerOptions: OptionSet {
+    public init(rawValue: UInt) {
+        self.rawValue = rawValue
+    }
     
-    static let day = IntervalTimerOptions(rawValue: 1 << 0)
-    static let hour = IntervalTimerOptions(rawValue: 1 << 1)
-    static let minute = IntervalTimerOptions(rawValue: 1 << 2)
-    static let second = IntervalTimerOptions(rawValue: 1 << 3)
-    static let leadingSign = IntervalTimerOptions(rawValue: 1 << 4)
-    static let labels = IntervalTimerOptions(rawValue: 1 << 5)
+    public let rawValue: UInt
     
-    static let standard: IntervalTimerOptions = [.day,.hour,.minute,.second]
-    static let all: IntervalTimerOptions = [.day,.hour,.minute,.second,.leadingSign]
+    static public let day = IntervalTimerOptions(rawValue: 1 << 0)
+    static public let hour = IntervalTimerOptions(rawValue: 1 << 1)
+    static public let minute = IntervalTimerOptions(rawValue: 1 << 2)
+    static public let second = IntervalTimerOptions(rawValue: 1 << 3)
+    static public let leadingSign = IntervalTimerOptions(rawValue: 1 << 4)
+    static public let labels = IntervalTimerOptions(rawValue: 1 << 5)
+    
+    static public let standard: IntervalTimerOptions = [.day,.hour,.minute,.second]
+    static public let all: IntervalTimerOptions = [.day,.hour,.minute,.second,.leadingSign]
 }
 
 
 public struct IntervalTimer: View {
     
-    @State public var targetDate:Date
+    @State public var targetDate:Date = Date()
     @State private var timeRemaining: TimeInterval = 0
 
     // options
@@ -37,6 +41,14 @@ public struct IntervalTimer: View {
     // use one of the two initializers to create a clock with either an optionset or Date.IntervalFormatStyle
     @State var formatter: Date.IntervalFormatStyle?
 
+    public init(targetDate: Date, options: IntervalTimerOptions = .standard, digitFont: Font = .system(.body).weight(.semibold).monospacedDigit(), labelFont: Font = .system(.caption2), formatter: Date.IntervalFormatStyle? = nil) {
+        self.targetDate = targetDate
+        self.options = options
+        self.digitFont = digitFont
+        self.labelFont = labelFont
+        self.formatter = formatter
+    }
+    
     public var body: some View {
                 
         if let formatter {
