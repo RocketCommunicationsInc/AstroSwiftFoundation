@@ -18,7 +18,7 @@ public struct AstroClock: View {
     
     public init(formatter: Date.FormatStyle,
                 digitFont: Font = .system(.body).weight(.semibold).monospacedDigit()) {
-        self.verbatimFormatter = verbatimFormatter
+        self.formatter = formatter
         self.digitFont = digitFont
     }
     
@@ -31,8 +31,8 @@ public struct AstroClock: View {
     @State private var now:Date = Date()
    
     // use one of the two initializers to create a clock with either a Date.VerbatimFormatStyle or a simple Date.FormatStyle
-    @State var verbatimFormatter: Date.VerbatimFormatStyle?
-    @State var formatter: Date.FormatStyle?
+    @State private var verbatimFormatter: Date.VerbatimFormatStyle?
+    @State private var formatter: Date.FormatStyle?
 
     
     // defaults font can be overridden
