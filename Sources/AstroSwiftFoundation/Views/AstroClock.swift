@@ -10,9 +10,15 @@ import Foundation
 
 public struct AstroClock: View {
     
-    public init(verbatimFormatter: Date.VerbatimFormatStyle? = nil, formatter: Date.FormatStyle? = nil, digitFont: Font = .system(.body).weight(.semibold).monospacedDigit()) {
+    public init(verbatimFormatter: Date.VerbatimFormatStyle,
+                digitFont: Font = .system(.body).weight(.semibold).monospacedDigit()) {
         self.verbatimFormatter = verbatimFormatter
-        self.formatter = formatter
+        self.digitFont = digitFont
+    }
+    
+    public init(formatter: Date.FormatStyle,
+                digitFont: Font = .system(.body).weight(.semibold).monospacedDigit()) {
+        self.verbatimFormatter = verbatimFormatter
         self.digitFont = digitFont
     }
     
