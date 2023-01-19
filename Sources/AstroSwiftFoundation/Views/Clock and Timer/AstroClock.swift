@@ -1,5 +1,5 @@
 //
-//  Clock.swift
+//  AstroClock.swift
 //  
 //
 //  Created by Jeff Hokit on 1/5/23.
@@ -8,7 +8,7 @@
 import SwiftUI
 import Foundation
 
-struct Clock: View {
+struct AstroClock: View {
     
     // Two premade format styles that match Astro clock styling, as typically used in Aerospace
     static public let astroDayTime = Date.VerbatimFormatStyle(format: "\(dayOfYear: .threeDigits) \(hour: .twoDigits(clock: .twentyFourHour, hourCycle: .oneBased)):\(minute: .twoDigits):\(second: .twoDigits) UTC", locale: .current,timeZone: TimeZone.gmt, calendar: .current)
@@ -83,11 +83,11 @@ fileprivate struct StyledClock: View {
 struct SwiftUIView_Previews: PreviewProvider {
     static var previews: some View {
         VStack{
-            Clock(verbatimFormatter: Date.VerbatimFormatStyle(format: "\(hour: .twoDigits(clock: .twentyFourHour, hourCycle: .oneBased)):\(minute: .twoDigits):\(second: .twoDigits) Z", locale: .current,timeZone: TimeZone.gmt, calendar: .current))
-            Clock(verbatimFormatter: Clock.astroTime)
-            Clock(verbatimFormatter: Clock.astroDayTime)
-            Clock(formatter: Date.FormatStyle())
-            Clock(formatter: Date.FormatStyle()
+            AstroClock(verbatimFormatter: Date.VerbatimFormatStyle(format: "\(hour: .twoDigits(clock: .twentyFourHour, hourCycle: .oneBased)):\(minute: .twoDigits):\(second: .twoDigits) Z", locale: .current,timeZone: TimeZone.gmt, calendar: .current))
+            AstroClock(verbatimFormatter: AstroClock.astroTime)
+            AstroClock(verbatimFormatter: AstroClock.astroDayTime)
+            AstroClock(formatter: Date.FormatStyle())
+            AstroClock(formatter: Date.FormatStyle()
                 .year(.defaultDigits)
                 .month(.abbreviated)
                 .day(.twoDigits)
