@@ -10,6 +10,13 @@ import Foundation
 
 public struct AstroClock: View {
     
+    public init(verbatimFormatter: Date.VerbatimFormatStyle? = nil, formatter: Date.FormatStyle? = nil, digitFont: Font = .system(.body).weight(.semibold).monospacedDigit()) {
+        self.verbatimFormatter = verbatimFormatter
+        self.formatter = formatter
+        self.digitFont = digitFont
+    }
+    
+    
     // Two premade format styles that match Astro clock styling, as typically used in Aerospace
     static public let astroDayTime = Date.VerbatimFormatStyle(format: "\(dayOfYear: .threeDigits) \(hour: .twoDigits(clock: .twentyFourHour, hourCycle: .oneBased)):\(minute: .twoDigits):\(second: .twoDigits) UTC", locale: .current,timeZone: TimeZone.gmt, calendar: .current)
 
