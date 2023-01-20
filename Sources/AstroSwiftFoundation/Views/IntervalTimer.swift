@@ -28,7 +28,7 @@ public struct IntervalTimerOptions: OptionSet {
 
 public struct IntervalTimer: View {
     
-    @State public var targetDate:Date = Date()
+    public var targetDate:Date = Date()
     @State private var timeRemaining: TimeInterval = 0
 
     // options
@@ -39,7 +39,7 @@ public struct IntervalTimer: View {
     var labelFont:Font = .system(.caption2)
     
     // use one of the two initializers to create a clock with either an optionset or Date.IntervalFormatStyle
-    @State var formatter: Date.IntervalFormatStyle?
+    var formatter: Date.IntervalFormatStyle?
 
     public init(targetDate: Date,
                 options: IntervalTimerOptions = .standard,
@@ -58,21 +58,21 @@ public struct IntervalTimer: View {
             StyledTimer(targetDate: targetDate, digitFont: digitFont, formatter: formatter)
         }
         else  {
-            OptionTimer(targetDate: targetDate, digitFont: digitFont)
+            OptionTimer(targetDate: targetDate, options: options, digitFont: digitFont)
         }
     }
 }
 
 
 fileprivate struct StyledTimer: View {
-    @State public var targetDate:Date
+    public var targetDate:Date
     @State private var now: Date = Date()
 
     // defaults sizes can be overridden
     var digitFont:Font = .system(.body).weight(.semibold).monospacedDigit()
     var labelFont:Font = .system(.caption2)
 
-    @State var formatter: Date.IntervalFormatStyle
+    var formatter: Date.IntervalFormatStyle
 
     var body: some View {
         HStack()
@@ -90,7 +90,7 @@ fileprivate struct StyledTimer: View {
 
 fileprivate struct OptionTimer: View {
     
-    @State public var targetDate:Date
+    public var targetDate:Date
     @State private var timeRemaining: TimeInterval = 0
 
     // options
@@ -104,17 +104,20 @@ fileprivate struct OptionTimer: View {
     var body: some View {
         HStack()
         {
+            // Leading Sign
+            if options.contains(.leadingSign) {
+                VStack (alignment: .trailing){
+                    Text(timeRemaining <= 0 ? "-" : "+")
+                    Text("")
+                }
+            }
+            
             // Day
             if options.contains(.day) {
                 VStack (alignment: .trailing){
                     if options.contains(.day){
-                        HStack{
-                            if options.contains(.leadingSign) {
-                                Text(timeRemaining <= 0 ? "-" : "+")
-                            }
-                            Text(timeRemaining.days())
+                        Text(timeRemaining.days())
                                 .font(digitFont)
-                        }
                         Text("DAYS")
                             .font(labelFont)
                     }
@@ -172,14 +175,13 @@ fileprivate struct OptionTimer: View {
 }
 
 
-struct LaunchCountdown_Previews: PreviewProvider {
+struct IntervalTimer_Previews: PreviewProvider {
     static var previews: some View {
         
-        VStack(alignment: .trailing){
+        VStack(alignment: .trailing, spacing:4){
             IntervalTimer(targetDate: Date(timeIntervalSinceNow: 500000), options: .all)
-            IntervalTimer(targetDate: Date())
-                .preferredColorScheme(.dark)
-            IntervalTimer(targetDate: Date(timeIntervalSinceNow: 500000), formatter:(Date.IntervalFormatStyle())).foregroundColor(.red)
+            IntervalTimer(targetDate: Date(), options: [.hour,.minute,.second])
+            IntervalTimer(targetDate: Date(timeIntervalSinceNow: 500000), formatter:(Date.IntervalFormatStyle()))
         }
     }
 }
