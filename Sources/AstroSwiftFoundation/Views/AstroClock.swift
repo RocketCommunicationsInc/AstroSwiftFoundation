@@ -10,18 +10,24 @@ import Foundation
 
 public struct AstroClock: View {
     
+    
+    public init() {
+        self.verbatimFormatter = AstroClock.astroDayTime
+    }
+
+    
     public init(verbatimFormatter: Date.VerbatimFormatStyle,
                 digitFont: Font = .system(.body).weight(.semibold).monospacedDigit()) {
         self.verbatimFormatter = verbatimFormatter
         self.digitFont = digitFont
     }
-    
+
     public init(formatter: Date.FormatStyle,
                 digitFont: Font = .system(.body).weight(.semibold).monospacedDigit()) {
         self.formatter = formatter
         self.digitFont = digitFont
     }
-    
+
     
     // Two premade format styles that match Astro clock styling, as typically used in Aerospace
     static public let astroDayTime = Date.VerbatimFormatStyle(format: "\(dayOfYear: .threeDigits) \(hour: .twoDigits(clock: .twentyFourHour, hourCycle: .oneBased)):\(minute: .twoDigits):\(second: .twoDigits) UTC", locale: .current,timeZone: TimeZone.gmt, calendar: .current)
@@ -30,9 +36,8 @@ public struct AstroClock: View {
 
     @State private var now:Date = Date()
    
-    // use one of the two initializers to create a clock with either a Date.VerbatimFormatStyle or a simple Date.FormatStyle
-    @State private var verbatimFormatter: Date.VerbatimFormatStyle?
-    @State private var formatter: Date.FormatStyle?
+    private var verbatimFormatter: Date.VerbatimFormatStyle?
+    private var formatter: Date.FormatStyle?
 
     
     // defaults font can be overridden
