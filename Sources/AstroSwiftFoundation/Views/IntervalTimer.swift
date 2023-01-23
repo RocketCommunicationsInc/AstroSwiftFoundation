@@ -109,7 +109,7 @@ fileprivate struct OptionTimer: View {
                 VStack (alignment: .trailing){
                     Text(timeRemaining <= 0 ? "-" : "+")
                     Text("")
-                }
+                }.offset(x:6) // scoot slightly to the right to offset HStack spacing
             }
             
             // Day
