@@ -67,17 +67,18 @@ public struct IntervalTimer: View {
 fileprivate struct StyledTimer: View {
     public var targetDate:Date
     @State private var now: Date = Date()
-
+    
     // defaults sizes can be overridden
-    var digitFont:Font = .system(.body).weight(.semibold).monospacedDigit()
-    var labelFont:Font = .system(.caption2)
-
-    var formatter: Date.IntervalFormatStyle
+    public var digitFont:Font = .system(.body).weight(.semibold).monospacedDigit()
+    public var labelFont:Font = .system(.caption2)
+    public var formatter: Date.IntervalFormatStyle
+    var options:IntervalTimerOptions = .leadingSign
 
     var body: some View {
         HStack()
         {
-            let timeStr = (now..<targetDate).formatted(.timeDuration)
+            let sign = targetDate < now ? "-" : "+"
+            let timeStr = (options.contains(.leadingSign) ? (sign + " ") : "") + (now..<targetDate).formatted(.timeDuration)
             Text(timeStr).font(digitFont)
         }
         .onReceive(centralTimer) { now in
@@ -99,25 +100,26 @@ fileprivate struct OptionTimer: View {
     // defaults sizes can be overridden
     var digitFont:Font = .system(.body).weight(.semibold).monospacedDigit()
     var labelFont:Font = .system(.caption2)
-    
-
+#if os(tvOS)
+    @ScaledMetric(relativeTo: .body) var spacing = 10
+#elseif os(iOS) || os(macOS)
+    @ScaledMetric(relativeTo: .body) var spacing = 6
+#elseif os(watchOS)
+    @ScaledMetric(relativeTo: .body) var spacing = 5
+#endif
     var body: some View {
-        HStack()
-        {
-            // Leading Sign
-            if options.contains(.leadingSign) {
-                VStack (alignment: .trailing){
-                    Text(timeRemaining <= 0 ? "-" : "+")
-                    Text("")
-                }.offset(x:6) // scoot slightly to the right to offset HStack spacing
-            }
-            
+        HStack(spacing:spacing)
+        {            
             // Day
             if options.contains(.day) {
                 VStack (alignment: .trailing){
                     if options.contains(.day){
-                        Text(timeRemaining.days())
-                                .font(digitFont)
+                        HStack(spacing:spacing){
+                            if options.contains(.leadingSign) {
+                                Text(timeRemaining <= 0 ? "-" : "+")
+                            }
+                            Text(timeRemaining.days())
+                        }.font(digitFont)
                         Text("DAYS")
                             .font(labelFont)
                     }
@@ -127,8 +129,12 @@ fileprivate struct OptionTimer: View {
             // Hour
             if options.contains(.hour) {
                 VStack (alignment: .trailing){
-                    Text(timeRemaining.hours())
-                        .font(digitFont)
+                    HStack(spacing:spacing){
+                        if options.contains(.leadingSign) && !options.contains(.day) {
+                            Text(timeRemaining <= 0 ? "-" : "+")
+                        }
+                        Text(timeRemaining.hours())
+                    }.font(digitFont)
                     Text("HRS")
                         .font(labelFont)
                 }
@@ -137,8 +143,12 @@ fileprivate struct OptionTimer: View {
             // Minute
             if options.contains(.minute) {
                 VStack (alignment: .trailing){
-                    Text(timeRemaining.minutes())
-                        .font(digitFont)
+                    HStack(spacing:spacing){
+                        if options.contains(.leadingSign) && !options.contains(.hour) {
+                            Text(timeRemaining <= 0 ? "-" : "+")
+                        }
+                        Text(timeRemaining.minutes())
+                    }.font(digitFont)
                     Text("MIN")
                         .font(labelFont)
                 }
@@ -180,7 +190,7 @@ struct IntervalTimer_Previews: PreviewProvider {
         
         VStack(alignment: .trailing, spacing:4){
             IntervalTimer(targetDate: Date(timeIntervalSinceNow: 500000), options: .all)
-            IntervalTimer(targetDate: Date(), options: [.hour,.minute,.second])
+            IntervalTimer(targetDate: Date(), options: [.leadingSign,.hour,.minute,.second])
             IntervalTimer(targetDate: Date(timeIntervalSinceNow: 500000), formatter:(Date.IntervalFormatStyle()))
         }
     }
