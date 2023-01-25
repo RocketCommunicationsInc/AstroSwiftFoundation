@@ -77,7 +77,7 @@ fileprivate struct StyledTimer: View {
     var body: some View {
         HStack()
         {
-            let sign = targetDate < now ? "-" : "+"
+            let sign = targetDate > now ? "-" : "+"
             let timeStr = (options.contains(.leadingSign) ? (sign + " ") : "") + (now..<targetDate).formatted(.timeDuration)
             Text(timeStr).font(digitFont)
         }
