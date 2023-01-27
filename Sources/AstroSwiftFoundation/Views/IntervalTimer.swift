@@ -95,13 +95,7 @@ fileprivate struct OptionTimer: View {
     // defaults sizes can be overridden
     var digitFont:Font = .system(.body).weight(.semibold).monospacedDigit()
     var labelFont:Font = .system(.caption2)
-//#if os(tvOS)
-//    @ScaledMetric(relativeTo: .body) var spacing = 10
-//#elseif os(iOS) || os(macOS)
-//    @ScaledMetric(relativeTo: .body) var spacing = 6
-//#elseif os(watchOS)
-//    @ScaledMetric(relativeTo: .body) var spacing = 5
-//#endif
+    @ScaledMetric() var leadingSignSpacing = 2
     var body: some View {
         HStack()
         {            
@@ -109,7 +103,7 @@ fileprivate struct OptionTimer: View {
             if options.contains(.day) {
                 VStack (alignment: .trailing){
                     if options.contains(.day){
-                        HStack(){
+                        HStack(spacing:leadingSignSpacing){
                             if options.contains(.leadingSign) {
                                 Text(timeRemaining <= 0 ? "-" : "+")
                             }
@@ -124,7 +118,7 @@ fileprivate struct OptionTimer: View {
             // Hour
             if options.contains(.hour) {
                 VStack (alignment: .trailing){
-                    HStack(){
+                    HStack(spacing:leadingSignSpacing){
                         if options.contains(.leadingSign) && !options.contains(.day) {
                             Text(timeRemaining <= 0 ? "-" : "+")
                         }
@@ -138,7 +132,7 @@ fileprivate struct OptionTimer: View {
             // Minute
             if options.contains(.minute) {
                 VStack (alignment: .trailing){
-                    HStack(){
+                    HStack(spacing:leadingSignSpacing){
                         if options.contains(.leadingSign) && !options.contains(.hour) {
                             Text(timeRemaining <= 0 ? "-" : "+")
                         }
