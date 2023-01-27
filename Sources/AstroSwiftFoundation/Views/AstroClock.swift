@@ -10,38 +10,32 @@ import Foundation
 
 public struct AstroClock: View {
     
-    
+     private var verbatimFormatter: Date.VerbatimFormatStyle?
+     private var formatter: Date.FormatStyle?
+     private var digitFont:Font
+
     public init() {
         self.verbatimFormatter = AstroClock.astroDayTime
+        self.digitFont = .system(.body).weight(.semibold).monospacedDigit()
     }
 
     
     public init(verbatimFormatter: Date.VerbatimFormatStyle,
-                digitFont: Font = .system(.body).weight(.semibold).monospacedDigit()) {
+                textStyle: Font.TextStyle = .body) {
         self.verbatimFormatter = verbatimFormatter
-        self.digitFont = digitFont
+        self.digitFont = .system(textStyle).weight(.semibold).monospacedDigit()
     }
 
     public init(formatter: Date.FormatStyle,
-                digitFont: Font = .system(.body).weight(.semibold).monospacedDigit()) {
+                textStyle: Font.TextStyle = .body) {
         self.formatter = formatter
-        self.digitFont = digitFont
+        self.digitFont = .system(textStyle).weight(.semibold).monospacedDigit()
     }
 
-    
     // Two premade format styles that match Astro clock styling, as typically used in Aerospace
     static public let astroDayTime = Date.VerbatimFormatStyle(format: "\(dayOfYear: .threeDigits) \(hour: .twoDigits(clock: .twentyFourHour, hourCycle: .oneBased)):\(minute: .twoDigits):\(second: .twoDigits) UTC", locale: .current,timeZone: TimeZone.gmt, calendar: .current)
 
     static public let astroTime = Date.VerbatimFormatStyle(format: "\(hour: .twoDigits(clock: .twentyFourHour, hourCycle: .oneBased)):\(minute: .twoDigits):\(second: .twoDigits) UTC", locale: .current,timeZone: TimeZone.gmt, calendar: .current)
-
-    @State private var now:Date = Date()
-   
-    private var verbatimFormatter: Date.VerbatimFormatStyle?
-    private var formatter: Date.FormatStyle?
-
-    
-    // defaults font can be overridden
-    var digitFont:Font = .system(.body).weight(.semibold).monospacedDigit()
 
     // depending on which initializers was used, get the body from one of our private classes
     public var body: some View {
@@ -55,6 +49,7 @@ public struct AstroClock: View {
             Text("formatter not set")
         }
     }
+    
 }
 
 
@@ -63,9 +58,7 @@ public struct AstroClock: View {
 fileprivate struct VerbatimClock: View {
     
     @State private var now:Date = Date()
-    
-    // defaults can be overridden
-    @State var verbatimFormatter: Date.VerbatimFormatStyle
+    var verbatimFormatter: Date.VerbatimFormatStyle
     var digitFont:Font
 
     var body: some View {
@@ -83,9 +76,7 @@ fileprivate struct VerbatimClock: View {
 fileprivate struct StyledClock: View {
     
     @State private var now:Date = Date()
-    
-    // defaults can be overridden
-    @State var formatter: Date.FormatStyle
+    var formatter: Date.FormatStyle
     var digitFont:Font
 
     var body: some View {
@@ -103,7 +94,7 @@ struct SwiftUIView_Previews: PreviewProvider {
         VStack{
             AstroClock(verbatimFormatter: Date.VerbatimFormatStyle(format: "\(hour: .twoDigits(clock: .twentyFourHour, hourCycle: .oneBased)):\(minute: .twoDigits):\(second: .twoDigits) Z", locale: .current,timeZone: TimeZone.gmt, calendar: .current))
             AstroClock(verbatimFormatter: AstroClock.astroTime)
-            AstroClock(verbatimFormatter: AstroClock.astroDayTime)
+            AstroClock(verbatimFormatter: AstroClock.astroDayTime,textStyle: .body)
             AstroClock(formatter: Date.FormatStyle())
             AstroClock(formatter: Date.FormatStyle()
                 .year(.defaultDigits)
@@ -116,7 +107,7 @@ struct SwiftUIView_Previews: PreviewProvider {
                 .era(.abbreviated)
                 .dayOfYear(.defaultDigits)
                 .weekday(.wide)
-                .week(.defaultDigits), digitFont:Font.system(.title3)).foregroundColor(.blue).monospacedDigit()
+                .week(.defaultDigits), textStyle:.caption2).foregroundColor(.blue).monospacedDigit()
         }
     }
 }
