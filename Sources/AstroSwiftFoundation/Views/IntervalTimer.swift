@@ -28,27 +28,23 @@ public struct IntervalTimerOptions: OptionSet {
 
 public struct IntervalTimer: View {
     
-    public var targetDate:Date = Date()
-    @State private var timeRemaining: TimeInterval = 0
-
-    // options
-    var options:IntervalTimerOptions = .standard
-
-    // defaults sizes can be overridden
-    var digitFont:Font = .system(.body).weight(.semibold).monospacedDigit()
-    var labelFont:Font = .system(.caption2)
+    public var targetDate:Date
+    private var digitFont:Font
+    private var labelFont:Font
     
     // use one of the two initializers to create a clock with either an optionset or Date.IntervalFormatStyle
+    var options:IntervalTimerOptions = .standard
     var formatter: Date.IntervalFormatStyle?
 
     public init(targetDate: Date,
                 options: IntervalTimerOptions = .standard,
-                digitFont: Font = .system(.body).weight(.semibold).monospacedDigit(),
-                labelFont: Font = .system(.caption2), formatter: Date.IntervalFormatStyle? = nil) {
+                digitTextStyle: Font.TextStyle = .body,
+                labelFontStyle: Font.TextStyle = .caption2,
+                formatter: Date.IntervalFormatStyle? = nil) {
         self.targetDate = targetDate
         self.options = options
-        self.digitFont = digitFont
-        self.labelFont = labelFont
+        self.digitFont = .system(digitTextStyle).weight(.semibold).monospacedDigit()
+        self.labelFont = .system(labelFontStyle)
         self.formatter = formatter
     }
     
@@ -58,7 +54,7 @@ public struct IntervalTimer: View {
             StyledTimer(targetDate: targetDate, digitFont: digitFont, formatter: formatter)
         }
         else  {
-            OptionTimer(targetDate: targetDate, options: options, digitFont: digitFont)
+            OptionTimer(targetDate: targetDate, options: options, digitFont: digitFont,labelFont: labelFont)
         }
     }
 }
@@ -69,8 +65,7 @@ fileprivate struct StyledTimer: View {
     @State private var now: Date = Date()
     
     // defaults sizes can be overridden
-    public var digitFont:Font = .system(.body).weight(.semibold).monospacedDigit()
-    public var labelFont:Font = .system(.caption2)
+    public var digitFont:Font
     public var formatter: Date.IntervalFormatStyle
     var options:IntervalTimerOptions = .leadingSign
 
@@ -190,8 +185,8 @@ struct IntervalTimer_Previews: PreviewProvider {
         
         VStack(alignment: .trailing, spacing:4){
             IntervalTimer(targetDate: Date(timeIntervalSinceNow: 500000), options: .all)
-            IntervalTimer(targetDate: Date(), options: [.leadingSign,.hour,.minute,.second])
-            IntervalTimer(targetDate: Date(timeIntervalSinceNow: 500000), formatter:(Date.IntervalFormatStyle()))
+            IntervalTimer(targetDate: Date(), options: [.leadingSign,.hour,.minute,.second], digitTextStyle: .caption, labelFontStyle: .footnote)
+            IntervalTimer(targetDate: Date(timeIntervalSinceNow: 500000),digitTextStyle: .title2, formatter:(Date.IntervalFormatStyle()))
         }
     }
 }
