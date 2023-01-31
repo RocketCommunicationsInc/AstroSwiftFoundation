@@ -10,40 +10,45 @@ import Foundation
 
 public struct AstroClock: View {
     
-     private var verbatimFormatter: Date.VerbatimFormatStyle?
-     private var formatter: Date.FormatStyle?
-     private var digitFont:Font
-
+    private var verbatimFormatter: Date.VerbatimFormatStyle?
+    private var formatter: Date.FormatStyle?
+    private var digitFont:Font
+    private var suffix:String
+    
     public init() {
         self.verbatimFormatter = AstroClock.astroDayTime
         self.digitFont = .system(.body).weight(.semibold).monospacedDigit()
+        self.suffix = ""
     }
-
     
     public init(verbatimFormatter: Date.VerbatimFormatStyle,
-                textStyle: Font.TextStyle = .body) {
+                textStyle: Font.TextStyle = .body,
+                suffix:String = "") {
         self.verbatimFormatter = verbatimFormatter
         self.digitFont = .system(textStyle).weight(.semibold).monospacedDigit()
+        self.suffix = suffix
     }
-
+    
     public init(formatter: Date.FormatStyle,
-                textStyle: Font.TextStyle = .body) {
+                textStyle: Font.TextStyle = .body,
+                suffix:String = "") {
         self.formatter = formatter
         self.digitFont = .system(textStyle).weight(.semibold).monospacedDigit()
+        self.suffix = suffix
     }
-
+    
     // Two premade format styles that match Astro clock styling, as typically used in Aerospace
-    static public let astroDayTime = Date.VerbatimFormatStyle(format: "\(dayOfYear: .threeDigits) \(hour: .twoDigits(clock: .twentyFourHour, hourCycle: .oneBased)):\(minute: .twoDigits):\(second: .twoDigits) UTC", locale: .current,timeZone: TimeZone.gmt, calendar: .current)
-
-    static public let astroTime = Date.VerbatimFormatStyle(format: "\(hour: .twoDigits(clock: .twentyFourHour, hourCycle: .oneBased)):\(minute: .twoDigits):\(second: .twoDigits) UTC", locale: .current,timeZone: TimeZone.gmt, calendar: .current)
-
+    static public let astroDayTime = Date.VerbatimFormatStyle(format: "\(dayOfYear: .threeDigits) \(hour: .twoDigits(clock: .twentyFourHour, hourCycle: .oneBased)):\(minute: .twoDigits):\(second: .twoDigits)", locale: .current,timeZone: TimeZone.gmt, calendar: .current)
+    
+    static public let astroTime = Date.VerbatimFormatStyle(format: "\(hour: .twoDigits(clock: .twentyFourHour, hourCycle: .oneBased)):\(minute: .twoDigits):\(second: .twoDigits)", locale: .current,timeZone: TimeZone.gmt, calendar: .current)
+    
     // depending on which initializers was used, get the body from one of our private classes
     public var body: some View {
         if let verbatimFormatter {
-            VerbatimClock(verbatimFormatter: verbatimFormatter, digitFont: digitFont)
+            VerbatimClock(verbatimFormatter: verbatimFormatter, digitFont: digitFont, suffix: suffix)
         }
         else if let formatter {
-            StyledClock(formatter: formatter, digitFont: digitFont)
+            StyledClock(formatter: formatter, digitFont: digitFont, suffix: suffix)
         }
         else {
             Text("formatter not set")
@@ -60,13 +65,14 @@ fileprivate struct VerbatimClock: View {
     @State private var now:Date = Date()
     var verbatimFormatter: Date.VerbatimFormatStyle
     var digitFont:Font
+    var suffix:String
 
     var body: some View {
-        let timeStr = now.formatted(verbatimFormatter)
+        let timeStr = now.formatted(verbatimFormatter) + suffix
         Text(timeStr).font(digitFont)
-        .onReceive(centralTimer) { date in
-            now = date
-        }
+            .onReceive(centralTimer) { date in
+                now = date
+            }
     }
 }
 
@@ -78,13 +84,14 @@ fileprivate struct StyledClock: View {
     @State private var now:Date = Date()
     var formatter: Date.FormatStyle
     var digitFont:Font
+    var suffix:String
 
     var body: some View {
-        let timeStr = now.formatted(formatter)
+        let timeStr = now.formatted(formatter) + suffix
         Text(timeStr).font(digitFont)
-        .onReceive(centralTimer) { date in
-            now = date
-        }
+            .onReceive(centralTimer) { date in
+                now = date
+            }
     }
 }
 
@@ -92,7 +99,7 @@ fileprivate struct StyledClock: View {
 struct SwiftUIView_Previews: PreviewProvider {
     static var previews: some View {
         VStack{
-            AstroClock(verbatimFormatter: Date.VerbatimFormatStyle(format: "\(hour: .twoDigits(clock: .twentyFourHour, hourCycle: .oneBased)):\(minute: .twoDigits):\(second: .twoDigits) Z", locale: .current,timeZone: TimeZone.gmt, calendar: .current))
+            AstroClock(verbatimFormatter: AstroClock.astroTime, suffix: " UTC")
             AstroClock(verbatimFormatter: AstroClock.astroTime)
             AstroClock(verbatimFormatter: AstroClock.astroDayTime,textStyle: .body)
             AstroClock(formatter: Date.FormatStyle())
