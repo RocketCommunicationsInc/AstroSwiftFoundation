@@ -8,6 +8,11 @@
 import SwiftUI
 import Foundation
 
+
+/// A SwiftUI view representing the date and time, updated every second.
+///
+/// AstroClock can be configured with two types of Swift formatters: a `Date.FormatStyle` or a `Date.VerbatimFormatStyle`.
+///
 public struct AstroClock: View {
     
     private var verbatimFormatter: Date.VerbatimFormatStyle?
@@ -21,6 +26,11 @@ public struct AstroClock: View {
         self.suffix = ""
     }
     
+    /// Use a VerbatimFormatStyle when twenty-four hour format is required, without regard to the system locale.
+    /// - parameters:
+    ///     - verbatimFormatter: typically `astroDayTime` or `astroTime`
+    ///     - textStyle: the size of the clock text.
+    ///     - suffix: a suffix appended to the clock text. Does not include a leading space.
     public init(verbatimFormatter: Date.VerbatimFormatStyle,
                 textStyle: Font.TextStyle = .body,
                 suffix:String = "") {
@@ -29,6 +39,11 @@ public struct AstroClock: View {
         self.suffix = suffix
     }
     
+    /// Use a VerbatimFormatStyle to create a clock that is automatically formatted according to the system locale.
+    ///     - parameters:
+    ///     - formatter: typically Date.FormatStyle().
+    ///     - textStyle: the size of the clock text.
+    ///     - suffix: a suffix appended to the clock text. Does not include a leading space.
     public init(formatter: Date.FormatStyle,
                 textStyle: Font.TextStyle = .body,
                 suffix:String = "") {
@@ -37,9 +52,10 @@ public struct AstroClock: View {
         self.suffix = suffix
     }
     
-    // Two premade format styles that match Astro clock styling, as typically used in Aerospace
+    /// The astroDayTime verbatim formatter creates a clock with Astro's conventional DDD HH:MM:SS, always in 24 hour mode
     static public let astroDayTime = Date.VerbatimFormatStyle(format: "\(dayOfYear: .threeDigits) \(hour: .twoDigits(clock: .twentyFourHour, hourCycle: .oneBased)):\(minute: .twoDigits):\(second: .twoDigits)", locale: .current,timeZone: TimeZone.gmt, calendar: .current)
     
+    /// The astroTime verbatim formatter creates a clock with Astro's optional HH:MM:SS, always in 24 hour mode
     static public let astroTime = Date.VerbatimFormatStyle(format: "\(hour: .twoDigits(clock: .twentyFourHour, hourCycle: .oneBased)):\(minute: .twoDigits):\(second: .twoDigits)", locale: .current,timeZone: TimeZone.gmt, calendar: .current)
     
     // depending on which initializers was used, get the body from one of our private classes
