@@ -23,9 +23,12 @@ public struct IntervalTimerOptions: OptionSet {
     
     static public let standard: IntervalTimerOptions = [.day,.hour,.minute,.second]
     static public let all: IntervalTimerOptions = [.day,.hour,.minute,.second,.leadingSign]
+    static public let none: IntervalTimerOptions = []
 }
 
-
+/// A SwiftUI view counting up or down to a target date, updated every second.
+///
+/// IntervalTimer can be configured with a Swift formatter  of type `Date.IntervalFormatStyle` for a simple one line display, or with a set of `IntervalTimerOptions` to configure a labeled two line display.
 public struct IntervalTimer: View {
     
     public var targetDate:Date
@@ -36,18 +39,30 @@ public struct IntervalTimer: View {
     var options:IntervalTimerOptions = .standard
     var formatter: Date.IntervalFormatStyle?
 
+    /// Use an options set to initialize a labeled two line display.
     public init(targetDate: Date,
                 options: IntervalTimerOptions = .standard,
                 digitTextStyle: Font.TextStyle = .body,
-                labelFontStyle: Font.TextStyle = .caption2,
-                formatter: Date.IntervalFormatStyle? = nil) {
+                labelFontStyle: Font.TextStyle = .caption2) {
         self.targetDate = targetDate
         self.options = options
         self.digitFont = .system(digitTextStyle).weight(.semibold).monospacedDigit()
         self.labelFont = .system(labelFontStyle)
-        self.formatter = formatter
+        self.formatter = nil
     }
     
+    /// Use an IntervalFormatStyle to initialize a formatted single line display.
+    public init(targetDate: Date,
+                digitTextStyle: Font.TextStyle = .body,
+                labelFontStyle: Font.TextStyle = .caption2,
+                formatter: Date.IntervalFormatStyle) {
+        self.targetDate = targetDate
+        self.options = .none
+        self.digitFont = .system(digitTextStyle).weight(.semibold).monospacedDigit()
+        self.labelFont = .system(labelFontStyle)
+        self.formatter = formatter
+    }
+
     public var body: some View {
                 
         if let formatter {
