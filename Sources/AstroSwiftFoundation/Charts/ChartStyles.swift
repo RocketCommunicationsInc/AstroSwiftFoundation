@@ -40,9 +40,9 @@ extension BarMark {
         .annotation(position: .overlay, alignment: .center, spacing: 0) { context in // starting an one pixel below the bar
             if context.targetSize.height > 1 // if the bar tall enought to contain the frame
             {
-                Rectangle() // A one pt black line
+                Rectangle() // A .25 pt black line
                     .fill(Color.clear)
-                    .frame(width: context.targetSize.width, height: context.targetSize.height)
+                    .frame(width: context.targetSize.width -0.5, height: context.targetSize.height - 0.5)
                     .border(Color.black, width: 0.25)
             }
         }
