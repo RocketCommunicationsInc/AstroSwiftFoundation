@@ -30,6 +30,26 @@ extension RuleMark {
     }
 }
 
+
+///  Applies Astro styling to a BarMark
+///    - adds a .25 px inset border
+extension BarMark {
+    public func astroStyle() -> some ChartContent {
+        return self
+        .annotation(position: .overlay, alignment: .center, spacing: 0) { context in // starting an one pixel below the bar
+            let size = 0.25 // add a .25 px border within the BarMark
+            if context.targetSize.height > size * 2 // if the BarMark is tall enought to contain the border
+            {
+                Rectangle()
+                    .fill(Color.clear)
+                    .frame(width: context.targetSize.width, height: context.targetSize.height)
+                    .padding(-size) // make the border inset
+                    .border(Color.astroDataVisBorder, width: size)
+            }
+        }
+    }
+}
+
 ///  Applies Astro styling to a Chart
 ///    - sets the color on AxisMarks
 ///    - move the Y axis to the left
@@ -59,13 +79,13 @@ private struct AstroChartStyle: ViewModifier {
             }
             .chartForegroundStyleScale(
                 range: [Color.astroDataVis1,
-                        Color.astroDataVis4,
-                        Color.astroDataVis8,
                         Color.astroDataVis2,
-                        Color.astroDataVis5,
-                        Color.astroDataVis7,
                         Color.astroDataVis3,
-                        Color.astroDataVis6]
+                        Color.astroDataVis4,
+                        Color.astroDataVis5,
+                        Color.astroDataVis6,
+                        Color.astroDataVis7,
+                        Color.astroDataVis8]
             )
     }
 }
