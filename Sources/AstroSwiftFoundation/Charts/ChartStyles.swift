@@ -79,13 +79,13 @@ private struct AstroChartStyle: ViewModifier {
             }
             .chartForegroundStyleScale(
                 range: [Color.astroDataVis1,
-                        Color.astroDataVis4,
-                        Color.astroDataVis8,
                         Color.astroDataVis2,
-                        Color.astroDataVis5,
-                        Color.astroDataVis7,
                         Color.astroDataVis3,
-                        Color.astroDataVis6]
+                        Color.astroDataVis4,
+                        Color.astroDataVis5,
+                        Color.astroDataVis6,
+                        Color.astroDataVis7,
+                        Color.astroDataVis8]
             )
     }
 }

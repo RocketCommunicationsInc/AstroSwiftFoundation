@@ -153,37 +153,37 @@ public extension Color
     // Astro DataVis colors
     //——————————————————————————————————————————————————————————————————————————————
     static var astroDataVis1:Color
-    {  return astroColor("Astro DataVis 1")}
+    {  return astroColor("Astro Data Visualization 1")}
     
     static var astroDataVis2:Color
-    { return astroColor("Astro DataVis 2")}
+    { return astroColor("Astro Data Visualization 2")}
 
     static var astroDataVis3:Color
-    { return astroColor("Astro DataVis 3")}
+    { return astroColor("Astro Data Visualization 3")}
     
     static var astroDataVis4:Color
-    { return astroColor("Astro DataVis 4")}
+    { return astroColor("Astro Data Visualization 4")}
     
     static var astroDataVis5:Color
-    { return astroColor("Astro DataVis 5")}
+    { return astroColor("Astro Data Visualization 5")}
     
     static var astroDataVis6:Color
-    { return astroColor("Astro DataVis 6")}
+    { return astroColor("Astro Data Visualization 6")}
     
     static var astroDataVis7:Color
-    { return astroColor("Astro DataVis 7")}
+    { return astroColor("Astro Data Visualization 7")}
     
     static var astroDataVis8:Color
-    { return astroColor("Astro DataVis 8")}
+    { return astroColor("Astro Data Visualization 8")}
     
     static var astroDataVisGridline:Color
-    { return astroColor("Astro DataVis Gridline")}
+    { return astroColor("Astro Data Visualization Gridline")}
 
     static var astroDataVisThreshold:Color
-    { return astroColor("Astro DataVis Threshold")}
+    { return astroColor("Astro Data Visualization Threshold")}
 
     static var astroDataVisBorder:Color
-    { return astroColor("Astro DataVis Border")}
+    { return astroColor("Astro Data Visualization Border")}
 
 
     
