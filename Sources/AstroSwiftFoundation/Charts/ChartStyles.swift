@@ -30,6 +30,25 @@ extension RuleMark {
     }
 }
 
+
+///  Applies Astro styling to a BarMark
+///    - adds a .5 px black border
+extension BarMark {
+    public func astroStyle() -> some ChartContent {
+        return self
+        // add a .25 px black frame around each bar
+        .annotation(position: .overlay, alignment: .center, spacing: 0) { context in // starting an one pixel below the bar
+            if context.targetSize.height > 1 // if the bar tall enought to contain the frame
+            {
+                Rectangle() // A one pt black line
+                    .fill(Color.clear)
+                    .frame(width: context.targetSize.width, height: context.targetSize.height)
+                    .border(Color.black, width: 0.25)
+            }
+        }
+    }
+}
+
 ///  Applies Astro styling to a Chart
 ///    - sets the color on AxisMarks
 ///    - move the Y axis to the left
