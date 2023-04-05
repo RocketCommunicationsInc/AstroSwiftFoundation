@@ -32,18 +32,19 @@ extension RuleMark {
 
 
 ///  Applies Astro styling to a BarMark
-///    - adds a .5 px black border
+///    - adds a .25 px inset border
 extension BarMark {
     public func astroStyle() -> some ChartContent {
         return self
-        // add a .25 px black frame around each bar
         .annotation(position: .overlay, alignment: .center, spacing: 0) { context in // starting an one pixel below the bar
-            if context.targetSize.height > 1 // if the bar tall enought to contain the frame
+            let size = 0.25 // add a .25 px border within the BarMark
+            if context.targetSize.height > size * 2 // if the BarMark is tall enought to contain the border
             {
-                Rectangle() // A .25 pt black line
+                Rectangle()
                     .fill(Color.clear)
-                    .frame(width: context.targetSize.width -0.5, height: context.targetSize.height - 0.5)
-                    .border(Color.black, width: 0.25)
+                    .frame(width: context.targetSize.width, height: context.targetSize.height)
+                    .padding(-size) // make the border inset
+                    .border(Color.astroDataVisBorder, width: size)
             }
         }
     }

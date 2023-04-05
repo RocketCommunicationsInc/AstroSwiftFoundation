@@ -182,6 +182,9 @@ public extension Color
     static var astroDataVisThreshold:Color
     { return astroColor("Astro DataVis Threshold")}
 
+    static var astroDataVisBorder:Color
+    { return astroColor("Astro DataVis Border")}
+
 
     
     //MARK: Color - Astro Color Convenience Functions
