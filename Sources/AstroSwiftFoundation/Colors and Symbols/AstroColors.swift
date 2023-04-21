@@ -41,7 +41,7 @@ public extension Color
     }
     
 
-    //MARK: Color - New (2.0) Astro Semantic colors
+    //MARK: Astro Semantic colors
     //——————————————————————————————————————————————————————————————————————————————
     // Astro semantic UI colors
     //——————————————————————————————————————————————————————————————————————————————
@@ -148,7 +148,7 @@ public extension Color
     static var astroClassificationTopSecretSCI:Color
     { return astroColor("Astro Classification Topsecretsci")}
     
-    //MARK: Color - New (2.0) Astro DataVis colors
+    //MARK: Color - Astro DataVis colors
     //——————————————————————————————————————————————————————————————————————————————
     // Astro DataVis colors
     //——————————————————————————————————————————————————————————————————————————————
@@ -221,7 +221,7 @@ public extension NativeColor
     }
     
     
-    //MARK: Color - New (2.0) Astro Semantic colors
+    //MARK: Color - Astro Semantic colors
     //——————————————————————————————————————————————————————————————————————————————
     // Astro semantic UI colors
     //——————————————————————————————————————————————————————————————————————————————
@@ -329,6 +329,45 @@ public extension NativeColor
     { return astroColor("Astro Classification Topsecretsci")}
 
 
+    //MARK: Color - Astro DataVis colors
+    //——————————————————————————————————————————————————————————————————————————————
+    // Astro DataVis colors
+    //——————————————————————————————————————————————————————————————————————————————
+    static var astroDataVis1:NativeColor
+    {  return astroColor("Astro Data Visualization 1")}
+    
+    static var astroDataVis2:NativeColor
+    { return astroColor("Astro Data Visualization 2")}
+
+    static var astroDataVis3:NativeColor
+    { return astroColor("Astro Data Visualization 3")}
+    
+    static var astroDataVis4:NativeColor
+    { return astroColor("Astro Data Visualization 4")}
+    
+    static var astroDataVis5:NativeColor
+    { return astroColor("Astro Data Visualization 5")}
+    
+    static var astroDataVis6:NativeColor
+    { return astroColor("Astro Data Visualization 6")}
+    
+    static var astroDataVis7:NativeColor
+    { return astroColor("Astro Data Visualization 7")}
+    
+    static var astroDataVis8:NativeColor
+    { return astroColor("Astro Data Visualization 8")}
+    
+    static var astroDataVisGridline:NativeColor
+    { return astroColor("Astro Data Visualization Gridline")}
+
+    static var astroDataVisThreshold:NativeColor
+    { return astroColor("Astro Data Visualization Threshold")}
+
+    static var astroDataVisBorder:NativeColor
+    { return astroColor("Astro Data Visualization Border")}
+
+
+    
     //MARK: UIColor - Astro Color Convenience Functions
     //——————————————————————————————————————————————————————————————————————————————
     // Return the Astro status color for the given AstroStatus
