@@ -2,7 +2,7 @@
 
 AstroSwiftFoundation is a Swift Package that brings the Astro Space UX Design system to Apple platforms. Astro's colors, icons, symbols, controls, and data types are imported as assets and code. Astro Swift Foundation works with iOS, iPadOS, macOS, watchOS, and tvOS.
 
-New in version 3.2
+New in version 3.2.1
 • Add UIColor and NSColor accessors for DataVis colors
 • Fixes some broken light theme colors
 
